@@ -1,0 +1,4053 @@
+base start
+model/VAE3
+26216
+Encoder(
+  (convs): ModuleList(
+    (0): Conv2d_GLU(
+      (cnn): Conv2d(5, 5, kernel_size=(3, 9), stride=(1, 1), padding=(1, 4))
+      (gate): Conv2d(5, 5, kernel_size=(3, 9), stride=(1, 1), padding=(1, 4))
+      (cnn_norm): InstanceNorm2d(5, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (gate_norm): InstanceNorm2d(5, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    )
+    (1): Conv2d_GLU(
+      (cnn): Conv2d(9, 10, kernel_size=(4, 8), stride=(2, 2), padding=(1, 3))
+      (gate): Conv2d(9, 10, kernel_size=(4, 8), stride=(2, 2), padding=(1, 3))
+      (cnn_norm): InstanceNorm2d(10, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (gate_norm): InstanceNorm2d(10, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    )
+    (2): Conv2d_GLU(
+      (cnn): Conv2d(14, 10, kernel_size=(4, 8), stride=(2, 2), padding=(1, 3))
+      (gate): Conv2d(14, 10, kernel_size=(4, 8), stride=(2, 2), padding=(1, 3))
+      (cnn_norm): InstanceNorm2d(10, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (gate_norm): InstanceNorm2d(10, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    )
+  )
+  (conv_mu): Conv2d(14, 8, kernel_size=(9, 5), stride=(9, 1), padding=(0, 2))
+  (conv_logvar): Conv2d(14, 8, kernel_size=(9, 5), stride=(9, 1), padding=(0, 2))
+)
+Decoder(
+  (convs): ModuleList(
+    (0): Conv2d_GLU(
+      (cnn): ConvTranspose2d(12, 10, kernel_size=(9, 5), stride=(9, 1), padding=(0, 2))
+      (gate): ConvTranspose2d(12, 10, kernel_size=(9, 5), stride=(9, 1), padding=(0, 2))
+      (cnn_norm): InstanceNorm2d(10, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (gate_norm): InstanceNorm2d(10, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    )
+    (1): Conv2d_GLU(
+      (cnn): ConvTranspose2d(14, 10, kernel_size=(4, 8), stride=(2, 2), padding=(1, 3))
+      (gate): ConvTranspose2d(14, 10, kernel_size=(4, 8), stride=(2, 2), padding=(1, 3))
+      (cnn_norm): InstanceNorm2d(10, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (gate_norm): InstanceNorm2d(10, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    )
+    (2): Conv2d_GLU(
+      (cnn): ConvTranspose2d(14, 5, kernel_size=(4, 8), stride=(2, 2), padding=(1, 3))
+      (gate): ConvTranspose2d(14, 5, kernel_size=(4, 8), stride=(2, 2), padding=(1, 3))
+      (cnn_norm): InstanceNorm2d(5, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (gate_norm): InstanceNorm2d(5, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    )
+  )
+  (conv_mu): ConvTranspose2d(9, 1, kernel_size=(3, 9), stride=(1, 1), padding=(1, 4))
+  (conv_logvar): ConvTranspose2d(9, 1, kernel_size=(3, 9), stride=(1, 1), padding=(1, 4))
+)
+Training Settings
+LR 0.001
+Number of epochs 1000
+.....................
+EPOCH: 0
+Train: rec_loss : 1.5994 / kl_loss : 0.0794 / total_loss : 1.6074 /  
+DEV: rec_loss : 1.476 / kl_loss : 0.0575 / total_loss : 1.4818 /  
+.....................
+EPOCH: 1
+Train: rec_loss : 1.4401 / kl_loss : 0.0625 / total_loss : 1.4464 /  
+DEV: rec_loss : 1.4058 / kl_loss : 0.0891 / total_loss : 1.4147 /  
+.....................
+EPOCH: 2
+Train: rec_loss : 1.414 / kl_loss : 0.1099 / total_loss : 1.425 /  
+DEV: rec_loss : 1.3496 / kl_loss : 0.153 / total_loss : 1.3649 /  
+.....................
+EPOCH: 3
+Train: rec_loss : 1.3593 / kl_loss : 0.186 / total_loss : 1.3779 /  
+DEV: rec_loss : 1.3067 / kl_loss : 0.2299 / total_loss : 1.3297 /  
+.....................
+EPOCH: 4
+Train: rec_loss : 1.3157 / kl_loss : 0.2782 / total_loss : 1.3436 /  
+DEV: rec_loss : 1.2738 / kl_loss : 0.2962 / total_loss : 1.3034 /  
+.....................
+EPOCH: 5
+Train: rec_loss : 1.2777 / kl_loss : 0.3566 / total_loss : 1.3133 /  
+DEV: rec_loss : 1.2502 / kl_loss : 0.376 / total_loss : 1.2878 /  
+.....................
+EPOCH: 6
+Train: rec_loss : 1.2664 / kl_loss : 0.4112 / total_loss : 1.3075 /  
+DEV: rec_loss : 1.2228 / kl_loss : 0.4475 / total_loss : 1.2676 /  
+.....................
+EPOCH: 7
+Train: rec_loss : 1.2395 / kl_loss : 0.4471 / total_loss : 1.2842 /  
+DEV: rec_loss : 1.2093 / kl_loss : 0.4501 / total_loss : 1.2543 /  
+.....................
+EPOCH: 8
+Train: rec_loss : 1.2186 / kl_loss : 0.4883 / total_loss : 1.2674 /  
+DEV: rec_loss : 1.1985 / kl_loss : 0.5069 / total_loss : 1.2492 /  
+.....................
+EPOCH: 9
+Train: rec_loss : 1.1983 / kl_loss : 0.5076 / total_loss : 1.249 /  
+DEV: rec_loss : 1.1733 / kl_loss : 0.5476 / total_loss : 1.228 /  
+.....................
+EPOCH: 10
+Train: rec_loss : 1.1873 / kl_loss : 0.5432 / total_loss : 1.2416 /  
+DEV: rec_loss : 1.1843 / kl_loss : 0.5556 / total_loss : 1.2399 /  
+.....................
+EPOCH: 11
+Train: rec_loss : 1.1766 / kl_loss : 0.5585 / total_loss : 1.2324 /  
+DEV: rec_loss : 1.1569 / kl_loss : 0.5776 / total_loss : 1.2147 /  
+.....................
+EPOCH: 12
+Train: rec_loss : 1.1781 / kl_loss : 0.5753 / total_loss : 1.2356 /  
+DEV: rec_loss : 1.1609 / kl_loss : 0.5996 / total_loss : 1.2208 /  
+.....................
+EPOCH: 13
+Train: rec_loss : 1.184 / kl_loss : 0.5915 / total_loss : 1.2432 /  
+DEV: rec_loss : 1.1541 / kl_loss : 0.6011 / total_loss : 1.2143 /  
+.....................
+EPOCH: 14
+Train: rec_loss : 1.1672 / kl_loss : 0.6009 / total_loss : 1.2273 /  
+DEV: rec_loss : 1.135 / kl_loss : 0.6217 / total_loss : 1.1972 /  
+.....................
+EPOCH: 15
+Train: rec_loss : 1.1697 / kl_loss : 0.6268 / total_loss : 1.2324 /  
+DEV: rec_loss : 1.1315 / kl_loss : 0.6085 / total_loss : 1.1924 /  
+.....................
+EPOCH: 16
+Train: rec_loss : 1.148 / kl_loss : 0.6362 / total_loss : 1.2116 /  
+DEV: rec_loss : 1.1534 / kl_loss : 0.6552 / total_loss : 1.219 /  
+.....................
+EPOCH: 17
+Train: rec_loss : 1.1338 / kl_loss : 0.6393 / total_loss : 1.1977 /  
+DEV: rec_loss : 1.1483 / kl_loss : 0.6667 / total_loss : 1.2149 /  
+.....................
+EPOCH: 18
+Train: rec_loss : 1.1435 / kl_loss : 0.6548 / total_loss : 1.2089 /  
+DEV: rec_loss : 1.1214 / kl_loss : 0.6393 / total_loss : 1.1854 /  
+.....................
+EPOCH: 19
+Train: rec_loss : 1.1339 / kl_loss : 0.652 / total_loss : 1.1991 /  
+DEV: rec_loss : 1.1317 / kl_loss : 0.6479 / total_loss : 1.1965 /  
+.....................
+EPOCH: 20
+Train: rec_loss : 1.1373 / kl_loss : 0.6754 / total_loss : 1.2048 /  
+DEV: rec_loss : 1.1012 / kl_loss : 0.6547 / total_loss : 1.1667 /  
+.....................
+EPOCH: 21
+Train: rec_loss : 1.1312 / kl_loss : 0.6748 / total_loss : 1.1987 /  
+DEV: rec_loss : 1.1269 / kl_loss : 0.6866 / total_loss : 1.1956 /  
+.....................
+EPOCH: 22
+Train: rec_loss : 1.1273 / kl_loss : 0.6906 / total_loss : 1.1964 /  
+DEV: rec_loss : 1.1107 / kl_loss : 0.673 / total_loss : 1.178 /  
+.....................
+EPOCH: 23
+Train: rec_loss : 1.1283 / kl_loss : 0.6877 / total_loss : 1.197 /  
+DEV: rec_loss : 1.1102 / kl_loss : 0.6845 / total_loss : 1.1786 /  
+.....................
+EPOCH: 24
+Train: rec_loss : 1.1284 / kl_loss : 0.7 / total_loss : 1.1984 /  
+DEV: rec_loss : 1.1129 / kl_loss : 0.7012 / total_loss : 1.183 /  
+.....................
+EPOCH: 25
+Train: rec_loss : 1.1178 / kl_loss : 0.7012 / total_loss : 1.188 /  
+DEV: rec_loss : 1.1112 / kl_loss : 0.6868 / total_loss : 1.1799 /  
+.....................
+EPOCH: 26
+Train: rec_loss : 1.1267 / kl_loss : 0.7188 / total_loss : 1.1986 /  
+DEV: rec_loss : 1.0929 / kl_loss : 0.7113 / total_loss : 1.164 /  
+.....................
+EPOCH: 27
+Train: rec_loss : 1.1128 / kl_loss : 0.7197 / total_loss : 1.1847 /  
+DEV: rec_loss : 1.1105 / kl_loss : 0.6955 / total_loss : 1.18 /  
+.....................
+EPOCH: 28
+Train: rec_loss : 1.1026 / kl_loss : 0.7221 / total_loss : 1.1748 /  
+DEV: rec_loss : 1.1078 / kl_loss : 0.7276 / total_loss : 1.1805 /  
+.....................
+EPOCH: 29
+Train: rec_loss : 1.1141 / kl_loss : 0.7319 / total_loss : 1.1873 /  
+DEV: rec_loss : 1.102 / kl_loss : 0.7375 / total_loss : 1.1757 /  
+.....................
+EPOCH: 30
+Train: rec_loss : 1.115 / kl_loss : 0.7358 / total_loss : 1.1886 /  
+DEV: rec_loss : 1.0964 / kl_loss : 0.7304 / total_loss : 1.1694 /  
+.....................
+EPOCH: 31
+Train: rec_loss : 1.1199 / kl_loss : 0.7432 / total_loss : 1.1943 /  
+DEV: rec_loss : 1.1088 / kl_loss : 0.7489 / total_loss : 1.1837 /  
+.....................
+EPOCH: 32
+Train: rec_loss : 1.1049 / kl_loss : 0.7335 / total_loss : 1.1783 /  
+DEV: rec_loss : 1.0985 / kl_loss : 0.7351 / total_loss : 1.172 /  
+.....................
+EPOCH: 33
+Train: rec_loss : 1.1028 / kl_loss : 0.7426 / total_loss : 1.1771 /  
+DEV: rec_loss : 1.0967 / kl_loss : 0.7401 / total_loss : 1.1707 /  
+.....................
+EPOCH: 34
+Train: rec_loss : 1.0998 / kl_loss : 0.746 / total_loss : 1.1744 /  
+DEV: rec_loss : 1.1017 / kl_loss : 0.7341 / total_loss : 1.1752 /  
+.....................
+EPOCH: 35
+Train: rec_loss : 1.114 / kl_loss : 0.757 / total_loss : 1.1897 /  
+DEV: rec_loss : 1.0834 / kl_loss : 0.7368 / total_loss : 1.1571 /  
+.....................
+EPOCH: 36
+Train: rec_loss : 1.0926 / kl_loss : 0.756 / total_loss : 1.1682 /  
+DEV: rec_loss : 1.1094 / kl_loss : 0.7634 / total_loss : 1.1858 /  
+.....................
+EPOCH: 37
+Train: rec_loss : 1.1018 / kl_loss : 0.7628 / total_loss : 1.1781 /  
+DEV: rec_loss : 1.0903 / kl_loss : 0.7482 / total_loss : 1.1651 /  
+.....................
+EPOCH: 38
+Train: rec_loss : 1.0971 / kl_loss : 0.764 / total_loss : 1.1735 /  
+DEV: rec_loss : 1.0807 / kl_loss : 0.7538 / total_loss : 1.1561 /  
+.....................
+EPOCH: 39
+Train: rec_loss : 1.0907 / kl_loss : 0.7628 / total_loss : 1.167 /  
+DEV: rec_loss : 1.0743 / kl_loss : 0.7588 / total_loss : 1.1502 /  
+.....................
+EPOCH: 40
+Train: rec_loss : 1.0983 / kl_loss : 0.7753 / total_loss : 1.1759 /  
+DEV: rec_loss : 1.0883 / kl_loss : 0.7625 / total_loss : 1.1646 /  
+.....................
+EPOCH: 41
+Train: rec_loss : 1.0971 / kl_loss : 0.7761 / total_loss : 1.1747 /  
+DEV: rec_loss : 1.078 / kl_loss : 0.7704 / total_loss : 1.155 /  
+.....................
+EPOCH: 42
+Train: rec_loss : 1.0895 / kl_loss : 0.7684 / total_loss : 1.1664 /  
+DEV: rec_loss : 1.0783 / kl_loss : 0.7497 / total_loss : 1.1533 /  
+.....................
+EPOCH: 43
+Train: rec_loss : 1.098 / kl_loss : 0.7859 / total_loss : 1.1765 /  
+DEV: rec_loss : 1.0659 / kl_loss : 0.7645 / total_loss : 1.1424 /  
+.....................
+EPOCH: 44
+Train: rec_loss : 1.0887 / kl_loss : 0.7847 / total_loss : 1.1672 /  
+DEV: rec_loss : 1.0844 / kl_loss : 0.7708 / total_loss : 1.1615 /  
+.....................
+EPOCH: 45
+Train: rec_loss : 1.0954 / kl_loss : 0.7793 / total_loss : 1.1733 /  
+DEV: rec_loss : 1.0706 / kl_loss : 0.7752 / total_loss : 1.1481 /  
+.....................
+EPOCH: 46
+Train: rec_loss : 1.0937 / kl_loss : 0.7888 / total_loss : 1.1726 /  
+DEV: rec_loss : 1.0714 / kl_loss : 0.7575 / total_loss : 1.1472 /  
+.....................
+EPOCH: 47
+Train: rec_loss : 1.0849 / kl_loss : 0.7841 / total_loss : 1.1633 /  
+DEV: rec_loss : 1.0776 / kl_loss : 0.7707 / total_loss : 1.1547 /  
+.....................
+EPOCH: 48
+Train: rec_loss : 1.0931 / kl_loss : 0.7935 / total_loss : 1.1725 /  
+DEV: rec_loss : 1.0931 / kl_loss : 0.7909 / total_loss : 1.1722 /  
+.....................
+EPOCH: 49
+Train: rec_loss : 1.0864 / kl_loss : 0.7921 / total_loss : 1.1656 /  
+DEV: rec_loss : 1.0862 / kl_loss : 0.78 / total_loss : 1.1642 /  
+.....................
+EPOCH: 50
+Train: rec_loss : 1.0758 / kl_loss : 0.7942 / total_loss : 1.1552 /  
+DEV: rec_loss : 1.0795 / kl_loss : 0.8241 / total_loss : 1.1619 /  
+.....................
+EPOCH: 51
+Train: rec_loss : 1.0888 / kl_loss : 0.8134 / total_loss : 1.1702 /  
+DEV: rec_loss : 1.0809 / kl_loss : 0.808 / total_loss : 1.1617 /  
+.....................
+EPOCH: 52
+Train: rec_loss : 1.0851 / kl_loss : 0.8109 / total_loss : 1.1662 /  
+DEV: rec_loss : 1.0612 / kl_loss : 0.7904 / total_loss : 1.1402 /  
+.....................
+EPOCH: 53
+Train: rec_loss : 1.0763 / kl_loss : 0.8088 / total_loss : 1.1572 /  
+DEV: rec_loss : 1.0787 / kl_loss : 0.7904 / total_loss : 1.1578 /  
+.....................
+EPOCH: 54
+Train: rec_loss : 1.0809 / kl_loss : 0.814 / total_loss : 1.1623 /  
+DEV: rec_loss : 1.0777 / kl_loss : 0.8143 / total_loss : 1.1591 /  
+.....................
+EPOCH: 55
+Train: rec_loss : 1.0639 / kl_loss : 0.8028 / total_loss : 1.1442 /  
+DEV: rec_loss : 1.0735 / kl_loss : 0.8075 / total_loss : 1.1543 /  
+.....................
+EPOCH: 56
+Train: rec_loss : 1.0816 / kl_loss : 0.8112 / total_loss : 1.1627 /  
+DEV: rec_loss : 1.0675 / kl_loss : 0.8004 / total_loss : 1.1475 /  
+.....................
+EPOCH: 57
+Train: rec_loss : 1.0788 / kl_loss : 0.8121 / total_loss : 1.16 /  
+DEV: rec_loss : 1.0605 / kl_loss : 0.7852 / total_loss : 1.139 /  
+.....................
+EPOCH: 58
+Train: rec_loss : 1.0801 / kl_loss : 0.8093 / total_loss : 1.161 /  
+DEV: rec_loss : 1.061 / kl_loss : 0.8205 / total_loss : 1.1431 /  
+.....................
+EPOCH: 59
+Train: rec_loss : 1.0719 / kl_loss : 0.8257 / total_loss : 1.1545 /  
+DEV: rec_loss : 1.0593 / kl_loss : 0.8112 / total_loss : 1.1404 /  
+.....................
+EPOCH: 60
+Train: rec_loss : 1.0639 / kl_loss : 0.8161 / total_loss : 1.1455 /  
+DEV: rec_loss : 1.0696 / kl_loss : 0.8153 / total_loss : 1.1512 /  
+.....................
+EPOCH: 61
+Train: rec_loss : 1.0799 / kl_loss : 0.8415 / total_loss : 1.164 /  
+DEV: rec_loss : 1.0546 / kl_loss : 0.8128 / total_loss : 1.1358 /  
+.....................
+EPOCH: 62
+Train: rec_loss : 1.0729 / kl_loss : 0.8158 / total_loss : 1.1545 /  
+DEV: rec_loss : 1.0726 / kl_loss : 0.8317 / total_loss : 1.1558 /  
+.....................
+EPOCH: 63
+Train: rec_loss : 1.0805 / kl_loss : 0.8345 / total_loss : 1.1639 /  
+DEV: rec_loss : 1.0861 / kl_loss : 0.8478 / total_loss : 1.1709 /  
+.....................
+EPOCH: 64
+Train: rec_loss : 1.065 / kl_loss : 0.821 / total_loss : 1.1471 /  
+DEV: rec_loss : 1.0608 / kl_loss : 0.8146 / total_loss : 1.1422 /  
+.....................
+EPOCH: 65
+Train: rec_loss : 1.0692 / kl_loss : 0.8328 / total_loss : 1.1525 /  
+DEV: rec_loss : 1.0644 / kl_loss : 0.8083 / total_loss : 1.1452 /  
+.....................
+EPOCH: 66
+Train: rec_loss : 1.0689 / kl_loss : 0.8255 / total_loss : 1.1515 /  
+DEV: rec_loss : 1.091 / kl_loss : 0.8354 / total_loss : 1.1746 /  
+.....................
+EPOCH: 67
+Train: rec_loss : 1.0733 / kl_loss : 0.8358 / total_loss : 1.1569 /  
+DEV: rec_loss : 1.0543 / kl_loss : 0.8298 / total_loss : 1.1373 /  
+.....................
+EPOCH: 68
+Train: rec_loss : 1.0711 / kl_loss : 0.8322 / total_loss : 1.1544 /  
+DEV: rec_loss : 1.0655 / kl_loss : 0.8341 / total_loss : 1.1489 /  
+.....................
+EPOCH: 69
+Train: rec_loss : 1.0657 / kl_loss : 0.8536 / total_loss : 1.151 /  
+DEV: rec_loss : 1.0544 / kl_loss : 0.8215 / total_loss : 1.1366 /  
+.....................
+EPOCH: 70
+Train: rec_loss : 1.0611 / kl_loss : 0.8382 / total_loss : 1.1449 /  
+DEV: rec_loss : 1.0729 / kl_loss : 0.843 / total_loss : 1.1572 /  
+.....................
+EPOCH: 71
+Train: rec_loss : 1.0665 / kl_loss : 0.8418 / total_loss : 1.1507 /  
+DEV: rec_loss : 1.0261 / kl_loss : 0.8185 / total_loss : 1.1079 /  
+.....................
+EPOCH: 72
+Train: rec_loss : 1.0641 / kl_loss : 0.8553 / total_loss : 1.1496 /  
+DEV: rec_loss : 1.0552 / kl_loss : 0.8238 / total_loss : 1.1376 /  
+.....................
+EPOCH: 73
+Train: rec_loss : 1.0641 / kl_loss : 0.8441 / total_loss : 1.1485 /  
+DEV: rec_loss : 1.067 / kl_loss : 0.864 / total_loss : 1.1534 /  
+.....................
+EPOCH: 74
+Train: rec_loss : 1.0538 / kl_loss : 0.8393 / total_loss : 1.1377 /  
+DEV: rec_loss : 1.0635 / kl_loss : 0.8365 / total_loss : 1.1471 /  
+.....................
+EPOCH: 75
+Train: rec_loss : 1.0607 / kl_loss : 0.8459 / total_loss : 1.1453 /  
+DEV: rec_loss : 1.0731 / kl_loss : 0.8498 / total_loss : 1.1581 /  
+.....................
+EPOCH: 76
+Train: rec_loss : 1.0698 / kl_loss : 0.8594 / total_loss : 1.1558 /  
+DEV: rec_loss : 1.0537 / kl_loss : 0.854 / total_loss : 1.1391 /  
+.....................
+EPOCH: 77
+Train: rec_loss : 1.0598 / kl_loss : 0.8575 / total_loss : 1.1456 /  
+DEV: rec_loss : 1.0586 / kl_loss : 0.8636 / total_loss : 1.1449 /  
+.....................
+EPOCH: 78
+Train: rec_loss : 1.0676 / kl_loss : 0.847 / total_loss : 1.1523 /  
+DEV: rec_loss : 1.0703 / kl_loss : 0.8436 / total_loss : 1.1547 /  
+.....................
+EPOCH: 79
+Train: rec_loss : 1.0629 / kl_loss : 0.8497 / total_loss : 1.1478 /  
+DEV: rec_loss : 1.078 / kl_loss : 0.8647 / total_loss : 1.1645 /  
+.....................
+EPOCH: 80
+Train: rec_loss : 1.0427 / kl_loss : 0.8508 / total_loss : 1.1278 /  
+DEV: rec_loss : 1.0476 / kl_loss : 0.8533 / total_loss : 1.133 /  
+.....................
+EPOCH: 81
+Train: rec_loss : 1.0601 / kl_loss : 0.8682 / total_loss : 1.1469 /  
+DEV: rec_loss : 1.0603 / kl_loss : 0.8496 / total_loss : 1.1452 /  
+.....................
+EPOCH: 82
+Train: rec_loss : 1.0629 / kl_loss : 0.8519 / total_loss : 1.1481 /  
+DEV: rec_loss : 1.0599 / kl_loss : 0.8636 / total_loss : 1.1463 /  
+.....................
+EPOCH: 83
+Train: rec_loss : 1.0617 / kl_loss : 0.8669 / total_loss : 1.1484 /  
+DEV: rec_loss : 1.0691 / kl_loss : 0.8402 / total_loss : 1.1531 /  
+.....................
+EPOCH: 84
+Train: rec_loss : 1.0674 / kl_loss : 0.8429 / total_loss : 1.1517 /  
+DEV: rec_loss : 1.063 / kl_loss : 0.8449 / total_loss : 1.1475 /  
+.....................
+EPOCH: 85
+Train: rec_loss : 1.0536 / kl_loss : 0.8641 / total_loss : 1.14 /  
+DEV: rec_loss : 1.0533 / kl_loss : 0.8217 / total_loss : 1.1355 /  
+.....................
+EPOCH: 86
+Train: rec_loss : 1.0555 / kl_loss : 0.8661 / total_loss : 1.1421 /  
+DEV: rec_loss : 1.0626 / kl_loss : 0.8804 / total_loss : 1.1507 /  
+.....................
+EPOCH: 87
+Train: rec_loss : 1.0564 / kl_loss : 0.8718 / total_loss : 1.1436 /  
+DEV: rec_loss : 1.0585 / kl_loss : 0.857 / total_loss : 1.1442 /  
+.....................
+EPOCH: 88
+Train: rec_loss : 1.0508 / kl_loss : 0.8474 / total_loss : 1.1355 /  
+DEV: rec_loss : 1.0538 / kl_loss : 0.8696 / total_loss : 1.1407 /  
+.....................
+EPOCH: 89
+Train: rec_loss : 1.0615 / kl_loss : 0.8751 / total_loss : 1.149 /  
+DEV: rec_loss : 1.0523 / kl_loss : 0.8693 / total_loss : 1.1392 /  
+.....................
+EPOCH: 90
+Train: rec_loss : 1.0487 / kl_loss : 0.8516 / total_loss : 1.1338 /  
+DEV: rec_loss : 1.0664 / kl_loss : 0.8574 / total_loss : 1.1522 /  
+.....................
+EPOCH: 91
+Train: rec_loss : 1.052 / kl_loss : 0.8663 / total_loss : 1.1386 /  
+DEV: rec_loss : 1.0589 / kl_loss : 0.8521 / total_loss : 1.1441 /  
+.....................
+EPOCH: 92
+Train: rec_loss : 1.0471 / kl_loss : 0.8544 / total_loss : 1.1326 /  
+DEV: rec_loss : 1.0655 / kl_loss : 0.8748 / total_loss : 1.153 /  
+.....................
+EPOCH: 93
+Train: rec_loss : 1.0574 / kl_loss : 0.8738 / total_loss : 1.1448 /  
+DEV: rec_loss : 1.0304 / kl_loss : 0.8249 / total_loss : 1.1129 /  
+.....................
+EPOCH: 94
+Train: rec_loss : 1.0477 / kl_loss : 0.8644 / total_loss : 1.1341 /  
+DEV: rec_loss : 1.0403 / kl_loss : 0.8615 / total_loss : 1.1265 /  
+.....................
+EPOCH: 95
+Train: rec_loss : 1.0507 / kl_loss : 0.8689 / total_loss : 1.1376 /  
+DEV: rec_loss : 1.0427 / kl_loss : 0.8631 / total_loss : 1.1291 /  
+.....................
+EPOCH: 96
+Train: rec_loss : 1.0592 / kl_loss : 0.8863 / total_loss : 1.1479 /  
+DEV: rec_loss : 1.0486 / kl_loss : 0.8897 / total_loss : 1.1376 /  
+.....................
+EPOCH: 97
+Train: rec_loss : 1.0436 / kl_loss : 0.8747 / total_loss : 1.1311 /  
+DEV: rec_loss : 1.0631 / kl_loss : 0.8872 / total_loss : 1.1518 /  
+.....................
+EPOCH: 98
+Train: rec_loss : 1.0491 / kl_loss : 0.8733 / total_loss : 1.1364 /  
+DEV: rec_loss : 1.0667 / kl_loss : 0.8669 / total_loss : 1.1534 /  
+.....................
+EPOCH: 99
+Train: rec_loss : 1.0583 / kl_loss : 0.8833 / total_loss : 1.1466 /  
+DEV: rec_loss : 1.053 / kl_loss : 0.8726 / total_loss : 1.1402 /  
+.....................
+EPOCH: 100
+Train: rec_loss : 1.0559 / kl_loss : 0.8749 / total_loss : 1.1434 /  
+DEV: rec_loss : 1.0078 / kl_loss : 0.8229 / total_loss : 1.0901 /  
+.....................
+EPOCH: 101
+Train: rec_loss : 1.055 / kl_loss : 0.8828 / total_loss : 1.1433 /  
+DEV: rec_loss : 1.0408 / kl_loss : 0.8835 / total_loss : 1.1292 /  
+.....................
+EPOCH: 102
+Train: rec_loss : 1.052 / kl_loss : 0.8712 / total_loss : 1.1391 /  
+DEV: rec_loss : 1.0339 / kl_loss : 0.8728 / total_loss : 1.1212 /  
+.....................
+EPOCH: 103
+Train: rec_loss : 1.0546 / kl_loss : 0.8857 / total_loss : 1.1431 /  
+DEV: rec_loss : 1.0538 / kl_loss : 0.8753 / total_loss : 1.1413 /  
+.....................
+EPOCH: 104
+Train: rec_loss : 1.0619 / kl_loss : 0.8962 / total_loss : 1.1515 /  
+DEV: rec_loss : 1.0608 / kl_loss : 0.8846 / total_loss : 1.1493 /  
+.....................
+EPOCH: 105
+Train: rec_loss : 1.0663 / kl_loss : 0.8857 / total_loss : 1.1549 /  
+DEV: rec_loss : 1.0515 / kl_loss : 0.8731 / total_loss : 1.1388 /  
+.....................
+EPOCH: 106
+Train: rec_loss : 1.0533 / kl_loss : 0.8892 / total_loss : 1.1422 /  
+DEV: rec_loss : 1.0391 / kl_loss : 0.8683 / total_loss : 1.1259 /  
+.....................
+EPOCH: 107
+Train: rec_loss : 1.0503 / kl_loss : 0.8841 / total_loss : 1.1387 /  
+DEV: rec_loss : 1.0529 / kl_loss : 0.8795 / total_loss : 1.1408 /  
+.....................
+EPOCH: 108
+Train: rec_loss : 1.0504 / kl_loss : 0.8824 / total_loss : 1.1387 /  
+DEV: rec_loss : 1.032 / kl_loss : 0.8768 / total_loss : 1.1196 /  
+.....................
+EPOCH: 109
+Train: rec_loss : 1.0576 / kl_loss : 0.8781 / total_loss : 1.1454 /  
+DEV: rec_loss : 1.0506 / kl_loss : 0.871 / total_loss : 1.1377 /  
+.....................
+EPOCH: 110
+Train: rec_loss : 1.0648 / kl_loss : 0.8826 / total_loss : 1.1531 /  
+DEV: rec_loss : 1.0525 / kl_loss : 0.8745 / total_loss : 1.1399 /  
+.....................
+EPOCH: 111
+Train: rec_loss : 1.0505 / kl_loss : 0.8932 / total_loss : 1.1398 /  
+DEV: rec_loss : 1.0606 / kl_loss : 0.8965 / total_loss : 1.1503 /  
+.....................
+EPOCH: 112
+Train: rec_loss : 1.0473 / kl_loss : 0.8967 / total_loss : 1.137 /  
+DEV: rec_loss : 1.0437 / kl_loss : 0.8629 / total_loss : 1.13 /  
+.....................
+EPOCH: 113
+Train: rec_loss : 1.0484 / kl_loss : 0.8987 / total_loss : 1.1383 /  
+DEV: rec_loss : 1.0337 / kl_loss : 0.883 / total_loss : 1.122 /  
+.....................
+EPOCH: 114
+Train: rec_loss : 1.0474 / kl_loss : 0.8844 / total_loss : 1.1358 /  
+DEV: rec_loss : 1.05 / kl_loss : 0.8893 / total_loss : 1.1389 /  
+.....................
+EPOCH: 115
+Train: rec_loss : 1.0376 / kl_loss : 0.8812 / total_loss : 1.1257 /  
+DEV: rec_loss : 1.0684 / kl_loss : 0.8924 / total_loss : 1.1577 /  
+.....................
+EPOCH: 116
+Train: rec_loss : 1.0491 / kl_loss : 0.8956 / total_loss : 1.1387 /  
+DEV: rec_loss : 1.0419 / kl_loss : 0.8955 / total_loss : 1.1314 /  
+.....................
+EPOCH: 117
+Train: rec_loss : 1.0541 / kl_loss : 0.9054 / total_loss : 1.1446 /  
+DEV: rec_loss : 1.0534 / kl_loss : 0.8884 / total_loss : 1.1423 /  
+.....................
+EPOCH: 118
+Train: rec_loss : 1.0485 / kl_loss : 0.9078 / total_loss : 1.1393 /  
+DEV: rec_loss : 1.0578 / kl_loss : 0.8728 / total_loss : 1.1451 /  
+.....................
+EPOCH: 119
+Train: rec_loss : 1.0365 / kl_loss : 0.8721 / total_loss : 1.1237 /  
+DEV: rec_loss : 1.0532 / kl_loss : 0.8703 / total_loss : 1.1403 /  
+.....................
+EPOCH: 120
+Train: rec_loss : 1.0412 / kl_loss : 0.8915 / total_loss : 1.1304 /  
+DEV: rec_loss : 1.0476 / kl_loss : 0.8886 / total_loss : 1.1365 /  
+.....................
+EPOCH: 121
+Train: rec_loss : 1.0472 / kl_loss : 0.8944 / total_loss : 1.1366 /  
+DEV: rec_loss : 1.0222 / kl_loss : 0.8751 / total_loss : 1.1097 /  
+.....................
+EPOCH: 122
+Train: rec_loss : 1.0468 / kl_loss : 0.8903 / total_loss : 1.1359 /  
+DEV: rec_loss : 1.061 / kl_loss : 0.8904 / total_loss : 1.1501 /  
+.....................
+EPOCH: 123
+Train: rec_loss : 1.057 / kl_loss : 0.9061 / total_loss : 1.1476 /  
+DEV: rec_loss : 1.0501 / kl_loss : 0.8873 / total_loss : 1.1388 /  
+.....................
+EPOCH: 124
+Train: rec_loss : 1.0422 / kl_loss : 0.8905 / total_loss : 1.1313 /  
+DEV: rec_loss : 1.0648 / kl_loss : 0.9003 / total_loss : 1.1548 /  
+.....................
+EPOCH: 125
+Train: rec_loss : 1.0386 / kl_loss : 0.8944 / total_loss : 1.128 /  
+DEV: rec_loss : 1.0573 / kl_loss : 0.8939 / total_loss : 1.1467 /  
+.....................
+EPOCH: 126
+Train: rec_loss : 1.0486 / kl_loss : 0.9049 / total_loss : 1.1391 /  
+DEV: rec_loss : 1.0513 / kl_loss : 0.8938 / total_loss : 1.1407 /  
+.....................
+EPOCH: 127
+Train: rec_loss : 1.0475 / kl_loss : 0.9123 / total_loss : 1.1387 /  
+DEV: rec_loss : 1.0594 / kl_loss : 0.8896 / total_loss : 1.1484 /  
+.....................
+EPOCH: 128
+Train: rec_loss : 1.0466 / kl_loss : 0.9196 / total_loss : 1.1386 /  
+DEV: rec_loss : 1.057 / kl_loss : 0.9081 / total_loss : 1.1478 /  
+.....................
+EPOCH: 129
+Train: rec_loss : 1.0482 / kl_loss : 0.907 / total_loss : 1.1389 /  
+DEV: rec_loss : 1.0515 / kl_loss : 0.9065 / total_loss : 1.1421 /  
+.....................
+EPOCH: 130
+Train: rec_loss : 1.0432 / kl_loss : 0.9082 / total_loss : 1.134 /  
+DEV: rec_loss : 1.0379 / kl_loss : 0.8939 / total_loss : 1.1273 /  
+.....................
+EPOCH: 131
+Train: rec_loss : 1.0447 / kl_loss : 0.9165 / total_loss : 1.1363 /  
+DEV: rec_loss : 1.0397 / kl_loss : 0.8992 / total_loss : 1.1296 /  
+.....................
+EPOCH: 132
+Train: rec_loss : 1.0446 / kl_loss : 0.9212 / total_loss : 1.1367 /  
+DEV: rec_loss : 1.0458 / kl_loss : 0.9237 / total_loss : 1.1382 /  
+.....................
+EPOCH: 133
+Train: rec_loss : 1.0496 / kl_loss : 0.9046 / total_loss : 1.14 /  
+DEV: rec_loss : 1.0246 / kl_loss : 0.8864 / total_loss : 1.1133 /  
+.....................
+EPOCH: 134
+Train: rec_loss : 1.0406 / kl_loss : 0.91 / total_loss : 1.1316 /  
+DEV: rec_loss : 1.0226 / kl_loss : 0.8938 / total_loss : 1.1119 /  
+.....................
+EPOCH: 135
+Train: rec_loss : 1.0367 / kl_loss : 0.9064 / total_loss : 1.1274 /  
+DEV: rec_loss : 1.0389 / kl_loss : 0.8984 / total_loss : 1.1287 /  
+.....................
+EPOCH: 136
+Train: rec_loss : 1.0403 / kl_loss : 0.9051 / total_loss : 1.1308 /  
+DEV: rec_loss : 1.0292 / kl_loss : 0.8969 / total_loss : 1.1189 /  
+.....................
+EPOCH: 137
+Train: rec_loss : 1.0396 / kl_loss : 0.914 / total_loss : 1.131 /  
+DEV: rec_loss : 1.0387 / kl_loss : 0.9153 / total_loss : 1.1303 /  
+.....................
+EPOCH: 138
+Train: rec_loss : 1.0398 / kl_loss : 0.9158 / total_loss : 1.1314 /  
+DEV: rec_loss : 1.0384 / kl_loss : 0.9082 / total_loss : 1.1292 /  
+.....................
+EPOCH: 139
+Train: rec_loss : 1.0411 / kl_loss : 0.9173 / total_loss : 1.1328 /  
+DEV: rec_loss : 1.0459 / kl_loss : 0.8695 / total_loss : 1.1328 /  
+.....................
+EPOCH: 140
+Train: rec_loss : 1.0442 / kl_loss : 0.9117 / total_loss : 1.1354 /  
+DEV: rec_loss : 1.0238 / kl_loss : 0.8792 / total_loss : 1.1118 /  
+.....................
+EPOCH: 141
+Train: rec_loss : 1.0465 / kl_loss : 0.9095 / total_loss : 1.1375 /  
+DEV: rec_loss : 1.04 / kl_loss : 0.9048 / total_loss : 1.1305 /  
+.....................
+EPOCH: 142
+Train: rec_loss : 1.0425 / kl_loss : 0.9002 / total_loss : 1.1325 /  
+DEV: rec_loss : 1.0275 / kl_loss : 0.8944 / total_loss : 1.117 /  
+.....................
+EPOCH: 143
+Train: rec_loss : 1.0377 / kl_loss : 0.9274 / total_loss : 1.1304 /  
+DEV: rec_loss : 1.0424 / kl_loss : 0.9417 / total_loss : 1.1365 /  
+.....................
+EPOCH: 144
+Train: rec_loss : 1.0263 / kl_loss : 0.9153 / total_loss : 1.1178 /  
+DEV: rec_loss : 1.022 / kl_loss : 0.884 / total_loss : 1.1104 /  
+.....................
+EPOCH: 145
+Train: rec_loss : 1.0358 / kl_loss : 0.9144 / total_loss : 1.1273 /  
+DEV: rec_loss : 1.0446 / kl_loss : 0.924 / total_loss : 1.137 /  
+.....................
+EPOCH: 146
+Train: rec_loss : 1.0482 / kl_loss : 0.9256 / total_loss : 1.1408 /  
+DEV: rec_loss : 1.0405 / kl_loss : 0.9245 / total_loss : 1.1329 /  
+.....................
+EPOCH: 147
+Train: rec_loss : 1.0336 / kl_loss : 0.9066 / total_loss : 1.1242 /  
+DEV: rec_loss : 1.0418 / kl_loss : 0.9113 / total_loss : 1.133 /  
+.....................
+EPOCH: 148
+Train: rec_loss : 1.0341 / kl_loss : 0.9133 / total_loss : 1.1255 /  
+DEV: rec_loss : 1.0542 / kl_loss : 0.9036 / total_loss : 1.1445 /  
+.....................
+EPOCH: 149
+Train: rec_loss : 1.0393 / kl_loss : 0.9141 / total_loss : 1.1307 /  
+DEV: rec_loss : 1.0437 / kl_loss : 0.9292 / total_loss : 1.1367 /  
+.....................
+EPOCH: 150
+Train: rec_loss : 1.0372 / kl_loss : 0.9207 / total_loss : 1.1293 /  
+DEV: rec_loss : 1.0443 / kl_loss : 0.8827 / total_loss : 1.1326 /  
+.....................
+EPOCH: 151
+Train: rec_loss : 1.0406 / kl_loss : 0.9099 / total_loss : 1.1316 /  
+DEV: rec_loss : 1.0525 / kl_loss : 0.9136 / total_loss : 1.1438 /  
+.....................
+EPOCH: 152
+Train: rec_loss : 1.0379 / kl_loss : 0.919 / total_loss : 1.1298 /  
+DEV: rec_loss : 1.0434 / kl_loss : 0.9331 / total_loss : 1.1367 /  
+.....................
+EPOCH: 153
+Train: rec_loss : 1.042 / kl_loss : 0.9149 / total_loss : 1.1335 /  
+DEV: rec_loss : 1.0505 / kl_loss : 0.9142 / total_loss : 1.1419 /  
+.....................
+EPOCH: 154
+Train: rec_loss : 1.0315 / kl_loss : 0.9093 / total_loss : 1.1224 /  
+DEV: rec_loss : 1.0346 / kl_loss : 0.9122 / total_loss : 1.1258 /  
+.....................
+EPOCH: 155
+Train: rec_loss : 1.0413 / kl_loss : 0.9284 / total_loss : 1.1342 /  
+DEV: rec_loss : 1.0469 / kl_loss : 0.926 / total_loss : 1.1395 /  
+.....................
+EPOCH: 156
+Train: rec_loss : 1.042 / kl_loss : 0.9157 / total_loss : 1.1335 /  
+DEV: rec_loss : 1.0312 / kl_loss : 0.9191 / total_loss : 1.1231 /  
+.....................
+EPOCH: 157
+Train: rec_loss : 1.0372 / kl_loss : 0.9233 / total_loss : 1.1295 /  
+DEV: rec_loss : 1.0344 / kl_loss : 0.9286 / total_loss : 1.1272 /  
+.....................
+EPOCH: 158
+Train: rec_loss : 1.0425 / kl_loss : 0.9238 / total_loss : 1.1349 /  
+DEV: rec_loss : 1.0461 / kl_loss : 0.9148 / total_loss : 1.1376 /  
+.....................
+EPOCH: 159
+Train: rec_loss : 1.0364 / kl_loss : 0.9287 / total_loss : 1.1293 /  
+DEV: rec_loss : 1.0446 / kl_loss : 0.948 / total_loss : 1.1394 /  
+.....................
+EPOCH: 160
+Train: rec_loss : 1.0292 / kl_loss : 0.9312 / total_loss : 1.1223 /  
+DEV: rec_loss : 1.0368 / kl_loss : 0.939 / total_loss : 1.1307 /  
+.....................
+EPOCH: 161
+Train: rec_loss : 1.041 / kl_loss : 0.9256 / total_loss : 1.1336 /  
+DEV: rec_loss : 1.038 / kl_loss : 0.9094 / total_loss : 1.1289 /  
+.....................
+EPOCH: 162
+Train: rec_loss : 1.0451 / kl_loss : 0.9252 / total_loss : 1.1377 /  
+DEV: rec_loss : 1.022 / kl_loss : 0.9239 / total_loss : 1.1144 /  
+.....................
+EPOCH: 163
+Train: rec_loss : 1.0326 / kl_loss : 0.941 / total_loss : 1.1267 /  
+DEV: rec_loss : 1.0345 / kl_loss : 0.9247 / total_loss : 1.1269 /  
+.....................
+EPOCH: 164
+Train: rec_loss : 1.0314 / kl_loss : 0.9191 / total_loss : 1.1233 /  
+DEV: rec_loss : 1.0413 / kl_loss : 0.9189 / total_loss : 1.1332 /  
+.....................
+EPOCH: 165
+Train: rec_loss : 1.032 / kl_loss : 0.9279 / total_loss : 1.1248 /  
+DEV: rec_loss : 1.0418 / kl_loss : 0.9256 / total_loss : 1.1344 /  
+.....................
+EPOCH: 166
+Train: rec_loss : 1.0352 / kl_loss : 0.9254 / total_loss : 1.1278 /  
+DEV: rec_loss : 1.0576 / kl_loss : 0.9116 / total_loss : 1.1488 /  
+.....................
+EPOCH: 167
+Train: rec_loss : 1.0359 / kl_loss : 0.9282 / total_loss : 1.1287 /  
+DEV: rec_loss : 1.0214 / kl_loss : 0.9041 / total_loss : 1.1118 /  
+.....................
+EPOCH: 168
+Train: rec_loss : 1.0358 / kl_loss : 0.9181 / total_loss : 1.1276 /  
+DEV: rec_loss : 1.0362 / kl_loss : 0.8999 / total_loss : 1.1262 /  
+.....................
+EPOCH: 169
+Train: rec_loss : 1.0342 / kl_loss : 0.9173 / total_loss : 1.1259 /  
+DEV: rec_loss : 1.0542 / kl_loss : 0.911 / total_loss : 1.1453 /  
+.....................
+EPOCH: 170
+Train: rec_loss : 1.0433 / kl_loss : 0.9285 / total_loss : 1.1362 /  
+DEV: rec_loss : 1.0307 / kl_loss : 0.9391 / total_loss : 1.1246 /  
+.....................
+EPOCH: 171
+Train: rec_loss : 1.026 / kl_loss : 0.928 / total_loss : 1.1188 /  
+DEV: rec_loss : 1.0353 / kl_loss : 0.9075 / total_loss : 1.126 /  
+.....................
+EPOCH: 172
+Train: rec_loss : 1.0307 / kl_loss : 0.921 / total_loss : 1.1228 /  
+DEV: rec_loss : 1.0246 / kl_loss : 0.9033 / total_loss : 1.1149 /  
+.....................
+EPOCH: 173
+Train: rec_loss : 1.0223 / kl_loss : 0.9141 / total_loss : 1.1137 /  
+DEV: rec_loss : 1.0427 / kl_loss : 0.9222 / total_loss : 1.135 /  
+.....................
+EPOCH: 174
+Train: rec_loss : 1.0355 / kl_loss : 0.9228 / total_loss : 1.1278 /  
+DEV: rec_loss : 1.0355 / kl_loss : 0.9231 / total_loss : 1.1279 /  
+.....................
+EPOCH: 175
+Train: rec_loss : 1.0262 / kl_loss : 0.9088 / total_loss : 1.1171 /  
+DEV: rec_loss : 1.0225 / kl_loss : 0.9133 / total_loss : 1.1138 /  
+.....................
+EPOCH: 176
+Train: rec_loss : 1.0413 / kl_loss : 0.9269 / total_loss : 1.134 /  
+DEV: rec_loss : 1.0253 / kl_loss : 0.9073 / total_loss : 1.116 /  
+.....................
+EPOCH: 177
+Train: rec_loss : 1.0352 / kl_loss : 0.921 / total_loss : 1.1273 /  
+DEV: rec_loss : 1.0141 / kl_loss : 0.9052 / total_loss : 1.1046 /  
+.....................
+EPOCH: 178
+Train: rec_loss : 1.0326 / kl_loss : 0.9349 / total_loss : 1.126 /  
+DEV: rec_loss : 1.0425 / kl_loss : 0.9279 / total_loss : 1.1352 /  
+.....................
+EPOCH: 179
+Train: rec_loss : 1.0395 / kl_loss : 0.9345 / total_loss : 1.133 /  
+DEV: rec_loss : 1.0216 / kl_loss : 0.9165 / total_loss : 1.1132 /  
+.....................
+EPOCH: 180
+Train: rec_loss : 1.0308 / kl_loss : 0.9175 / total_loss : 1.1225 /  
+DEV: rec_loss : 1.0494 / kl_loss : 0.938 / total_loss : 1.1432 /  
+.....................
+EPOCH: 181
+Train: rec_loss : 1.0362 / kl_loss : 0.9377 / total_loss : 1.13 /  
+DEV: rec_loss : 1.0288 / kl_loss : 0.9384 / total_loss : 1.1226 /  
+.....................
+EPOCH: 182
+Train: rec_loss : 1.0315 / kl_loss : 0.9359 / total_loss : 1.1251 /  
+DEV: rec_loss : 1.0607 / kl_loss : 0.9262 / total_loss : 1.1534 /  
+.....................
+EPOCH: 183
+Train: rec_loss : 1.0238 / kl_loss : 0.9112 / total_loss : 1.1149 /  
+DEV: rec_loss : 1.024 / kl_loss : 0.9194 / total_loss : 1.1159 /  
+.....................
+EPOCH: 184
+Train: rec_loss : 1.0289 / kl_loss : 0.9388 / total_loss : 1.1228 /  
+DEV: rec_loss : 1.0575 / kl_loss : 0.9493 / total_loss : 1.1524 /  
+.....................
+EPOCH: 185
+Train: rec_loss : 1.031 / kl_loss : 0.9334 / total_loss : 1.1244 /  
+DEV: rec_loss : 1.0423 / kl_loss : 0.9429 / total_loss : 1.1365 /  
+.....................
+EPOCH: 186
+Train: rec_loss : 1.0333 / kl_loss : 0.9347 / total_loss : 1.1268 /  
+DEV: rec_loss : 1.0473 / kl_loss : 0.9453 / total_loss : 1.1418 /  
+.....................
+EPOCH: 187
+Train: rec_loss : 1.0224 / kl_loss : 0.9316 / total_loss : 1.1156 /  
+DEV: rec_loss : 1.0392 / kl_loss : 0.926 / total_loss : 1.1318 /  
+.....................
+EPOCH: 188
+Train: rec_loss : 1.0348 / kl_loss : 0.9338 / total_loss : 1.1282 /  
+DEV: rec_loss : 1.0284 / kl_loss : 0.9289 / total_loss : 1.1213 /  
+.....................
+EPOCH: 189
+Train: rec_loss : 1.0353 / kl_loss : 0.9456 / total_loss : 1.1298 /  
+DEV: rec_loss : 1.0129 / kl_loss : 0.9023 / total_loss : 1.1031 /  
+.....................
+EPOCH: 190
+Train: rec_loss : 1.0338 / kl_loss : 0.9119 / total_loss : 1.125 /  
+DEV: rec_loss : 1.0366 / kl_loss : 0.9273 / total_loss : 1.1293 /  
+.....................
+EPOCH: 191
+Train: rec_loss : 1.0294 / kl_loss : 0.9249 / total_loss : 1.1219 /  
+DEV: rec_loss : 1.0374 / kl_loss : 0.9018 / total_loss : 1.1275 /  
+.....................
+EPOCH: 192
+Train: rec_loss : 1.0175 / kl_loss : 0.915 / total_loss : 1.109 /  
+DEV: rec_loss : 1.0386 / kl_loss : 0.9103 / total_loss : 1.1296 /  
+.....................
+EPOCH: 193
+Train: rec_loss : 1.039 / kl_loss : 0.9469 / total_loss : 1.1337 /  
+DEV: rec_loss : 1.0471 / kl_loss : 0.9385 / total_loss : 1.141 /  
+.....................
+EPOCH: 194
+Train: rec_loss : 1.0322 / kl_loss : 0.9311 / total_loss : 1.1254 /  
+DEV: rec_loss : 1.0233 / kl_loss : 0.927 / total_loss : 1.116 /  
+.....................
+EPOCH: 195
+Train: rec_loss : 1.0297 / kl_loss : 0.9462 / total_loss : 1.1244 /  
+DEV: rec_loss : 1.0065 / kl_loss : 0.9324 / total_loss : 1.0997 /  
+.....................
+EPOCH: 196
+Train: rec_loss : 1.0361 / kl_loss : 0.9445 / total_loss : 1.1305 /  
+DEV: rec_loss : 1.0404 / kl_loss : 0.9529 / total_loss : 1.1357 /  
+.....................
+EPOCH: 197
+Train: rec_loss : 1.0373 / kl_loss : 0.9635 / total_loss : 1.1337 /  
+DEV: rec_loss : 1.0367 / kl_loss : 0.9084 / total_loss : 1.1275 /  
+.....................
+EPOCH: 198
+Train: rec_loss : 1.0217 / kl_loss : 0.9286 / total_loss : 1.1146 /  
+DEV: rec_loss : 1.0438 / kl_loss : 0.901 / total_loss : 1.1339 /  
+.....................
+EPOCH: 199
+Train: rec_loss : 1.0314 / kl_loss : 0.9417 / total_loss : 1.1256 /  
+DEV: rec_loss : 1.0356 / kl_loss : 0.9265 / total_loss : 1.1282 /  
+.....................
+EPOCH: 200
+Train: rec_loss : 1.0226 / kl_loss : 0.9303 / total_loss : 1.1156 /  
+DEV: rec_loss : 1.0319 / kl_loss : 0.9029 / total_loss : 1.1221 /  
+.....................
+EPOCH: 201
+Train: rec_loss : 1.0291 / kl_loss : 0.9329 / total_loss : 1.1224 /  
+DEV: rec_loss : 1.0292 / kl_loss : 0.9198 / total_loss : 1.1212 /  
+.....................
+EPOCH: 202
+Train: rec_loss : 1.0283 / kl_loss : 0.9407 / total_loss : 1.1224 /  
+DEV: rec_loss : 1.0454 / kl_loss : 0.9234 / total_loss : 1.1378 /  
+.....................
+EPOCH: 203
+Train: rec_loss : 1.03 / kl_loss : 0.9317 / total_loss : 1.1232 /  
+DEV: rec_loss : 1.0258 / kl_loss : 0.924 / total_loss : 1.1182 /  
+.....................
+EPOCH: 204
+Train: rec_loss : 1.0312 / kl_loss : 0.9376 / total_loss : 1.125 /  
+DEV: rec_loss : 1.0189 / kl_loss : 0.91 / total_loss : 1.1099 /  
+.....................
+EPOCH: 205
+Train: rec_loss : 1.0342 / kl_loss : 0.9421 / total_loss : 1.1284 /  
+DEV: rec_loss : 1.0462 / kl_loss : 0.9384 / total_loss : 1.14 /  
+.....................
+EPOCH: 206
+Train: rec_loss : 1.0228 / kl_loss : 0.9369 / total_loss : 1.1165 /  
+DEV: rec_loss : 1.0217 / kl_loss : 0.9443 / total_loss : 1.1161 /  
+.....................
+EPOCH: 207
+Train: rec_loss : 1.0255 / kl_loss : 0.9321 / total_loss : 1.1187 /  
+DEV: rec_loss : 1.0328 / kl_loss : 0.9286 / total_loss : 1.1256 /  
+.....................
+EPOCH: 208
+Train: rec_loss : 1.0286 / kl_loss : 0.9246 / total_loss : 1.1211 /  
+DEV: rec_loss : 1.0377 / kl_loss : 0.9231 / total_loss : 1.13 /  
+.....................
+EPOCH: 209
+Train: rec_loss : 1.0284 / kl_loss : 0.9618 / total_loss : 1.1246 /  
+DEV: rec_loss : 1.0374 / kl_loss : 0.9477 / total_loss : 1.1321 /  
+.....................
+EPOCH: 210
+Train: rec_loss : 1.0313 / kl_loss : 0.9315 / total_loss : 1.1245 /  
+DEV: rec_loss : 1.0249 / kl_loss : 0.8965 / total_loss : 1.1145 /  
+.....................
+EPOCH: 211
+Train: rec_loss : 1.029 / kl_loss : 0.9283 / total_loss : 1.1218 /  
+DEV: rec_loss : 1.0159 / kl_loss : 0.9093 / total_loss : 1.1068 /  
+.....................
+EPOCH: 212
+Train: rec_loss : 1.0339 / kl_loss : 0.9457 / total_loss : 1.1285 /  
+DEV: rec_loss : 1.0409 / kl_loss : 0.9347 / total_loss : 1.1344 /  
+.....................
+EPOCH: 213
+Train: rec_loss : 1.0257 / kl_loss : 0.9526 / total_loss : 1.1209 /  
+DEV: rec_loss : 1.0206 / kl_loss : 0.9345 / total_loss : 1.1141 /  
+.....................
+EPOCH: 214
+Train: rec_loss : 1.0151 / kl_loss : 0.943 / total_loss : 1.1094 /  
+DEV: rec_loss : 1.021 / kl_loss : 0.9102 / total_loss : 1.1121 /  
+.....................
+EPOCH: 215
+Train: rec_loss : 1.0202 / kl_loss : 0.9523 / total_loss : 1.1154 /  
+DEV: rec_loss : 1.0311 / kl_loss : 0.9296 / total_loss : 1.124 /  
+.....................
+EPOCH: 216
+Train: rec_loss : 1.0156 / kl_loss : 0.9414 / total_loss : 1.1098 /  
+DEV: rec_loss : 1.0395 / kl_loss : 0.9423 / total_loss : 1.1337 /  
+.....................
+EPOCH: 217
+Train: rec_loss : 1.0333 / kl_loss : 0.959 / total_loss : 1.1292 /  
+DEV: rec_loss : 1.0213 / kl_loss : 0.9336 / total_loss : 1.1146 /  
+.....................
+EPOCH: 218
+Train: rec_loss : 1.0301 / kl_loss : 0.9568 / total_loss : 1.1258 /  
+DEV: rec_loss : 1.0077 / kl_loss : 0.9216 / total_loss : 1.0998 /  
+.....................
+EPOCH: 219
+Train: rec_loss : 1.0156 / kl_loss : 0.9439 / total_loss : 1.11 /  
+DEV: rec_loss : 1.0401 / kl_loss : 0.942 / total_loss : 1.1343 /  
+.....................
+EPOCH: 220
+Train: rec_loss : 1.0244 / kl_loss : 0.9453 / total_loss : 1.119 /  
+DEV: rec_loss : 1.0308 / kl_loss : 0.9296 / total_loss : 1.1237 /  
+.....................
+EPOCH: 221
+Train: rec_loss : 1.02 / kl_loss : 0.9441 / total_loss : 1.1144 /  
+DEV: rec_loss : 1.0099 / kl_loss : 0.9291 / total_loss : 1.1029 /  
+.....................
+EPOCH: 222
+Train: rec_loss : 1.0247 / kl_loss : 0.9507 / total_loss : 1.1198 /  
+DEV: rec_loss : 1.0556 / kl_loss : 0.97 / total_loss : 1.1526 /  
+.....................
+EPOCH: 223
+Train: rec_loss : 1.0283 / kl_loss : 0.9484 / total_loss : 1.1231 /  
+DEV: rec_loss : 1.0259 / kl_loss : 0.9062 / total_loss : 1.1165 /  
+.....................
+EPOCH: 224
+Train: rec_loss : 1.0335 / kl_loss : 0.9579 / total_loss : 1.1293 /  
+DEV: rec_loss : 1.0205 / kl_loss : 0.9429 / total_loss : 1.1148 /  
+.....................
+EPOCH: 225
+Train: rec_loss : 1.0305 / kl_loss : 0.9595 / total_loss : 1.1265 /  
+DEV: rec_loss : 1.0192 / kl_loss : 0.9445 / total_loss : 1.1136 /  
+.....................
+EPOCH: 226
+Train: rec_loss : 1.0345 / kl_loss : 0.9664 / total_loss : 1.1311 /  
+DEV: rec_loss : 1.0192 / kl_loss : 0.9279 / total_loss : 1.112 /  
+.....................
+EPOCH: 227
+Train: rec_loss : 1.0138 / kl_loss : 0.9391 / total_loss : 1.1077 /  
+DEV: rec_loss : 1.0303 / kl_loss : 0.9498 / total_loss : 1.1253 /  
+.....................
+EPOCH: 228
+Train: rec_loss : 1.0143 / kl_loss : 0.9581 / total_loss : 1.1101 /  
+DEV: rec_loss : 1.019 / kl_loss : 0.9247 / total_loss : 1.1115 /  
+.....................
+EPOCH: 229
+Train: rec_loss : 1.0238 / kl_loss : 0.9466 / total_loss : 1.1185 /  
+DEV: rec_loss : 1.0401 / kl_loss : 0.9421 / total_loss : 1.1343 /  
+.....................
+EPOCH: 230
+Train: rec_loss : 1.032 / kl_loss : 0.9537 / total_loss : 1.1273 /  
+DEV: rec_loss : 1.0557 / kl_loss : 0.9389 / total_loss : 1.1496 /  
+.....................
+EPOCH: 231
+Train: rec_loss : 1.0166 / kl_loss : 0.9402 / total_loss : 1.1106 /  
+DEV: rec_loss : 1.0185 / kl_loss : 0.9556 / total_loss : 1.114 /  
+.....................
+EPOCH: 232
+Train: rec_loss : 1.022 / kl_loss : 0.9394 / total_loss : 1.116 /  
+DEV: rec_loss : 1.0495 / kl_loss : 0.958 / total_loss : 1.1453 /  
+.....................
+EPOCH: 233
+Train: rec_loss : 1.0242 / kl_loss : 0.9451 / total_loss : 1.1187 /  
+DEV: rec_loss : 1.0371 / kl_loss : 0.9509 / total_loss : 1.1322 /  
+.....................
+EPOCH: 234
+Train: rec_loss : 1.0224 / kl_loss : 0.952 / total_loss : 1.1176 /  
+DEV: rec_loss : 1.0297 / kl_loss : 0.9575 / total_loss : 1.1255 /  
+.....................
+EPOCH: 235
+Train: rec_loss : 1.0227 / kl_loss : 0.954 / total_loss : 1.1181 /  
+DEV: rec_loss : 1.0415 / kl_loss : 0.9494 / total_loss : 1.1365 /  
+.....................
+EPOCH: 236
+Train: rec_loss : 1.0167 / kl_loss : 0.9559 / total_loss : 1.1123 /  
+DEV: rec_loss : 1.0325 / kl_loss : 0.9504 / total_loss : 1.1276 /  
+.....................
+EPOCH: 237
+Train: rec_loss : 1.0275 / kl_loss : 0.9506 / total_loss : 1.1225 /  
+DEV: rec_loss : 1.0128 / kl_loss : 0.9221 / total_loss : 1.105 /  
+.....................
+EPOCH: 238
+Train: rec_loss : 1.028 / kl_loss : 0.9446 / total_loss : 1.1225 /  
+DEV: rec_loss : 1.0281 / kl_loss : 0.9516 / total_loss : 1.1232 /  
+.....................
+EPOCH: 239
+Train: rec_loss : 1.0219 / kl_loss : 0.9432 / total_loss : 1.1162 /  
+DEV: rec_loss : 1.0481 / kl_loss : 0.9499 / total_loss : 1.1431 /  
+.....................
+EPOCH: 240
+Train: rec_loss : 1.0278 / kl_loss : 0.9436 / total_loss : 1.1222 /  
+DEV: rec_loss : 1.0335 / kl_loss : 0.9464 / total_loss : 1.1282 /  
+.....................
+EPOCH: 241
+Train: rec_loss : 1.014 / kl_loss : 0.9567 / total_loss : 1.1097 /  
+DEV: rec_loss : 1.0238 / kl_loss : 0.9341 / total_loss : 1.1172 /  
+.....................
+EPOCH: 242
+Train: rec_loss : 1.0264 / kl_loss : 0.9502 / total_loss : 1.1215 /  
+DEV: rec_loss : 1.0221 / kl_loss : 0.9209 / total_loss : 1.1142 /  
+.....................
+EPOCH: 243
+Train: rec_loss : 1.0275 / kl_loss : 0.9577 / total_loss : 1.1233 /  
+DEV: rec_loss : 1.0511 / kl_loss : 0.957 / total_loss : 1.1468 /  
+.....................
+EPOCH: 244
+Train: rec_loss : 1.0356 / kl_loss : 0.9679 / total_loss : 1.1324 /  
+DEV: rec_loss : 1.0342 / kl_loss : 0.9444 / total_loss : 1.1286 /  
+.....................
+EPOCH: 245
+Train: rec_loss : 1.0255 / kl_loss : 0.9474 / total_loss : 1.1202 /  
+DEV: rec_loss : 1.0154 / kl_loss : 0.9357 / total_loss : 1.109 /  
+.....................
+EPOCH: 246
+Train: rec_loss : 1.0228 / kl_loss : 0.9582 / total_loss : 1.1186 /  
+DEV: rec_loss : 1.0249 / kl_loss : 0.9395 / total_loss : 1.1189 /  
+.....................
+EPOCH: 247
+Train: rec_loss : 1.0148 / kl_loss : 0.9451 / total_loss : 1.1094 /  
+DEV: rec_loss : 1.0343 / kl_loss : 0.9428 / total_loss : 1.1286 /  
+.....................
+EPOCH: 248
+Train: rec_loss : 1.0209 / kl_loss : 0.9479 / total_loss : 1.1156 /  
+DEV: rec_loss : 1.0094 / kl_loss : 0.9297 / total_loss : 1.1023 /  
+.....................
+EPOCH: 249
+Train: rec_loss : 1.0291 / kl_loss : 0.9453 / total_loss : 1.1236 /  
+DEV: rec_loss : 1.0073 / kl_loss : 0.9178 / total_loss : 1.0991 /  
+.....................
+EPOCH: 250
+Train: rec_loss : 1.0271 / kl_loss : 0.9512 / total_loss : 1.1222 /  
+DEV: rec_loss : 1.0371 / kl_loss : 0.9479 / total_loss : 1.1318 /  
+.....................
+EPOCH: 251
+Train: rec_loss : 1.0359 / kl_loss : 0.9626 / total_loss : 1.1321 /  
+DEV: rec_loss : 1.0417 / kl_loss : 0.981 / total_loss : 1.1398 /  
+.....................
+EPOCH: 252
+Train: rec_loss : 1.0145 / kl_loss : 0.9507 / total_loss : 1.1096 /  
+DEV: rec_loss : 1.0103 / kl_loss : 0.9305 / total_loss : 1.1034 /  
+.....................
+EPOCH: 253
+Train: rec_loss : 1.0083 / kl_loss : 0.9458 / total_loss : 1.1029 /  
+DEV: rec_loss : 1.0234 / kl_loss : 0.9491 / total_loss : 1.1184 /  
+.....................
+EPOCH: 254
+Train: rec_loss : 1.0296 / kl_loss : 0.9663 / total_loss : 1.1262 /  
+DEV: rec_loss : 1.0313 / kl_loss : 0.9327 / total_loss : 1.1245 /  
+.....................
+EPOCH: 255
+Train: rec_loss : 1.0268 / kl_loss : 0.959 / total_loss : 1.1227 /  
+DEV: rec_loss : 0.9996 / kl_loss : 0.9441 / total_loss : 1.094 /  
+.....................
+EPOCH: 256
+Train: rec_loss : 1.0216 / kl_loss : 0.9488 / total_loss : 1.1165 /  
+DEV: rec_loss : 1.0056 / kl_loss : 0.928 / total_loss : 1.0984 /  
+.....................
+EPOCH: 257
+Train: rec_loss : 1.0279 / kl_loss : 0.9543 / total_loss : 1.1234 /  
+DEV: rec_loss : 1.0355 / kl_loss : 0.9561 / total_loss : 1.1311 /  
+.....................
+EPOCH: 258
+Train: rec_loss : 1.0217 / kl_loss : 0.9633 / total_loss : 1.1181 /  
+DEV: rec_loss : 1.0123 / kl_loss : 0.9008 / total_loss : 1.1024 /  
+.....................
+EPOCH: 259
+Train: rec_loss : 1.0197 / kl_loss : 0.958 / total_loss : 1.1155 /  
+DEV: rec_loss : 1.0272 / kl_loss : 0.9636 / total_loss : 1.1235 /  
+.....................
+EPOCH: 260
+Train: rec_loss : 1.0242 / kl_loss : 0.961 / total_loss : 1.1203 /  
+DEV: rec_loss : 1.0212 / kl_loss : 0.9357 / total_loss : 1.1147 /  
+.....................
+EPOCH: 261
+Train: rec_loss : 1.0297 / kl_loss : 0.9715 / total_loss : 1.1269 /  
+DEV: rec_loss : 1.0111 / kl_loss : 0.962 / total_loss : 1.1073 /  
+.....................
+EPOCH: 262
+Train: rec_loss : 1.0194 / kl_loss : 0.9574 / total_loss : 1.1152 /  
+DEV: rec_loss : 1.0256 / kl_loss : 0.9538 / total_loss : 1.121 /  
+.....................
+EPOCH: 263
+Train: rec_loss : 1.0169 / kl_loss : 0.9714 / total_loss : 1.114 /  
+DEV: rec_loss : 1.037 / kl_loss : 0.9942 / total_loss : 1.1364 /  
+.....................
+EPOCH: 264
+Train: rec_loss : 1.0281 / kl_loss : 0.9338 / total_loss : 1.1215 /  
+DEV: rec_loss : 1.0153 / kl_loss : 0.9393 / total_loss : 1.1092 /  
+.....................
+EPOCH: 265
+Train: rec_loss : 1.0253 / kl_loss : 0.9641 / total_loss : 1.1217 /  
+DEV: rec_loss : 1.0204 / kl_loss : 0.9378 / total_loss : 1.1141 /  
+.....................
+EPOCH: 266
+Train: rec_loss : 1.015 / kl_loss : 0.9536 / total_loss : 1.1104 /  
+DEV: rec_loss : 1.029 / kl_loss : 0.9449 / total_loss : 1.1235 /  
+.....................
+EPOCH: 267
+Train: rec_loss : 1.0211 / kl_loss : 0.962 / total_loss : 1.1173 /  
+DEV: rec_loss : 1.0175 / kl_loss : 0.9664 / total_loss : 1.1141 /  
+.....................
+EPOCH: 268
+Train: rec_loss : 1.0158 / kl_loss : 0.9512 / total_loss : 1.1109 /  
+DEV: rec_loss : 1.0193 / kl_loss : 0.9591 / total_loss : 1.1152 /  
+.....................
+EPOCH: 269
+Train: rec_loss : 1.0227 / kl_loss : 0.9653 / total_loss : 1.1193 /  
+DEV: rec_loss : 1.0263 / kl_loss : 0.9562 / total_loss : 1.1219 /  
+.....................
+EPOCH: 270
+Train: rec_loss : 1.0207 / kl_loss : 0.9405 / total_loss : 1.1148 /  
+DEV: rec_loss : 1.0431 / kl_loss : 0.9439 / total_loss : 1.1375 /  
+.....................
+EPOCH: 271
+Train: rec_loss : 1.014 / kl_loss : 0.9568 / total_loss : 1.1097 /  
+DEV: rec_loss : 1.04 / kl_loss : 0.9844 / total_loss : 1.1385 /  
+.....................
+EPOCH: 272
+Train: rec_loss : 1.0278 / kl_loss : 0.9644 / total_loss : 1.1243 /  
+DEV: rec_loss : 1.0373 / kl_loss : 0.9609 / total_loss : 1.1334 /  
+.....................
+EPOCH: 273
+Train: rec_loss : 1.0094 / kl_loss : 0.9451 / total_loss : 1.1039 /  
+DEV: rec_loss : 1.0252 / kl_loss : 0.9489 / total_loss : 1.1201 /  
+.....................
+EPOCH: 274
+Train: rec_loss : 1.0142 / kl_loss : 0.9545 / total_loss : 1.1096 /  
+DEV: rec_loss : 1.0141 / kl_loss : 0.9585 / total_loss : 1.1099 /  
+.....................
+EPOCH: 275
+Train: rec_loss : 1.0126 / kl_loss : 0.9618 / total_loss : 1.1088 /  
+DEV: rec_loss : 1.0217 / kl_loss : 0.9404 / total_loss : 1.1157 /  
+.....................
+EPOCH: 276
+Train: rec_loss : 1.0134 / kl_loss : 0.9541 / total_loss : 1.1088 /  
+DEV: rec_loss : 1.0223 / kl_loss : 0.961 / total_loss : 1.1184 /  
+.....................
+EPOCH: 277
+Train: rec_loss : 1.0218 / kl_loss : 0.9756 / total_loss : 1.1193 /  
+DEV: rec_loss : 1.0372 / kl_loss : 0.9695 / total_loss : 1.1341 /  
+.....................
+EPOCH: 278
+Train: rec_loss : 1.0105 / kl_loss : 0.9662 / total_loss : 1.1071 /  
+DEV: rec_loss : 1.0245 / kl_loss : 0.9412 / total_loss : 1.1186 /  
+.....................
+EPOCH: 279
+Train: rec_loss : 1.015 / kl_loss : 0.9404 / total_loss : 1.109 /  
+DEV: rec_loss : 1.0299 / kl_loss : 0.9759 / total_loss : 1.1275 /  
+.....................
+EPOCH: 280
+Train: rec_loss : 1.0207 / kl_loss : 0.9702 / total_loss : 1.1177 /  
+DEV: rec_loss : 1.0102 / kl_loss : 0.9443 / total_loss : 1.1046 /  
+.....................
+EPOCH: 281
+Train: rec_loss : 1.0159 / kl_loss : 0.9624 / total_loss : 1.1122 /  
+DEV: rec_loss : 1.032 / kl_loss : 0.9608 / total_loss : 1.1281 /  
+.....................
+EPOCH: 282
+Train: rec_loss : 1.021 / kl_loss : 0.9651 / total_loss : 1.1175 /  
+DEV: rec_loss : 1.0296 / kl_loss : 0.9784 / total_loss : 1.1274 /  
+.....................
+EPOCH: 283
+Train: rec_loss : 1.0159 / kl_loss : 0.9648 / total_loss : 1.1124 /  
+DEV: rec_loss : 1.0269 / kl_loss : 0.9419 / total_loss : 1.1211 /  
+.....................
+EPOCH: 284
+Train: rec_loss : 1.0165 / kl_loss : 0.9681 / total_loss : 1.1133 /  
+DEV: rec_loss : 1.0196 / kl_loss : 0.9639 / total_loss : 1.116 /  
+.....................
+EPOCH: 285
+Train: rec_loss : 1.0296 / kl_loss : 0.9532 / total_loss : 1.125 /  
+DEV: rec_loss : 1.0154 / kl_loss : 0.9496 / total_loss : 1.1104 /  
+.....................
+EPOCH: 286
+Train: rec_loss : 1.0097 / kl_loss : 0.9634 / total_loss : 1.106 /  
+DEV: rec_loss : 1.0282 / kl_loss : 0.9503 / total_loss : 1.1232 /  
+.....................
+EPOCH: 287
+Train: rec_loss : 1.022 / kl_loss : 0.9648 / total_loss : 1.1184 /  
+DEV: rec_loss : 1.0402 / kl_loss : 0.9694 / total_loss : 1.1372 /  
+.....................
+EPOCH: 288
+Train: rec_loss : 1.0196 / kl_loss : 0.9768 / total_loss : 1.1173 /  
+DEV: rec_loss : 1.021 / kl_loss : 0.9649 / total_loss : 1.1175 /  
+.....................
+EPOCH: 289
+Train: rec_loss : 1.0183 / kl_loss : 0.9714 / total_loss : 1.1154 /  
+DEV: rec_loss : 1.023 / kl_loss : 0.9723 / total_loss : 1.1202 /  
+.....................
+EPOCH: 290
+Train: rec_loss : 1.0236 / kl_loss : 0.9581 / total_loss : 1.1194 /  
+DEV: rec_loss : 1.0159 / kl_loss : 0.9341 / total_loss : 1.1093 /  
+.....................
+EPOCH: 291
+Train: rec_loss : 1.0145 / kl_loss : 0.9669 / total_loss : 1.1112 /  
+DEV: rec_loss : 0.9949 / kl_loss : 0.9314 / total_loss : 1.088 /  
+.....................
+EPOCH: 292
+Train: rec_loss : 1.025 / kl_loss : 0.9647 / total_loss : 1.1215 /  
+DEV: rec_loss : 1.0199 / kl_loss : 0.9627 / total_loss : 1.1162 /  
+.....................
+EPOCH: 293
+Train: rec_loss : 1.0146 / kl_loss : 0.9629 / total_loss : 1.1109 /  
+DEV: rec_loss : 1.0379 / kl_loss : 1.0064 / total_loss : 1.1385 /  
+.....................
+EPOCH: 294
+Train: rec_loss : 1.018 / kl_loss : 0.9795 / total_loss : 1.1159 /  
+DEV: rec_loss : 1.018 / kl_loss : 0.9528 / total_loss : 1.1133 /  
+.....................
+EPOCH: 295
+Train: rec_loss : 1.0102 / kl_loss : 0.9527 / total_loss : 1.1054 /  
+DEV: rec_loss : 1.0223 / kl_loss : 0.9598 / total_loss : 1.1183 /  
+.....................
+EPOCH: 296
+Train: rec_loss : 1.0145 / kl_loss : 0.9627 / total_loss : 1.1108 /  
+DEV: rec_loss : 1.0302 / kl_loss : 0.9585 / total_loss : 1.126 /  
+.....................
+EPOCH: 297
+Train: rec_loss : 1.0186 / kl_loss : 0.9599 / total_loss : 1.1146 /  
+DEV: rec_loss : 1.0287 / kl_loss : 0.9499 / total_loss : 1.1237 /  
+.....................
+EPOCH: 298
+Train: rec_loss : 1.0159 / kl_loss : 0.9738 / total_loss : 1.1133 /  
+DEV: rec_loss : 1.0273 / kl_loss : 0.9704 / total_loss : 1.1244 /  
+.....................
+EPOCH: 299
+Train: rec_loss : 1.0218 / kl_loss : 0.9683 / total_loss : 1.1187 /  
+DEV: rec_loss : 1.0563 / kl_loss : 0.972 / total_loss : 1.1535 /  
+.....................
+EPOCH: 300
+Train: rec_loss : 1.0125 / kl_loss : 0.9537 / total_loss : 1.1079 /  
+DEV: rec_loss : 1.024 / kl_loss : 0.9429 / total_loss : 1.1183 /  
+.....................
+EPOCH: 301
+Train: rec_loss : 1.0145 / kl_loss : 0.9672 / total_loss : 1.1113 /  
+DEV: rec_loss : 1.0098 / kl_loss : 0.9511 / total_loss : 1.1049 /  
+.....................
+EPOCH: 302
+Train: rec_loss : 1.0217 / kl_loss : 0.9667 / total_loss : 1.1183 /  
+DEV: rec_loss : 1.0397 / kl_loss : 0.9626 / total_loss : 1.1359 /  
+.....................
+EPOCH: 303
+Train: rec_loss : 1.0155 / kl_loss : 0.9608 / total_loss : 1.1116 /  
+DEV: rec_loss : 1.0313 / kl_loss : 0.9773 / total_loss : 1.129 /  
+.....................
+EPOCH: 304
+Train: rec_loss : 1.008 / kl_loss : 0.9645 / total_loss : 1.1045 /  
+DEV: rec_loss : 1.0172 / kl_loss : 0.9543 / total_loss : 1.1126 /  
+.....................
+EPOCH: 305
+Train: rec_loss : 1.0279 / kl_loss : 0.9789 / total_loss : 1.1258 /  
+DEV: rec_loss : 1.0268 / kl_loss : 0.9755 / total_loss : 1.1243 /  
+.....................
+EPOCH: 306
+Train: rec_loss : 1.0256 / kl_loss : 0.9884 / total_loss : 1.1245 /  
+DEV: rec_loss : 1.0033 / kl_loss : 0.9436 / total_loss : 1.0976 /  
+.....................
+EPOCH: 307
+Train: rec_loss : 1.0104 / kl_loss : 0.968 / total_loss : 1.1072 /  
+DEV: rec_loss : 1.0251 / kl_loss : 0.9848 / total_loss : 1.1236 /  
+.....................
+EPOCH: 308
+Train: rec_loss : 1.0102 / kl_loss : 0.9551 / total_loss : 1.1057 /  
+DEV: rec_loss : 1.0157 / kl_loss : 0.9753 / total_loss : 1.1132 /  
+.....................
+EPOCH: 309
+Train: rec_loss : 1.021 / kl_loss : 0.9865 / total_loss : 1.1197 /  
+DEV: rec_loss : 1.0228 / kl_loss : 0.9833 / total_loss : 1.1212 /  
+.....................
+EPOCH: 310
+Train: rec_loss : 1.018 / kl_loss : 0.9739 / total_loss : 1.1154 /  
+DEV: rec_loss : 1.0125 / kl_loss : 0.9666 / total_loss : 1.1091 /  
+.....................
+EPOCH: 311
+Train: rec_loss : 1.0236 / kl_loss : 0.977 / total_loss : 1.1213 /  
+DEV: rec_loss : 1.0297 / kl_loss : 0.9739 / total_loss : 1.1271 /  
+.....................
+EPOCH: 312
+Train: rec_loss : 1.0077 / kl_loss : 0.9673 / total_loss : 1.1044 /  
+DEV: rec_loss : 1.0411 / kl_loss : 0.9734 / total_loss : 1.1384 /  
+.....................
+EPOCH: 313
+Train: rec_loss : 1.014 / kl_loss : 0.9633 / total_loss : 1.1104 /  
+DEV: rec_loss : 1.0268 / kl_loss : 0.9693 / total_loss : 1.1237 /  
+.....................
+EPOCH: 314
+Train: rec_loss : 1.0133 / kl_loss : 0.9702 / total_loss : 1.1103 /  
+DEV: rec_loss : 1.0303 / kl_loss : 0.9868 / total_loss : 1.129 /  
+.....................
+EPOCH: 315
+Train: rec_loss : 1.0195 / kl_loss : 0.9727 / total_loss : 1.1168 /  
+DEV: rec_loss : 1.0224 / kl_loss : 0.962 / total_loss : 1.1186 /  
+.....................
+EPOCH: 316
+Train: rec_loss : 1.0133 / kl_loss : 0.967 / total_loss : 1.11 /  
+DEV: rec_loss : 1.0241 / kl_loss : 0.9769 / total_loss : 1.1217 /  
+.....................
+EPOCH: 317
+Train: rec_loss : 1.0182 / kl_loss : 0.973 / total_loss : 1.1155 /  
+DEV: rec_loss : 1.0121 / kl_loss : 0.9453 / total_loss : 1.1066 /  
+.....................
+EPOCH: 318
+Train: rec_loss : 1.0125 / kl_loss : 0.9593 / total_loss : 1.1084 /  
+DEV: rec_loss : 1.0049 / kl_loss : 0.9486 / total_loss : 1.0998 /  
+.....................
+EPOCH: 319
+Train: rec_loss : 1.0167 / kl_loss : 0.9677 / total_loss : 1.1135 /  
+DEV: rec_loss : 1.0286 / kl_loss : 0.9716 / total_loss : 1.1258 /  
+.....................
+EPOCH: 320
+Train: rec_loss : 1.0097 / kl_loss : 0.9646 / total_loss : 1.1062 /  
+DEV: rec_loss : 0.9906 / kl_loss : 0.9361 / total_loss : 1.0842 /  
+.....................
+EPOCH: 321
+Train: rec_loss : 1.0201 / kl_loss : 0.9656 / total_loss : 1.1167 /  
+DEV: rec_loss : 1.0193 / kl_loss : 0.9372 / total_loss : 1.113 /  
+.....................
+EPOCH: 322
+Train: rec_loss : 1.0158 / kl_loss : 0.9767 / total_loss : 1.1134 /  
+DEV: rec_loss : 1.0109 / kl_loss : 0.9563 / total_loss : 1.1065 /  
+.....................
+EPOCH: 323
+Train: rec_loss : 1.0069 / kl_loss : 0.9618 / total_loss : 1.103 /  
+DEV: rec_loss : 1.0501 / kl_loss : 0.9771 / total_loss : 1.1478 /  
+.....................
+EPOCH: 324
+Train: rec_loss : 1.0228 / kl_loss : 0.9692 / total_loss : 1.1197 /  
+DEV: rec_loss : 1.006 / kl_loss : 0.9325 / total_loss : 1.0992 /  
+.....................
+EPOCH: 325
+Train: rec_loss : 1.0155 / kl_loss : 0.9824 / total_loss : 1.1138 /  
+DEV: rec_loss : 1.031 / kl_loss : 0.9636 / total_loss : 1.1274 /  
+.....................
+EPOCH: 326
+Train: rec_loss : 1.0198 / kl_loss : 0.9915 / total_loss : 1.119 /  
+DEV: rec_loss : 1.0018 / kl_loss : 0.9231 / total_loss : 1.0941 /  
+.....................
+EPOCH: 327
+Train: rec_loss : 1.0137 / kl_loss : 0.9502 / total_loss : 1.1087 /  
+DEV: rec_loss : 1.0336 / kl_loss : 0.988 / total_loss : 1.1324 /  
+.....................
+EPOCH: 328
+Train: rec_loss : 1.0063 / kl_loss : 0.966 / total_loss : 1.1029 /  
+DEV: rec_loss : 1.0164 / kl_loss : 0.9593 / total_loss : 1.1123 /  
+.....................
+EPOCH: 329
+Train: rec_loss : 1.0167 / kl_loss : 0.9726 / total_loss : 1.1139 /  
+DEV: rec_loss : 1.0238 / kl_loss : 0.9715 / total_loss : 1.1209 /  
+.....................
+EPOCH: 330
+Train: rec_loss : 1.0226 / kl_loss : 0.9779 / total_loss : 1.1203 /  
+DEV: rec_loss : 1.0148 / kl_loss : 0.9537 / total_loss : 1.1102 /  
+.....................
+EPOCH: 331
+Train: rec_loss : 1.0153 / kl_loss : 0.9738 / total_loss : 1.1127 /  
+DEV: rec_loss : 1.0161 / kl_loss : 0.9531 / total_loss : 1.1115 /  
+.....................
+EPOCH: 332
+Train: rec_loss : 1.0147 / kl_loss : 0.969 / total_loss : 1.1116 /  
+DEV: rec_loss : 1.0321 / kl_loss : 0.9614 / total_loss : 1.1282 /  
+.....................
+EPOCH: 333
+Train: rec_loss : 1.0038 / kl_loss : 0.9556 / total_loss : 1.0993 /  
+DEV: rec_loss : 1.0258 / kl_loss : 0.9437 / total_loss : 1.1202 /  
+.....................
+EPOCH: 334
+Train: rec_loss : 1.0091 / kl_loss : 0.9653 / total_loss : 1.1056 /  
+DEV: rec_loss : 1.0232 / kl_loss : 0.9624 / total_loss : 1.1195 /  
+.....................
+EPOCH: 335
+Train: rec_loss : 1.0062 / kl_loss : 0.9525 / total_loss : 1.1014 /  
+DEV: rec_loss : 1.0181 / kl_loss : 0.9537 / total_loss : 1.1135 /  
+.....................
+EPOCH: 336
+Train: rec_loss : 1.0126 / kl_loss : 0.9834 / total_loss : 1.1109 /  
+DEV: rec_loss : 1.0035 / kl_loss : 0.9475 / total_loss : 1.0982 /  
+.....................
+EPOCH: 337
+Train: rec_loss : 1.0223 / kl_loss : 0.9729 / total_loss : 1.1196 /  
+DEV: rec_loss : 1.0303 / kl_loss : 0.9565 / total_loss : 1.1259 /  
+.....................
+EPOCH: 338
+Train: rec_loss : 1.0068 / kl_loss : 0.9634 / total_loss : 1.1032 /  
+DEV: rec_loss : 1.0146 / kl_loss : 0.9357 / total_loss : 1.1082 /  
+.....................
+EPOCH: 339
+Train: rec_loss : 1.0146 / kl_loss : 0.9692 / total_loss : 1.1115 /  
+DEV: rec_loss : 1.0185 / kl_loss : 0.9402 / total_loss : 1.1125 /  
+.....................
+EPOCH: 340
+Train: rec_loss : 1.0128 / kl_loss : 0.9853 / total_loss : 1.1113 /  
+DEV: rec_loss : 1.0132 / kl_loss : 0.9775 / total_loss : 1.1109 /  
+.....................
+EPOCH: 341
+Train: rec_loss : 1.0175 / kl_loss : 0.9743 / total_loss : 1.1149 /  
+DEV: rec_loss : 1.016 / kl_loss : 0.9517 / total_loss : 1.1111 /  
+.....................
+EPOCH: 342
+Train: rec_loss : 1.0152 / kl_loss : 0.9756 / total_loss : 1.1127 /  
+DEV: rec_loss : 1.0343 / kl_loss : 0.9695 / total_loss : 1.1313 /  
+.....................
+EPOCH: 343
+Train: rec_loss : 1.0071 / kl_loss : 0.9765 / total_loss : 1.1047 /  
+DEV: rec_loss : 1.0205 / kl_loss : 0.9512 / total_loss : 1.1156 /  
+.....................
+EPOCH: 344
+Train: rec_loss : 1.0081 / kl_loss : 0.9696 / total_loss : 1.1051 /  
+DEV: rec_loss : 1.0404 / kl_loss : 0.9584 / total_loss : 1.1363 /  
+.....................
+EPOCH: 345
+Train: rec_loss : 1.0062 / kl_loss : 0.9729 / total_loss : 1.1035 /  
+DEV: rec_loss : 1.0184 / kl_loss : 0.9606 / total_loss : 1.1145 /  
+.....................
+EPOCH: 346
+Train: rec_loss : 1.0111 / kl_loss : 0.961 / total_loss : 1.1072 /  
+DEV: rec_loss : 1.0161 / kl_loss : 0.9545 / total_loss : 1.1116 /  
+.....................
+EPOCH: 347
+Train: rec_loss : 1.0177 / kl_loss : 0.9768 / total_loss : 1.1154 /  
+DEV: rec_loss : 1.0014 / kl_loss : 0.9219 / total_loss : 1.0936 /  
+.....................
+EPOCH: 348
+Train: rec_loss : 1.0155 / kl_loss : 0.9605 / total_loss : 1.1116 /  
+DEV: rec_loss : 1.0174 / kl_loss : 0.9604 / total_loss : 1.1134 /  
+.....................
+EPOCH: 349
+Train: rec_loss : 1.0124 / kl_loss : 0.9739 / total_loss : 1.1097 /  
+DEV: rec_loss : 1.0279 / kl_loss : 0.9742 / total_loss : 1.1253 /  
+.....................
+EPOCH: 350
+Train: rec_loss : 1.0093 / kl_loss : 0.9755 / total_loss : 1.1069 /  
+DEV: rec_loss : 1.017 / kl_loss : 0.9732 / total_loss : 1.1143 /  
+.....................
+EPOCH: 351
+Train: rec_loss : 1.0091 / kl_loss : 0.9634 / total_loss : 1.1054 /  
+DEV: rec_loss : 1.0355 / kl_loss : 0.9903 / total_loss : 1.1345 /  
+.....................
+EPOCH: 352
+Train: rec_loss : 1.0083 / kl_loss : 0.9812 / total_loss : 1.1064 /  
+DEV: rec_loss : 1.0159 / kl_loss : 0.9635 / total_loss : 1.1123 /  
+.....................
+EPOCH: 353
+Train: rec_loss : 1.0215 / kl_loss : 0.9664 / total_loss : 1.1181 /  
+DEV: rec_loss : 1.0297 / kl_loss : 0.9631 / total_loss : 1.126 /  
+.....................
+EPOCH: 354
+Train: rec_loss : 1.0199 / kl_loss : 0.9733 / total_loss : 1.1172 /  
+DEV: rec_loss : 1.0308 / kl_loss : 0.9477 / total_loss : 1.1255 /  
+.....................
+EPOCH: 355
+Train: rec_loss : 1.0048 / kl_loss : 0.9614 / total_loss : 1.1009 /  
+DEV: rec_loss : 1.0227 / kl_loss : 0.959 / total_loss : 1.1186 /  
+.....................
+EPOCH: 356
+Train: rec_loss : 1.0166 / kl_loss : 0.9788 / total_loss : 1.1145 /  
+DEV: rec_loss : 1.0193 / kl_loss : 0.977 / total_loss : 1.117 /  
+.....................
+EPOCH: 357
+Train: rec_loss : 1.0059 / kl_loss : 0.9636 / total_loss : 1.1023 /  
+DEV: rec_loss : 1.0174 / kl_loss : 0.96 / total_loss : 1.1134 /  
+.....................
+EPOCH: 358
+Train: rec_loss : 1.0061 / kl_loss : 0.9834 / total_loss : 1.1044 /  
+DEV: rec_loss : 1.0256 / kl_loss : 0.9616 / total_loss : 1.1218 /  
+.....................
+EPOCH: 359
+Train: rec_loss : 1.0113 / kl_loss : 0.9813 / total_loss : 1.1095 /  
+DEV: rec_loss : 1.0176 / kl_loss : 0.9671 / total_loss : 1.1143 /  
+.....................
+EPOCH: 360
+Train: rec_loss : 1.0085 / kl_loss : 0.9966 / total_loss : 1.1081 /  
+DEV: rec_loss : 0.9931 / kl_loss : 0.9822 / total_loss : 1.0914 /  
+.....................
+EPOCH: 361
+Train: rec_loss : 1.0159 / kl_loss : 0.9782 / total_loss : 1.1138 /  
+DEV: rec_loss : 1.0018 / kl_loss : 0.9623 / total_loss : 1.0981 /  
+.....................
+EPOCH: 362
+Train: rec_loss : 1.0082 / kl_loss : 0.9758 / total_loss : 1.1058 /  
+DEV: rec_loss : 1.0095 / kl_loss : 0.9633 / total_loss : 1.1059 /  
+.....................
+EPOCH: 363
+Train: rec_loss : 1.003 / kl_loss : 0.9627 / total_loss : 1.0993 /  
+DEV: rec_loss : 1.0097 / kl_loss : 0.9358 / total_loss : 1.1033 /  
+.....................
+EPOCH: 364
+Train: rec_loss : 1.0039 / kl_loss : 0.9635 / total_loss : 1.1002 /  
+DEV: rec_loss : 1.0122 / kl_loss : 0.9563 / total_loss : 1.1078 /  
+.....................
+EPOCH: 365
+Train: rec_loss : 1.0108 / kl_loss : 0.9703 / total_loss : 1.1079 /  
+DEV: rec_loss : 1.0255 / kl_loss : 0.9605 / total_loss : 1.1215 /  
+.....................
+EPOCH: 366
+Train: rec_loss : 1.0087 / kl_loss : 0.9749 / total_loss : 1.1062 /  
+DEV: rec_loss : 1.0262 / kl_loss : 0.9784 / total_loss : 1.1241 /  
+.....................
+EPOCH: 367
+Train: rec_loss : 1.0136 / kl_loss : 0.9768 / total_loss : 1.1112 /  
+DEV: rec_loss : 1.0327 / kl_loss : 1.0079 / total_loss : 1.1335 /  
+.....................
+EPOCH: 368
+Train: rec_loss : 1.0076 / kl_loss : 0.9681 / total_loss : 1.1044 /  
+DEV: rec_loss : 1.0101 / kl_loss : 0.9449 / total_loss : 1.1046 /  
+.....................
+EPOCH: 369
+Train: rec_loss : 1.0129 / kl_loss : 0.9732 / total_loss : 1.1102 /  
+DEV: rec_loss : 1.036 / kl_loss : 0.9952 / total_loss : 1.1355 /  
+.....................
+EPOCH: 370
+Train: rec_loss : 1.0094 / kl_loss : 0.9876 / total_loss : 1.1081 /  
+DEV: rec_loss : 1.0327 / kl_loss : 0.9903 / total_loss : 1.1317 /  
+.....................
+EPOCH: 371
+Train: rec_loss : 1.0075 / kl_loss : 0.9821 / total_loss : 1.1057 /  
+DEV: rec_loss : 1.0088 / kl_loss : 0.9676 / total_loss : 1.1056 /  
+.....................
+EPOCH: 372
+Train: rec_loss : 1.0053 / kl_loss : 0.9707 / total_loss : 1.1023 /  
+DEV: rec_loss : 1.0296 / kl_loss : 0.9553 / total_loss : 1.1251 /  
+.....................
+EPOCH: 373
+Train: rec_loss : 1.0089 / kl_loss : 0.9883 / total_loss : 1.1077 /  
+DEV: rec_loss : 1.0191 / kl_loss : 0.9705 / total_loss : 1.1161 /  
+.....................
+EPOCH: 374
+Train: rec_loss : 1.0125 / kl_loss : 0.9816 / total_loss : 1.1106 /  
+DEV: rec_loss : 1.0187 / kl_loss : 0.9791 / total_loss : 1.1167 /  
+.....................
+EPOCH: 375
+Train: rec_loss : 1.0051 / kl_loss : 0.9817 / total_loss : 1.1033 /  
+DEV: rec_loss : 1.0281 / kl_loss : 0.9836 / total_loss : 1.1265 /  
+.....................
+EPOCH: 376
+Train: rec_loss : 1.0099 / kl_loss : 0.9645 / total_loss : 1.1064 /  
+DEV: rec_loss : 1.0311 / kl_loss : 0.9401 / total_loss : 1.1251 /  
+.....................
+EPOCH: 377
+Train: rec_loss : 1.0064 / kl_loss : 0.9719 / total_loss : 1.1036 /  
+DEV: rec_loss : 1.04 / kl_loss : 0.9856 / total_loss : 1.1386 /  
+.....................
+EPOCH: 378
+Train: rec_loss : 1.0139 / kl_loss : 0.9857 / total_loss : 1.1124 /  
+DEV: rec_loss : 0.9976 / kl_loss : 0.9776 / total_loss : 1.0954 /  
+.....................
+EPOCH: 379
+Train: rec_loss : 1.0238 / kl_loss : 0.9728 / total_loss : 1.1211 /  
+DEV: rec_loss : 1.0218 / kl_loss : 0.9808 / total_loss : 1.1199 /  
+.....................
+EPOCH: 380
+Train: rec_loss : 1.007 / kl_loss : 0.9858 / total_loss : 1.1056 /  
+DEV: rec_loss : 1.0233 / kl_loss : 0.9873 / total_loss : 1.122 /  
+.....................
+EPOCH: 381
+Train: rec_loss : 1.0143 / kl_loss : 0.9895 / total_loss : 1.1132 /  
+DEV: rec_loss : 0.9938 / kl_loss : 0.9569 / total_loss : 1.0895 /  
+.....................
+EPOCH: 382
+Train: rec_loss : 0.9953 / kl_loss : 0.9589 / total_loss : 1.0911 /  
+DEV: rec_loss : 1.0269 / kl_loss : 0.977 / total_loss : 1.1246 /  
+.....................
+EPOCH: 383
+Train: rec_loss : 1.0144 / kl_loss : 0.9694 / total_loss : 1.1113 /  
+DEV: rec_loss : 1.0273 / kl_loss : 0.9976 / total_loss : 1.1271 /  
+.....................
+EPOCH: 384
+Train: rec_loss : 1.0137 / kl_loss : 0.9836 / total_loss : 1.112 /  
+DEV: rec_loss : 1.0358 / kl_loss : 0.9798 / total_loss : 1.1338 /  
+.....................
+EPOCH: 385
+Train: rec_loss : 1.0087 / kl_loss : 0.9749 / total_loss : 1.1062 /  
+DEV: rec_loss : 1.019 / kl_loss : 0.9765 / total_loss : 1.1167 /  
+.....................
+EPOCH: 386
+Train: rec_loss : 1.0154 / kl_loss : 0.9878 / total_loss : 1.1142 /  
+DEV: rec_loss : 1.0228 / kl_loss : 0.9716 / total_loss : 1.1199 /  
+.....................
+EPOCH: 387
+Train: rec_loss : 1.0 / kl_loss : 0.9781 / total_loss : 1.0978 /  
+DEV: rec_loss : 1.0076 / kl_loss : 0.9853 / total_loss : 1.1061 /  
+.....................
+EPOCH: 388
+Train: rec_loss : 1.014 / kl_loss : 0.9912 / total_loss : 1.1132 /  
+DEV: rec_loss : 1.0071 / kl_loss : 0.975 / total_loss : 1.1046 /  
+.....................
+EPOCH: 389
+Train: rec_loss : 1.0121 / kl_loss : 0.9892 / total_loss : 1.1111 /  
+DEV: rec_loss : 1.0177 / kl_loss : 0.9871 / total_loss : 1.1164 /  
+.....................
+EPOCH: 390
+Train: rec_loss : 0.9996 / kl_loss : 0.9712 / total_loss : 1.0967 /  
+DEV: rec_loss : 1.0282 / kl_loss : 0.9853 / total_loss : 1.1267 /  
+.....................
+EPOCH: 391
+Train: rec_loss : 1.0026 / kl_loss : 0.9696 / total_loss : 1.0996 /  
+DEV: rec_loss : 1.0282 / kl_loss : 0.9769 / total_loss : 1.1259 /  
+.....................
+EPOCH: 392
+Train: rec_loss : 1.0144 / kl_loss : 0.9778 / total_loss : 1.1121 /  
+DEV: rec_loss : 1.0302 / kl_loss : 0.9946 / total_loss : 1.1296 /  
+.....................
+EPOCH: 393
+Train: rec_loss : 1.0025 / kl_loss : 0.9665 / total_loss : 1.0991 /  
+DEV: rec_loss : 1.0289 / kl_loss : 0.9654 / total_loss : 1.1255 /  
+.....................
+EPOCH: 394
+Train: rec_loss : 1.0074 / kl_loss : 0.982 / total_loss : 1.1056 /  
+DEV: rec_loss : 1.0464 / kl_loss : 0.9961 / total_loss : 1.1461 /  
+.....................
+EPOCH: 395
+Train: rec_loss : 1.0095 / kl_loss : 0.9824 / total_loss : 1.1077 /  
+DEV: rec_loss : 1.0186 / kl_loss : 0.9535 / total_loss : 1.1139 /  
+.....................
+EPOCH: 396
+Train: rec_loss : 1.023 / kl_loss : 0.9857 / total_loss : 1.1215 /  
+DEV: rec_loss : 1.0315 / kl_loss : 0.9792 / total_loss : 1.1294 /  
+.....................
+EPOCH: 397
+Train: rec_loss : 1.0107 / kl_loss : 0.9804 / total_loss : 1.1087 /  
+DEV: rec_loss : 1.024 / kl_loss : 0.967 / total_loss : 1.1207 /  
+.....................
+EPOCH: 398
+Train: rec_loss : 1.0093 / kl_loss : 0.979 / total_loss : 1.1072 /  
+DEV: rec_loss : 1.0208 / kl_loss : 0.9605 / total_loss : 1.1168 /  
+.....................
+EPOCH: 399
+Train: rec_loss : 0.9988 / kl_loss : 0.9736 / total_loss : 1.0961 /  
+DEV: rec_loss : 1.0316 / kl_loss : 0.9755 / total_loss : 1.1292 /  
+.....................
+EPOCH: 400
+Train: rec_loss : 0.997 / kl_loss : 0.972 / total_loss : 1.0942 /  
+DEV: rec_loss : 1.0187 / kl_loss : 0.9775 / total_loss : 1.1165 /  
+.....................
+EPOCH: 401
+Train: rec_loss : 1.0097 / kl_loss : 1.0025 / total_loss : 1.11 /  
+DEV: rec_loss : 1.013 / kl_loss : 0.9902 / total_loss : 1.112 /  
+.....................
+EPOCH: 402
+Train: rec_loss : 1.0016 / kl_loss : 0.9869 / total_loss : 1.1003 /  
+DEV: rec_loss : 1.0093 / kl_loss : 0.9438 / total_loss : 1.1037 /  
+.....................
+EPOCH: 403
+Train: rec_loss : 1.0136 / kl_loss : 1.001 / total_loss : 1.1137 /  
+DEV: rec_loss : 1.028 / kl_loss : 0.9719 / total_loss : 1.1251 /  
+.....................
+EPOCH: 404
+Train: rec_loss : 1.0047 / kl_loss : 0.9763 / total_loss : 1.1023 /  
+DEV: rec_loss : 1.0143 / kl_loss : 0.9588 / total_loss : 1.1102 /  
+.....................
+EPOCH: 405
+Train: rec_loss : 1.006 / kl_loss : 0.9767 / total_loss : 1.1037 /  
+DEV: rec_loss : 1.0319 / kl_loss : 0.9583 / total_loss : 1.1277 /  
+.....................
+EPOCH: 406
+Train: rec_loss : 1.0063 / kl_loss : 0.9914 / total_loss : 1.1055 /  
+DEV: rec_loss : 0.9974 / kl_loss : 0.9652 / total_loss : 1.0939 /  
+.....................
+EPOCH: 407
+Train: rec_loss : 1.0097 / kl_loss : 0.9821 / total_loss : 1.1079 /  
+DEV: rec_loss : 1.0177 / kl_loss : 0.9555 / total_loss : 1.1132 /  
+.....................
+EPOCH: 408
+Train: rec_loss : 1.0045 / kl_loss : 0.9709 / total_loss : 1.1015 /  
+DEV: rec_loss : 1.0221 / kl_loss : 0.9819 / total_loss : 1.1203 /  
+.....................
+EPOCH: 409
+Train: rec_loss : 1.0177 / kl_loss : 0.9783 / total_loss : 1.1156 /  
+DEV: rec_loss : 1.0152 / kl_loss : 0.986 / total_loss : 1.1138 /  
+.....................
+EPOCH: 410
+Train: rec_loss : 1.0018 / kl_loss : 0.9682 / total_loss : 1.0986 /  
+DEV: rec_loss : 1.0205 / kl_loss : 0.9512 / total_loss : 1.1156 /  
+.....................
+EPOCH: 411
+Train: rec_loss : 1.0072 / kl_loss : 0.9807 / total_loss : 1.1053 /  
+DEV: rec_loss : 1.0336 / kl_loss : 0.9988 / total_loss : 1.1335 /  
+.....................
+EPOCH: 412
+Train: rec_loss : 1.0093 / kl_loss : 0.991 / total_loss : 1.1084 /  
+DEV: rec_loss : 1.016 / kl_loss : 0.9829 / total_loss : 1.1143 /  
+.....................
+EPOCH: 413
+Train: rec_loss : 0.9969 / kl_loss : 0.9827 / total_loss : 1.0952 /  
+DEV: rec_loss : 1.0098 / kl_loss : 0.9792 / total_loss : 1.1077 /  
+.....................
+EPOCH: 414
+Train: rec_loss : 0.9999 / kl_loss : 0.9809 / total_loss : 1.098 /  
+DEV: rec_loss : 1.0268 / kl_loss : 0.9717 / total_loss : 1.124 /  
+.....................
+EPOCH: 415
+Train: rec_loss : 1.0113 / kl_loss : 0.9825 / total_loss : 1.1096 /  
+DEV: rec_loss : 1.0229 / kl_loss : 0.9947 / total_loss : 1.1223 /  
+.....................
+EPOCH: 416
+Train: rec_loss : 1.0003 / kl_loss : 0.9909 / total_loss : 1.0994 /  
+DEV: rec_loss : 1.012 / kl_loss : 0.9757 / total_loss : 1.1095 /  
+.....................
+EPOCH: 417
+Train: rec_loss : 1.0049 / kl_loss : 0.9809 / total_loss : 1.1029 /  
+DEV: rec_loss : 1.0061 / kl_loss : 0.959 / total_loss : 1.102 /  
+.....................
+EPOCH: 418
+Train: rec_loss : 1.006 / kl_loss : 0.9763 / total_loss : 1.1037 /  
+DEV: rec_loss : 1.0065 / kl_loss : 0.9716 / total_loss : 1.1037 /  
+.....................
+EPOCH: 419
+Train: rec_loss : 1.0107 / kl_loss : 0.9882 / total_loss : 1.1095 /  
+DEV: rec_loss : 1.0221 / kl_loss : 0.9923 / total_loss : 1.1213 /  
+.....................
+EPOCH: 420
+Train: rec_loss : 1.0014 / kl_loss : 0.9723 / total_loss : 1.0986 /  
+DEV: rec_loss : 1.0132 / kl_loss : 0.9575 / total_loss : 1.109 /  
+.....................
+EPOCH: 421
+Train: rec_loss : 1.0071 / kl_loss : 0.9744 / total_loss : 1.1045 /  
+DEV: rec_loss : 1.0387 / kl_loss : 0.9757 / total_loss : 1.1363 /  
+.....................
+EPOCH: 422
+Train: rec_loss : 1.0044 / kl_loss : 0.9854 / total_loss : 1.1029 /  
+DEV: rec_loss : 1.0307 / kl_loss : 0.9827 / total_loss : 1.129 /  
+.....................
+EPOCH: 423
+Train: rec_loss : 1.0057 / kl_loss : 0.9873 / total_loss : 1.1044 /  
+DEV: rec_loss : 1.0356 / kl_loss : 0.9658 / total_loss : 1.1322 /  
+.....................
+EPOCH: 424
+Train: rec_loss : 1.0095 / kl_loss : 0.9826 / total_loss : 1.1078 /  
+DEV: rec_loss : 0.9924 / kl_loss : 0.9714 / total_loss : 1.0896 /  
+.....................
+EPOCH: 425
+Train: rec_loss : 1.0041 / kl_loss : 0.9879 / total_loss : 1.1029 /  
+DEV: rec_loss : 1.0066 / kl_loss : 0.956 / total_loss : 1.1022 /  
+.....................
+EPOCH: 426
+Train: rec_loss : 0.9991 / kl_loss : 0.9684 / total_loss : 1.0959 /  
+DEV: rec_loss : 1.022 / kl_loss : 0.972 / total_loss : 1.1192 /  
+.....................
+EPOCH: 427
+Train: rec_loss : 1.0054 / kl_loss : 0.9797 / total_loss : 1.1034 /  
+DEV: rec_loss : 1.0182 / kl_loss : 0.9869 / total_loss : 1.1169 /  
+.....................
+EPOCH: 428
+Train: rec_loss : 1.008 / kl_loss : 0.9881 / total_loss : 1.1068 /  
+DEV: rec_loss : 1.0109 / kl_loss : 0.9628 / total_loss : 1.1072 /  
+.....................
+EPOCH: 429
+Train: rec_loss : 1.0033 / kl_loss : 0.9761 / total_loss : 1.1009 /  
+DEV: rec_loss : 1.0042 / kl_loss : 0.9662 / total_loss : 1.1009 /  
+.....................
+EPOCH: 430
+Train: rec_loss : 1.0115 / kl_loss : 0.9858 / total_loss : 1.1101 /  
+DEV: rec_loss : 1.0305 / kl_loss : 0.9823 / total_loss : 1.1287 /  
+.....................
+EPOCH: 431
+Train: rec_loss : 1.0076 / kl_loss : 0.9928 / total_loss : 1.1069 /  
+DEV: rec_loss : 1.0003 / kl_loss : 0.9398 / total_loss : 1.0942 /  
+.....................
+EPOCH: 432
+Train: rec_loss : 1.0149 / kl_loss : 0.995 / total_loss : 1.1144 /  
+DEV: rec_loss : 1.0244 / kl_loss : 0.9715 / total_loss : 1.1216 /  
+.....................
+EPOCH: 433
+Train: rec_loss : 1.003 / kl_loss : 0.9837 / total_loss : 1.1014 /  
+DEV: rec_loss : 1.0385 / kl_loss : 0.9805 / total_loss : 1.1366 /  
+.....................
+EPOCH: 434
+Train: rec_loss : 1.0095 / kl_loss : 0.9892 / total_loss : 1.1084 /  
+DEV: rec_loss : 1.0187 / kl_loss : 0.9764 / total_loss : 1.1163 /  
+.....................
+EPOCH: 435
+Train: rec_loss : 1.0069 / kl_loss : 0.9928 / total_loss : 1.1062 /  
+DEV: rec_loss : 1.0092 / kl_loss : 0.9668 / total_loss : 1.1059 /  
+.....................
+EPOCH: 436
+Train: rec_loss : 1.0005 / kl_loss : 0.979 / total_loss : 1.0984 /  
+DEV: rec_loss : 1.0097 / kl_loss : 0.9665 / total_loss : 1.1063 /  
+.....................
+EPOCH: 437
+Train: rec_loss : 1.0029 / kl_loss : 0.9824 / total_loss : 1.1011 /  
+DEV: rec_loss : 1.0139 / kl_loss : 0.96 / total_loss : 1.1099 /  
+.....................
+EPOCH: 438
+Train: rec_loss : 1.0099 / kl_loss : 0.9855 / total_loss : 1.1084 /  
+DEV: rec_loss : 0.994 / kl_loss : 0.9455 / total_loss : 1.0885 /  
+.....................
+EPOCH: 439
+Train: rec_loss : 1.0123 / kl_loss : 0.9782 / total_loss : 1.1101 /  
+DEV: rec_loss : 1.0286 / kl_loss : 0.9797 / total_loss : 1.1265 /  
+.....................
+EPOCH: 440
+Train: rec_loss : 1.0096 / kl_loss : 0.988 / total_loss : 1.1084 /  
+DEV: rec_loss : 1.0074 / kl_loss : 0.9777 / total_loss : 1.1052 /  
+.....................
+EPOCH: 441
+Train: rec_loss : 1.004 / kl_loss : 0.9848 / total_loss : 1.1025 /  
+DEV: rec_loss : 1.0282 / kl_loss : 0.9992 / total_loss : 1.1281 /  
+.....................
+EPOCH: 442
+Train: rec_loss : 1.0076 / kl_loss : 0.9952 / total_loss : 1.1071 /  
+DEV: rec_loss : 1.0038 / kl_loss : 0.9468 / total_loss : 1.0985 /  
+.....................
+EPOCH: 443
+Train: rec_loss : 1.0121 / kl_loss : 0.9951 / total_loss : 1.1116 /  
+DEV: rec_loss : 1.0158 / kl_loss : 0.9986 / total_loss : 1.1156 /  
+.....................
+EPOCH: 444
+Train: rec_loss : 1.0025 / kl_loss : 0.9916 / total_loss : 1.1017 /  
+DEV: rec_loss : 1.007 / kl_loss : 0.9565 / total_loss : 1.1027 /  
+.....................
+EPOCH: 445
+Train: rec_loss : 1.0072 / kl_loss : 0.9756 / total_loss : 1.1048 /  
+DEV: rec_loss : 1.0329 / kl_loss : 0.9729 / total_loss : 1.1302 /  
+.....................
+EPOCH: 446
+Train: rec_loss : 1.0072 / kl_loss : 0.9866 / total_loss : 1.1058 /  
+DEV: rec_loss : 1.0196 / kl_loss : 0.9875 / total_loss : 1.1183 /  
+.....................
+EPOCH: 447
+Train: rec_loss : 1.0041 / kl_loss : 0.9896 / total_loss : 1.103 /  
+DEV: rec_loss : 1.0202 / kl_loss : 0.9529 / total_loss : 1.1155 /  
+.....................
+EPOCH: 448
+Train: rec_loss : 1.008 / kl_loss : 0.9801 / total_loss : 1.106 /  
+DEV: rec_loss : 1.0027 / kl_loss : 0.9571 / total_loss : 1.0984 /  
+.....................
+EPOCH: 449
+Train: rec_loss : 1.0095 / kl_loss : 0.9924 / total_loss : 1.1087 /  
+DEV: rec_loss : 1.0145 / kl_loss : 0.9724 / total_loss : 1.1118 /  
+.....................
+EPOCH: 450
+Train: rec_loss : 1.0074 / kl_loss : 0.9782 / total_loss : 1.1052 /  
+DEV: rec_loss : 1.0142 / kl_loss : 0.9863 / total_loss : 1.1128 /  
+.....................
+EPOCH: 451
+Train: rec_loss : 1.0077 / kl_loss : 0.9866 / total_loss : 1.1063 /  
+DEV: rec_loss : 1.0254 / kl_loss : 0.9889 / total_loss : 1.1243 /  
+.....................
+EPOCH: 452
+Train: rec_loss : 1.0109 / kl_loss : 1.0061 / total_loss : 1.1115 /  
+DEV: rec_loss : 1.0108 / kl_loss : 0.9595 / total_loss : 1.1068 /  
+.....................
+EPOCH: 453
+Train: rec_loss : 1.0097 / kl_loss : 0.9811 / total_loss : 1.1078 /  
+DEV: rec_loss : 1.0183 / kl_loss : 0.9638 / total_loss : 1.1147 /  
+.....................
+EPOCH: 454
+Train: rec_loss : 1.0054 / kl_loss : 1.0007 / total_loss : 1.1054 /  
+DEV: rec_loss : 1.0165 / kl_loss : 1.0027 / total_loss : 1.1167 /  
+.....................
+EPOCH: 455
+Train: rec_loss : 1.0061 / kl_loss : 0.9913 / total_loss : 1.1052 /  
+DEV: rec_loss : 1.0262 / kl_loss : 0.9761 / total_loss : 1.1238 /  
+.....................
+EPOCH: 456
+Train: rec_loss : 1.0067 / kl_loss : 0.981 / total_loss : 1.1048 /  
+DEV: rec_loss : 0.9904 / kl_loss : 0.9395 / total_loss : 1.0844 /  
+.....................
+EPOCH: 457
+Train: rec_loss : 1.0061 / kl_loss : 0.9901 / total_loss : 1.1051 /  
+DEV: rec_loss : 1.012 / kl_loss : 1.0013 / total_loss : 1.1121 /  
+.....................
+EPOCH: 458
+Train: rec_loss : 1.0163 / kl_loss : 1.0008 / total_loss : 1.1164 /  
+DEV: rec_loss : 1.0099 / kl_loss : 0.9937 / total_loss : 1.1093 /  
+.....................
+EPOCH: 459
+Train: rec_loss : 1.0042 / kl_loss : 0.9855 / total_loss : 1.1028 /  
+DEV: rec_loss : 1.0179 / kl_loss : 0.9847 / total_loss : 1.1164 /  
+.....................
+EPOCH: 460
+Train: rec_loss : 1.0041 / kl_loss : 0.9908 / total_loss : 1.1032 /  
+DEV: rec_loss : 1.0199 / kl_loss : 0.9942 / total_loss : 1.1194 /  
+.....................
+EPOCH: 461
+Train: rec_loss : 1.0 / kl_loss : 0.9788 / total_loss : 1.0978 /  
+DEV: rec_loss : 1.0156 / kl_loss : 0.9871 / total_loss : 1.1143 /  
+.....................
+EPOCH: 462
+Train: rec_loss : 0.9982 / kl_loss : 0.9815 / total_loss : 1.0964 /  
+DEV: rec_loss : 1.0275 / kl_loss : 0.9739 / total_loss : 1.1248 /  
+.....................
+EPOCH: 463
+Train: rec_loss : 0.9951 / kl_loss : 0.9714 / total_loss : 1.0922 /  
+DEV: rec_loss : 1.0073 / kl_loss : 0.9817 / total_loss : 1.1054 /  
+.....................
+EPOCH: 464
+Train: rec_loss : 1.0016 / kl_loss : 0.9787 / total_loss : 1.0995 /  
+DEV: rec_loss : 1.0167 / kl_loss : 0.9754 / total_loss : 1.1142 /  
+.....................
+EPOCH: 465
+Train: rec_loss : 1.0067 / kl_loss : 0.9987 / total_loss : 1.1066 /  
+DEV: rec_loss : 1.0115 / kl_loss : 0.9768 / total_loss : 1.1092 /  
+.....................
+EPOCH: 466
+Train: rec_loss : 1.0089 / kl_loss : 1.0006 / total_loss : 1.109 /  
+DEV: rec_loss : 1.0175 / kl_loss : 0.9619 / total_loss : 1.1136 /  
+.....................
+EPOCH: 467
+Train: rec_loss : 1.0101 / kl_loss : 0.9963 / total_loss : 1.1098 /  
+DEV: rec_loss : 1.0166 / kl_loss : 0.9913 / total_loss : 1.1157 /  
+.....................
+EPOCH: 468
+Train: rec_loss : 0.9975 / kl_loss : 1.005 / total_loss : 1.098 /  
+DEV: rec_loss : 1.0167 / kl_loss : 0.9981 / total_loss : 1.1165 /  
+.....................
+EPOCH: 469
+Train: rec_loss : 1.0117 / kl_loss : 0.9929 / total_loss : 1.111 /  
+DEV: rec_loss : 1.015 / kl_loss : 0.9745 / total_loss : 1.1125 /  
+.....................
+EPOCH: 470
+Train: rec_loss : 0.9954 / kl_loss : 0.9822 / total_loss : 1.0936 /  
+DEV: rec_loss : 1.0138 / kl_loss : 1.0062 / total_loss : 1.1145 /  
+.....................
+EPOCH: 471
+Train: rec_loss : 1.0169 / kl_loss : 1.004 / total_loss : 1.1173 /  
+DEV: rec_loss : 1.0197 / kl_loss : 0.9946 / total_loss : 1.1192 /  
+.....................
+EPOCH: 472
+Train: rec_loss : 1.0114 / kl_loss : 0.9987 / total_loss : 1.1113 /  
+DEV: rec_loss : 1.0222 / kl_loss : 0.9786 / total_loss : 1.12 /  
+.....................
+EPOCH: 473
+Train: rec_loss : 1.0148 / kl_loss : 0.9841 / total_loss : 1.1132 /  
+DEV: rec_loss : 1.0218 / kl_loss : 0.9901 / total_loss : 1.1209 /  
+.....................
+EPOCH: 474
+Train: rec_loss : 1.0001 / kl_loss : 0.9895 / total_loss : 1.0991 /  
+DEV: rec_loss : 0.9943 / kl_loss : 0.9886 / total_loss : 1.0932 /  
+.....................
+EPOCH: 475
+Train: rec_loss : 1.0079 / kl_loss : 1.0014 / total_loss : 1.108 /  
+DEV: rec_loss : 1.0201 / kl_loss : 0.9968 / total_loss : 1.1198 /  
+.....................
+EPOCH: 476
+Train: rec_loss : 1.0025 / kl_loss : 0.9785 / total_loss : 1.1003 /  
+DEV: rec_loss : 1.0076 / kl_loss : 0.9776 / total_loss : 1.1054 /  
+.....................
+EPOCH: 477
+Train: rec_loss : 1.0004 / kl_loss : 0.9848 / total_loss : 1.0989 /  
+DEV: rec_loss : 1.0228 / kl_loss : 0.9935 / total_loss : 1.1222 /  
+.....................
+EPOCH: 478
+Train: rec_loss : 1.0125 / kl_loss : 1.0064 / total_loss : 1.1132 /  
+DEV: rec_loss : 1.0181 / kl_loss : 0.9768 / total_loss : 1.1158 /  
+.....................
+EPOCH: 479
+Train: rec_loss : 1.0054 / kl_loss : 0.9849 / total_loss : 1.1039 /  
+DEV: rec_loss : 1.0156 / kl_loss : 0.9679 / total_loss : 1.1124 /  
+.....................
+EPOCH: 480
+Train: rec_loss : 1.005 / kl_loss : 0.987 / total_loss : 1.1037 /  
+DEV: rec_loss : 1.0108 / kl_loss : 0.9699 / total_loss : 1.1078 /  
+.....................
+EPOCH: 481
+Train: rec_loss : 1.0022 / kl_loss : 0.9747 / total_loss : 1.0997 /  
+DEV: rec_loss : 1.0272 / kl_loss : 0.9442 / total_loss : 1.1216 /  
+.....................
+EPOCH: 482
+Train: rec_loss : 1.0045 / kl_loss : 0.9826 / total_loss : 1.1027 /  
+DEV: rec_loss : 1.0296 / kl_loss : 0.9872 / total_loss : 1.1284 /  
+.....................
+EPOCH: 483
+Train: rec_loss : 1.0076 / kl_loss : 0.9955 / total_loss : 1.1072 /  
+DEV: rec_loss : 1.0058 / kl_loss : 0.9673 / total_loss : 1.1025 /  
+.....................
+EPOCH: 484
+Train: rec_loss : 1.0057 / kl_loss : 1.0001 / total_loss : 1.1057 /  
+DEV: rec_loss : 1.0138 / kl_loss : 0.9403 / total_loss : 1.1078 /  
+.....................
+EPOCH: 485
+Train: rec_loss : 1.0066 / kl_loss : 0.9998 / total_loss : 1.1066 /  
+DEV: rec_loss : 1.0339 / kl_loss : 1.0102 / total_loss : 1.1349 /  
+.....................
+EPOCH: 486
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Train: rec_loss : 1.0081 / kl_loss : 1.0116 / total_loss : 1.1093 /  
+DEV: rec_loss : 1.0153 / kl_loss : 0.9985 / total_loss : 1.1152 /  
+.....................
+EPOCH: 490
+Train: rec_loss : 1.0073 / kl_loss : 0.998 / total_loss : 1.1071 /  
+DEV: rec_loss : 1.02 / kl_loss : 0.9863 / total_loss : 1.1186 /  
+.....................
+EPOCH: 491
+Train: rec_loss : 1.0103 / kl_loss : 1.0021 / total_loss : 1.1105 /  
+DEV: rec_loss : 1.0402 / kl_loss : 0.9702 / total_loss : 1.1373 /  
+.....................
+EPOCH: 492
+Train: rec_loss : 1.0045 / kl_loss : 0.9941 / total_loss : 1.1039 /  
+DEV: rec_loss : 0.9985 / kl_loss : 0.9744 / total_loss : 1.096 /  
+.....................
+EPOCH: 493
+Train: rec_loss : 1.0121 / kl_loss : 1.0026 / total_loss : 1.1123 /  
+DEV: rec_loss : 1.027 / kl_loss : 0.9798 / total_loss : 1.125 /  
+.....................
+EPOCH: 494
+Train: rec_loss : 1.0146 / kl_loss : 0.9947 / total_loss : 1.114 /  
+DEV: rec_loss : 1.0088 / kl_loss : 0.9735 / total_loss : 1.1061 /  
+.....................
+EPOCH: 495
+Train: rec_loss : 0.993 / kl_loss : 0.9743 / total_loss : 1.0904 /  
+DEV: rec_loss : 1.027 / kl_loss : 0.9751 / total_loss : 1.1245 /  
+.....................
+EPOCH: 496
+Train: rec_loss : 1.0027 / kl_loss : 0.9846 / total_loss : 1.1011 /  
+DEV: rec_loss : 1.0264 / kl_loss : 0.9541 / total_loss : 1.1219 /  
+.....................
+EPOCH: 497
+Train: rec_loss : 1.0065 / kl_loss : 0.9991 / total_loss : 1.1064 /  
+DEV: rec_loss : 0.9951 / kl_loss : 0.9467 / total_loss : 1.0898 /  
+.....................
+EPOCH: 498
+Train: rec_loss : 1.0024 / kl_loss : 0.9795 / total_loss : 1.1003 /  
+DEV: rec_loss : 1.0069 / kl_loss : 0.9604 / total_loss : 1.103 /  
+.....................
+EPOCH: 499
+Train: rec_loss : 1.0067 / kl_loss : 0.9811 / total_loss : 1.1048 /  
+DEV: rec_loss : 1.0203 / kl_loss : 0.9853 / total_loss : 1.1188 /  
+.....................
+EPOCH: 500
+Train: rec_loss : 0.9931 / kl_loss : 0.9895 / total_loss : 1.092 /  
+DEV: rec_loss : 0.9891 / kl_loss : 0.9665 / total_loss : 1.0857 /  
+.....................
+EPOCH: 501
+Train: rec_loss : 0.9981 / kl_loss : 0.9844 / total_loss : 1.0965 /  
+DEV: rec_loss : 1.0174 / kl_loss : 0.977 / total_loss : 1.1151 /  
+.....................
+EPOCH: 502
+Train: rec_loss : 1.0089 / kl_loss : 0.9929 / total_loss : 1.1082 /  
+DEV: rec_loss : 1.0137 / kl_loss : 0.9762 / total_loss : 1.1113 /  
+.....................
+EPOCH: 503
+Train: rec_loss : 1.0056 / kl_loss : 0.9998 / total_loss : 1.1056 /  
+DEV: rec_loss : 1.0204 / kl_loss : 0.9876 / total_loss : 1.1191 /  
+.....................
+EPOCH: 504
+Train: rec_loss : 1.0003 / kl_loss : 0.9877 / total_loss : 1.0991 /  
+DEV: rec_loss : 1.0203 / kl_loss : 0.9975 / total_loss : 1.1201 /  
+.....................
+EPOCH: 505
+Train: rec_loss : 1.0016 / kl_loss : 0.9906 / total_loss : 1.1007 /  
+DEV: rec_loss : 1.0223 / kl_loss : 0.9913 / total_loss : 1.1214 /  
+.....................
+EPOCH: 506
+Train: rec_loss : 1.0037 / kl_loss : 0.9968 / total_loss : 1.1034 /  
+DEV: rec_loss : 1.0036 / kl_loss : 1.009 / total_loss : 1.1045 /  
+.....................
+EPOCH: 507
+Train: rec_loss : 1.0067 / kl_loss : 1.0063 / total_loss : 1.1073 /  
+DEV: rec_loss : 1.025 / kl_loss : 0.9791 / total_loss : 1.1229 /  
+.....................
+EPOCH: 508
+Train: rec_loss : 1.005 / kl_loss : 0.9969 / total_loss : 1.1047 /  
+DEV: rec_loss : 1.008 / kl_loss : 0.9628 / total_loss : 1.1042 /  
+.....................
+EPOCH: 509
+Train: rec_loss : 0.9989 / kl_loss : 0.9875 / total_loss : 1.0976 /  
+DEV: rec_loss : 1.0148 / kl_loss : 0.9902 / total_loss : 1.1138 /  
+.....................
+EPOCH: 510
+Train: rec_loss : 1.0095 / kl_loss : 0.9941 / total_loss : 1.1089 /  
+DEV: rec_loss : 1.0349 / kl_loss : 0.9842 / total_loss : 1.1333 /  
+.....................
+EPOCH: 511
+Train: rec_loss : 1.0047 / kl_loss : 0.9849 / total_loss : 1.1032 /  
+DEV: rec_loss : 1.0256 / kl_loss : 0.9843 / total_loss : 1.124 /  
+.....................
+EPOCH: 512
+Train: rec_loss : 1.0062 / kl_loss : 0.9907 / total_loss : 1.1053 /  
+DEV: rec_loss : 0.9898 / kl_loss : 0.9861 / total_loss : 1.0884 /  
+.....................
+EPOCH: 513
+Train: rec_loss : 1.0043 / kl_loss : 0.9951 / total_loss : 1.1038 /  
+DEV: rec_loss : 1.0261 / kl_loss : 0.9811 / total_loss : 1.1242 /  
+.....................
+EPOCH: 514
+Train: rec_loss : 1.0073 / kl_loss : 1.009 / total_loss : 1.1082 /  
+DEV: rec_loss : 1.008 / kl_loss : 0.9607 / total_loss : 1.104 /  
+.....................
+EPOCH: 515
+Train: rec_loss : 1.0118 / kl_loss : 1.0032 / total_loss : 1.1121 /  
+DEV: rec_loss : 1.0259 / kl_loss : 1.0044 / total_loss : 1.1263 /  
+.....................
+EPOCH: 516
+Train: rec_loss : 1.0048 / kl_loss : 1.0026 / total_loss : 1.1051 /  
+DEV: rec_loss : 1.0133 / kl_loss : 0.9823 / total_loss : 1.1115 /  
+.....................
+EPOCH: 517
+Train: rec_loss : 0.9984 / kl_loss : 0.9883 / total_loss : 1.0972 /  
+DEV: rec_loss : 1.0118 / kl_loss : 1.0039 / total_loss : 1.1122 /  
+.....................
+EPOCH: 518
+Train: rec_loss : 0.9952 / kl_loss : 1.0058 / total_loss : 1.0958 /  
+DEV: rec_loss : 1.0157 / kl_loss : 0.9888 / total_loss : 1.1146 /  
+.....................
+EPOCH: 519
+Train: rec_loss : 1.0057 / kl_loss : 0.9943 / total_loss : 1.1051 /  
+DEV: rec_loss : 1.0086 / kl_loss : 0.9725 / total_loss : 1.1059 /  
+.....................
+EPOCH: 520
+Train: rec_loss : 0.9987 / kl_loss : 0.9747 / total_loss : 1.0962 /  
+DEV: rec_loss : 1.0238 / kl_loss : 0.999 / total_loss : 1.1237 /  
+.....................
+EPOCH: 521
+Train: rec_loss : 1.0074 / kl_loss : 0.9984 / total_loss : 1.1073 /  
+DEV: rec_loss : 1.0164 / kl_loss : 0.9979 / total_loss : 1.1162 /  
+.....................
+EPOCH: 522
+Train: rec_loss : 0.9983 / kl_loss : 0.9943 / total_loss : 1.0977 /  
+DEV: rec_loss : 1.0196 / kl_loss : 0.9985 / total_loss : 1.1195 /  
+.....................
+EPOCH: 523
+Train: rec_loss : 1.0087 / kl_loss : 1.004 / total_loss : 1.1091 /  
+DEV: rec_loss : 1.0273 / kl_loss : 0.9822 / total_loss : 1.1255 /  
+.....................
+EPOCH: 524
+Train: rec_loss : 0.9968 / kl_loss : 0.9886 / total_loss : 1.0956 /  
+DEV: rec_loss : 1.0136 / kl_loss : 0.9666 / total_loss : 1.1103 /  
+.....................
+EPOCH: 525
+Train: rec_loss : 1.0084 / kl_loss : 0.9934 / total_loss : 1.1078 /  
+DEV: rec_loss : 1.0194 / kl_loss : 0.9914 / total_loss : 1.1185 /  
+.....................
+EPOCH: 526
+Train: rec_loss : 0.9944 / kl_loss : 0.9889 / total_loss : 1.0933 /  
+DEV: rec_loss : 1.0214 / kl_loss : 0.9588 / total_loss : 1.1172 /  
+.....................
+EPOCH: 527
+Train: rec_loss : 1.0113 / kl_loss : 1.0064 / total_loss : 1.1119 /  
+DEV: rec_loss : 1.0183 / kl_loss : 0.9792 / total_loss : 1.1162 /  
+.....................
+EPOCH: 528
+Train: rec_loss : 0.9984 / kl_loss : 1.0021 / total_loss : 1.0986 /  
+DEV: rec_loss : 1.001 / kl_loss : 0.9844 / total_loss : 1.0994 /  
+.....................
+EPOCH: 529
+Train: rec_loss : 1.0067 / kl_loss : 1.0072 / total_loss : 1.1074 /  
+DEV: rec_loss : 1.0226 / kl_loss : 0.9965 / total_loss : 1.1223 /  
+.....................
+EPOCH: 530
+Train: rec_loss : 1.0008 / kl_loss : 0.9932 / total_loss : 1.1001 /  
+DEV: rec_loss : 1.0318 / kl_loss : 0.9654 / total_loss : 1.1284 /  
+.....................
+EPOCH: 531
+Train: rec_loss : 0.9942 / kl_loss : 0.9875 / total_loss : 1.0929 /  
+DEV: rec_loss : 1.0204 / kl_loss : 0.9588 / total_loss : 1.1163 /  
+.....................
+EPOCH: 532
+Train: rec_loss : 1.004 / kl_loss : 0.9968 / total_loss : 1.1037 /  
+DEV: rec_loss : 1.0271 / kl_loss : 0.9858 / total_loss : 1.1257 /  
+.....................
+EPOCH: 533
+Train: rec_loss : 0.9974 / kl_loss : 1.0051 / total_loss : 1.0979 /  
+DEV: rec_loss : 1.0176 / kl_loss : 0.9857 / total_loss : 1.1161 /  
+.....................
+EPOCH: 534
+Train: rec_loss : 1.0046 / kl_loss : 0.9994 / total_loss : 1.1045 /  
+DEV: rec_loss : 1.0149 / kl_loss : 0.9893 / total_loss : 1.1138 /  
+.....................
+EPOCH: 535
+Train: rec_loss : 1.0131 / kl_loss : 1.0063 / total_loss : 1.1138 /  
+DEV: rec_loss : 0.9972 / kl_loss : 0.9504 / total_loss : 1.0922 /  
+.....................
+EPOCH: 536
+Train: rec_loss : 0.9968 / kl_loss : 0.995 / total_loss : 1.0963 /  
+DEV: rec_loss : 0.9938 / kl_loss : 0.9772 / total_loss : 1.0915 /  
+.....................
+EPOCH: 537
+Train: rec_loss : 1.0027 / kl_loss : 1.0037 / total_loss : 1.1031 /  
+DEV: rec_loss : 1.0291 / kl_loss : 1.0053 / total_loss : 1.1296 /  
+.....................
+EPOCH: 538
+Train: rec_loss : 1.0039 / kl_loss : 1.0035 / total_loss : 1.1043 /  
+DEV: rec_loss : 1.0083 / kl_loss : 0.9906 / total_loss : 1.1073 /  
+.....................
+EPOCH: 539
+Train: rec_loss : 0.992 / kl_loss : 0.9935 / total_loss : 1.0913 /  
+DEV: rec_loss : 1.0221 / kl_loss : 0.9973 / total_loss : 1.1219 /  
+.....................
+EPOCH: 540
+Train: rec_loss : 0.9983 / kl_loss : 0.9984 / total_loss : 1.0982 /  
+DEV: rec_loss : 1.0134 / kl_loss : 1.0025 / total_loss : 1.1137 /  
+.....................
+EPOCH: 541
+Train: rec_loss : 1.0012 / kl_loss : 0.9974 / total_loss : 1.101 /  
+DEV: rec_loss : 1.0063 / kl_loss : 0.9864 / total_loss : 1.1049 /  
+.....................
+EPOCH: 542
+Train: rec_loss : 0.9984 / kl_loss : 1.0123 / total_loss : 1.0996 /  
+DEV: rec_loss : 1.0089 / kl_loss : 0.9951 / total_loss : 1.1084 /  
+.....................
+EPOCH: 543
+Train: rec_loss : 1.0006 / kl_loss : 0.9933 / total_loss : 1.0999 /  
+DEV: rec_loss : 1.0175 / kl_loss : 1.0168 / total_loss : 1.1191 /  
+.....................
+EPOCH: 544
+Train: rec_loss : 1.0003 / kl_loss : 0.9971 / total_loss : 1.1 /  
+DEV: rec_loss : 1.0201 / kl_loss : 0.9803 / total_loss : 1.1182 /  
+.....................
+EPOCH: 545
+Train: rec_loss : 1.009 / kl_loss : 0.9947 / total_loss : 1.1084 /  
+DEV: rec_loss : 0.9961 / kl_loss : 0.9844 / total_loss : 1.0945 /  
+.....................
+EPOCH: 546
+Train: rec_loss : 1.0004 / kl_loss : 1.0008 / total_loss : 1.1004 /  
+DEV: rec_loss : 1.0195 / kl_loss : 0.9958 / total_loss : 1.1191 /  
+.....................
+EPOCH: 547
+Train: rec_loss : 1.0025 / kl_loss : 1.0053 / total_loss : 1.103 /  
+DEV: rec_loss : 1.004 / kl_loss : 0.9924 / total_loss : 1.1033 /  
+.....................
+EPOCH: 548
+Train: rec_loss : 0.9968 / kl_loss : 0.9776 / total_loss : 1.0946 /  
+DEV: rec_loss : 1.0081 / kl_loss : 0.9793 / total_loss : 1.106 /  
+.....................
+EPOCH: 549
+Train: rec_loss : 1.0043 / kl_loss : 0.9964 / total_loss : 1.104 /  
+DEV: rec_loss : 0.9921 / kl_loss : 0.9857 / total_loss : 1.0907 /  
+.....................
+EPOCH: 550
+Train: rec_loss : 0.9909 / kl_loss : 0.9936 / total_loss : 1.0903 /  
+DEV: rec_loss : 1.0043 / kl_loss : 0.9706 / total_loss : 1.1014 /  
+.....................
+EPOCH: 551
+Train: rec_loss : 1.0021 / kl_loss : 1.0182 / total_loss : 1.1039 /  
+DEV: rec_loss : 1.0069 / kl_loss : 0.9945 / total_loss : 1.1063 /  
+.....................
+EPOCH: 552
+Train: rec_loss : 0.9987 / kl_loss : 0.993 / total_loss : 1.098 /  
+DEV: rec_loss : 0.9903 / kl_loss : 0.9763 / total_loss : 1.0879 /  
+.....................
+EPOCH: 553
+Train: rec_loss : 1.0107 / kl_loss : 0.9952 / total_loss : 1.1102 /  
+DEV: rec_loss : 0.9995 / kl_loss : 0.9721 / total_loss : 1.0967 /  
+.....................
+EPOCH: 554
+Train: rec_loss : 0.9879 / kl_loss : 0.982 / total_loss : 1.0861 /  
+DEV: rec_loss : 1.0225 / kl_loss : 0.9924 / total_loss : 1.1217 /  
+.....................
+EPOCH: 555
+Train: rec_loss : 0.999 / kl_loss : 1.0051 / total_loss : 1.0995 /  
+DEV: rec_loss : 1.0037 / kl_loss : 0.9819 / total_loss : 1.1019 /  
+.....................
+EPOCH: 556
+Train: rec_loss : 0.9987 / kl_loss : 1.0093 / total_loss : 1.0996 /  
+DEV: rec_loss : 1.0007 / kl_loss : 0.9747 / total_loss : 1.0982 /  
+.....................
+EPOCH: 557
+Train: rec_loss : 0.998 / kl_loss : 0.9879 / total_loss : 1.0967 /  
+DEV: rec_loss : 0.9972 / kl_loss : 0.9559 / total_loss : 1.0927 /  
+.....................
+EPOCH: 558
+Train: rec_loss : 1.0051 / kl_loss : 0.9988 / total_loss : 1.105 /  
+DEV: rec_loss : 1.0081 / kl_loss : 0.9786 / total_loss : 1.106 /  
+.....................
+EPOCH: 559
+Train: rec_loss : 0.9966 / kl_loss : 0.9956 / total_loss : 1.0962 /  
+DEV: rec_loss : 1.0123 / kl_loss : 0.9861 / total_loss : 1.1109 /  
+.....................
+EPOCH: 560
+Train: rec_loss : 0.9978 / kl_loss : 0.9915 / total_loss : 1.097 /  
+DEV: rec_loss : 1.0242 / kl_loss : 1.0087 / total_loss : 1.125 /  
+.....................
+EPOCH: 561
+Train: rec_loss : 0.9976 / kl_loss : 0.9981 / total_loss : 1.0974 /  
+DEV: rec_loss : 1.0304 / kl_loss : 0.986 / total_loss : 1.1289 /  
+.....................
+EPOCH: 562
+Train: rec_loss : 1.0085 / kl_loss : 1.001 / total_loss : 1.1086 /  
+DEV: rec_loss : 1.0099 / kl_loss : 0.9913 / total_loss : 1.1091 /  
+.....................
+EPOCH: 563
+Train: rec_loss : 1.0043 / kl_loss : 0.995 / total_loss : 1.1038 /  
+DEV: rec_loss : 1.0267 / kl_loss : 0.9847 / total_loss : 1.1252 /  
+.....................
+EPOCH: 564
+Train: rec_loss : 1.0066 / kl_loss : 1.0041 / total_loss : 1.107 /  
+DEV: rec_loss : 0.9936 / kl_loss : 1.0137 / total_loss : 1.095 /  
+.....................
+EPOCH: 565
+Train: rec_loss : 1.0068 / kl_loss : 1.0185 / total_loss : 1.1086 /  
+DEV: rec_loss : 1.0173 / kl_loss : 1.0039 / total_loss : 1.1177 /  
+.....................
+EPOCH: 566
+Train: rec_loss : 0.991 / kl_loss : 0.9817 / total_loss : 1.0892 /  
+DEV: rec_loss : 1.0255 / kl_loss : 0.9856 / total_loss : 1.124 /  
+.....................
+EPOCH: 567
+Train: rec_loss : 1.0048 / kl_loss : 1.0056 / total_loss : 1.1054 /  
+DEV: rec_loss : 1.0148 / kl_loss : 1.0079 / total_loss : 1.1156 /  
+.....................
+EPOCH: 568
+Train: rec_loss : 1.003 / kl_loss : 1.0009 / total_loss : 1.1031 /  
+DEV: rec_loss : 1.009 / kl_loss : 0.9853 / total_loss : 1.1076 /  
+.....................
+EPOCH: 569
+Train: rec_loss : 1.0027 / kl_loss : 0.9901 / total_loss : 1.1017 /  
+DEV: rec_loss : 1.0256 / kl_loss : 0.9932 / total_loss : 1.125 /  
+.....................
+EPOCH: 570
+Train: rec_loss : 1.0066 / kl_loss : 1.0223 / total_loss : 1.1088 /  
+DEV: rec_loss : 1.0329 / kl_loss : 1.0047 / total_loss : 1.1334 /  
+.....................
+EPOCH: 571
+Train: rec_loss : 1.0028 / kl_loss : 0.9942 / total_loss : 1.1022 /  
+DEV: rec_loss : 1.0176 / kl_loss : 1.0056 / total_loss : 1.1182 /  
+.....................
+EPOCH: 572
+Train: rec_loss : 1.0055 / kl_loss : 1.0058 / total_loss : 1.106 /  
+DEV: rec_loss : 1.0149 / kl_loss : 0.975 / total_loss : 1.1124 /  
+.....................
+EPOCH: 573
+Train: rec_loss : 1.0068 / kl_loss : 1.0066 / total_loss : 1.1075 /  
+DEV: rec_loss : 1.0007 / kl_loss : 0.9875 / total_loss : 1.0995 /  
+.....................
+EPOCH: 574
+Train: rec_loss : 0.9998 / kl_loss : 0.9921 / total_loss : 1.099 /  
+DEV: rec_loss : 1.0337 / kl_loss : 0.9751 / total_loss : 1.1312 /  
+.....................
+EPOCH: 575
+Train: rec_loss : 0.9962 / kl_loss : 1.0031 / total_loss : 1.0965 /  
+DEV: rec_loss : 1.0046 / kl_loss : 1.001 / total_loss : 1.1046 /  
+.....................
+EPOCH: 576
+Train: rec_loss : 1.007 / kl_loss : 0.9921 / total_loss : 1.1062 /  
+DEV: rec_loss : 1.0196 / kl_loss : 0.9898 / total_loss : 1.1185 /  
+.....................
+EPOCH: 577
+Train: rec_loss : 1.0023 / kl_loss : 0.9953 / total_loss : 1.1019 /  
+DEV: rec_loss : 1.0007 / kl_loss : 0.9908 / total_loss : 1.0998 /  
+.....................
+EPOCH: 578
+Train: rec_loss : 1.0003 / kl_loss : 0.999 / total_loss : 1.1002 /  
+DEV: rec_loss : 1.0314 / kl_loss : 0.9943 / total_loss : 1.1308 /  
+.....................
+EPOCH: 579
+Train: rec_loss : 1.0069 / kl_loss : 1.0178 / total_loss : 1.1086 /  
+DEV: rec_loss : 0.9949 / kl_loss : 0.9855 / total_loss : 1.0935 /  
+.....................
+EPOCH: 580
+Train: rec_loss : 0.9994 / kl_loss : 0.9968 / total_loss : 1.0991 /  
+DEV: rec_loss : 1.0001 / kl_loss : 1.0041 / total_loss : 1.1005 /  
+.....................
+EPOCH: 581
+Train: rec_loss : 0.9997 / kl_loss : 1.0036 / total_loss : 1.1001 /  
+DEV: rec_loss : 1.0075 / kl_loss : 0.9875 / total_loss : 1.1062 /  
+.....................
+EPOCH: 582
+Train: rec_loss : 0.9985 / kl_loss : 1.0031 / total_loss : 1.0988 /  
+DEV: rec_loss : 1.011 / kl_loss : 1.0151 / total_loss : 1.1125 /  
+.....................
+EPOCH: 583
+Train: rec_loss : 1.0026 / kl_loss : 1.0178 / total_loss : 1.1044 /  
+DEV: rec_loss : 1.0175 / kl_loss : 0.9965 / total_loss : 1.1171 /  
+.....................
+EPOCH: 584
+Train: rec_loss : 1.009 / kl_loss : 1.0117 / total_loss : 1.1102 /  
+DEV: rec_loss : 1.0101 / kl_loss : 0.9931 / total_loss : 1.1094 /  
+.....................
+EPOCH: 585
+Train: rec_loss : 0.9937 / kl_loss : 0.9898 / total_loss : 1.0927 /  
+DEV: rec_loss : 1.0225 / kl_loss : 1.0016 / total_loss : 1.1227 /  
+.....................
+EPOCH: 586
+Train: rec_loss : 0.9917 / kl_loss : 0.9839 / total_loss : 1.0901 /  
+DEV: rec_loss : 0.9996 / kl_loss : 0.9784 / total_loss : 1.0974 /  
+.....................
+EPOCH: 587
+Train: rec_loss : 0.9989 / kl_loss : 1.0166 / total_loss : 1.1006 /  
+DEV: rec_loss : 1.0265 / kl_loss : 0.9991 / total_loss : 1.1264 /  
+.....................
+EPOCH: 588
+Train: rec_loss : 0.9876 / kl_loss : 0.9986 / total_loss : 1.0875 /  
+DEV: rec_loss : 1.0242 / kl_loss : 1.0023 / total_loss : 1.1244 /  
+.....................
+EPOCH: 589
+Train: rec_loss : 0.9928 / kl_loss : 0.9877 / total_loss : 1.0916 /  
+DEV: rec_loss : 1.0148 / kl_loss : 0.9925 / total_loss : 1.114 /  
+.....................
+EPOCH: 590
+Train: rec_loss : 1.0018 / kl_loss : 1.0062 / total_loss : 1.1024 /  
+DEV: rec_loss : 1.0049 / kl_loss : 0.9917 / total_loss : 1.1041 /  
+.....................
+EPOCH: 591
+Train: rec_loss : 1.0015 / kl_loss : 1.0137 / total_loss : 1.1028 /  
+DEV: rec_loss : 1.0141 / kl_loss : 0.9795 / total_loss : 1.112 /  
+.....................
+EPOCH: 592
+Train: rec_loss : 0.9942 / kl_loss : 0.9998 / total_loss : 1.0942 /  
+DEV: rec_loss : 1.0117 / kl_loss : 0.9875 / total_loss : 1.1105 /  
+.....................
+EPOCH: 593
+Train: rec_loss : 0.9985 / kl_loss : 1.0105 / total_loss : 1.0996 /  
+DEV: rec_loss : 1.0174 / kl_loss : 1.0037 / total_loss : 1.1178 /  
+.....................
+EPOCH: 594
+Train: rec_loss : 0.9934 / kl_loss : 0.9918 / total_loss : 1.0926 /  
+DEV: rec_loss : 1.0181 / kl_loss : 0.9938 / total_loss : 1.1175 /  
+.....................
+EPOCH: 595
+Train: rec_loss : 0.9904 / kl_loss : 1.0079 / total_loss : 1.0912 /  
+DEV: rec_loss : 1.0206 / kl_loss : 0.965 / total_loss : 1.1171 /  
+.....................
+EPOCH: 596
+Train: rec_loss : 1.0002 / kl_loss : 1.0148 / total_loss : 1.1017 /  
+DEV: rec_loss : 1.0158 / kl_loss : 0.9905 / total_loss : 1.1149 /  
+.....................
+EPOCH: 597
+Train: rec_loss : 1.0001 / kl_loss : 1.0128 / total_loss : 1.1014 /  
+DEV: rec_loss : 0.9969 / kl_loss : 0.9802 / total_loss : 1.0949 /  
+.....................
+EPOCH: 598
+Train: rec_loss : 1.003 / kl_loss : 1.0004 / total_loss : 1.103 /  
+DEV: rec_loss : 1.0004 / kl_loss : 0.9642 / total_loss : 1.0969 /  
+.....................
+EPOCH: 599
+Train: rec_loss : 0.9947 / kl_loss : 1.002 / total_loss : 1.0949 /  
+DEV: rec_loss : 1.013 / kl_loss : 0.9899 / total_loss : 1.112 /  
+.....................
+EPOCH: 600
+Train: rec_loss : 0.9947 / kl_loss : 0.9995 / total_loss : 1.0947 /  
+DEV: rec_loss : 1.0431 / kl_loss : 1.0067 / total_loss : 1.1438 /  
+.....................
+EPOCH: 601
+Train: rec_loss : 1.0 / kl_loss : 0.9888 / total_loss : 1.0989 /  
+DEV: rec_loss : 1.0138 / kl_loss : 1.0039 / total_loss : 1.1142 /  
+.....................
+EPOCH: 602
+Train: rec_loss : 0.9991 / kl_loss : 1.0046 / total_loss : 1.0996 /  
+DEV: rec_loss : 0.999 / kl_loss : 0.9657 / total_loss : 1.0955 /  
+.....................
+EPOCH: 603
+Train: rec_loss : 1.0027 / kl_loss : 1.005 / total_loss : 1.1032 /  
+DEV: rec_loss : 1.0351 / kl_loss : 1.0114 / total_loss : 1.1362 /  
+.....................
+EPOCH: 604
+Train: rec_loss : 1.0069 / kl_loss : 1.0137 / total_loss : 1.1083 /  
+DEV: rec_loss : 1.0011 / kl_loss : 0.9953 / total_loss : 1.1006 /  
+.....................
+EPOCH: 605
+Train: rec_loss : 1.0013 / kl_loss : 1.019 / total_loss : 1.1032 /  
+DEV: rec_loss : 1.0081 / kl_loss : 0.9964 / total_loss : 1.1077 /  
+.....................
+EPOCH: 606
+Train: rec_loss : 1.0022 / kl_loss : 1.005 / total_loss : 1.1027 /  
+DEV: rec_loss : 0.9937 / kl_loss : 0.9696 / total_loss : 1.0906 /  
+.....................
+EPOCH: 607
+Train: rec_loss : 1.0031 / kl_loss : 1.0029 / total_loss : 1.1034 /  
+DEV: rec_loss : 1.0289 / kl_loss : 0.9997 / total_loss : 1.1288 /  
+.....................
+EPOCH: 608
+Train: rec_loss : 1.0009 / kl_loss : 1.0109 / total_loss : 1.102 /  
+DEV: rec_loss : 0.9954 / kl_loss : 0.97 / total_loss : 1.0924 /  
+.....................
+EPOCH: 609
+Train: rec_loss : 0.9923 / kl_loss : 0.9958 / total_loss : 1.0919 /  
+DEV: rec_loss : 1.0168 / kl_loss : 0.9741 / total_loss : 1.1142 /  
+.....................
+EPOCH: 610
+Train: rec_loss : 0.9989 / kl_loss : 1.0033 / total_loss : 1.0993 /  
+DEV: rec_loss : 1.0165 / kl_loss : 0.9959 / total_loss : 1.1161 /  
+.....................
+EPOCH: 611
+Train: rec_loss : 1.0009 / kl_loss : 1.0207 / total_loss : 1.103 /  
+DEV: rec_loss : 1.0203 / kl_loss : 0.9979 / total_loss : 1.1201 /  
+.....................
+EPOCH: 612
+Train: rec_loss : 1.0046 / kl_loss : 1.006 / total_loss : 1.1052 /  
+DEV: rec_loss : 1.004 / kl_loss : 0.984 / total_loss : 1.1024 /  
+.....................
+EPOCH: 613
+Train: rec_loss : 0.9977 / kl_loss : 1.0066 / total_loss : 1.0983 /  
+DEV: rec_loss : 1.0179 / kl_loss : 0.9769 / total_loss : 1.1155 /  
+.....................
+EPOCH: 614
+Train: rec_loss : 0.9925 / kl_loss : 1.0133 / total_loss : 1.0939 /  
+DEV: rec_loss : 1.0095 / kl_loss : 0.9899 / total_loss : 1.1085 /  
+.....................
+EPOCH: 615
+Train: rec_loss : 0.9927 / kl_loss : 1.003 / total_loss : 1.093 /  
+DEV: rec_loss : 1.0142 / kl_loss : 1.0131 / total_loss : 1.1156 /  
+.....................
+EPOCH: 616
+Train: rec_loss : 0.9942 / kl_loss : 1.0097 / total_loss : 1.0952 /  
+DEV: rec_loss : 1.0308 / kl_loss : 1.0382 / total_loss : 1.1347 /  
+.....................
+EPOCH: 617
+Train: rec_loss : 1.004 / kl_loss : 1.0073 / total_loss : 1.1047 /  
+DEV: rec_loss : 1.028 / kl_loss : 1.0332 / total_loss : 1.1313 /  
+.....................
+EPOCH: 618
+Train: rec_loss : 1.0026 / kl_loss : 1.0105 / total_loss : 1.1036 /  
+DEV: rec_loss : 1.0242 / kl_loss : 1.0236 / total_loss : 1.1266 /  
+.....................
+EPOCH: 619
+Train: rec_loss : 0.995 / kl_loss : 1.0103 / total_loss : 1.096 /  
+DEV: rec_loss : 0.9879 / kl_loss : 0.9826 / total_loss : 1.0862 /  
+.....................
+EPOCH: 620
+Train: rec_loss : 0.9976 / kl_loss : 1.0019 / total_loss : 1.0978 /  
+DEV: rec_loss : 1.0061 / kl_loss : 0.9702 / total_loss : 1.1032 /  
+.....................
+EPOCH: 621
+Train: rec_loss : 1.0037 / kl_loss : 1.0074 / total_loss : 1.1044 /  
+DEV: rec_loss : 1.0166 / kl_loss : 0.9734 / total_loss : 1.1139 /  
+.....................
+EPOCH: 622
+Train: rec_loss : 1.0007 / kl_loss : 1.0103 / total_loss : 1.1017 /  
+DEV: rec_loss : 1.0104 / kl_loss : 1.0051 / total_loss : 1.1109 /  
+.....................
+EPOCH: 623
+Train: rec_loss : 0.9973 / kl_loss : 0.9941 / total_loss : 1.0967 /  
+DEV: rec_loss : 1.0061 / kl_loss : 0.9783 / total_loss : 1.1039 /  
+.....................
+EPOCH: 624
+Train: rec_loss : 1.0048 / kl_loss : 1.0102 / total_loss : 1.1058 /  
+DEV: rec_loss : 0.9934 / kl_loss : 0.9721 / total_loss : 1.0906 /  
+.....................
+EPOCH: 625
+Train: rec_loss : 0.9883 / kl_loss : 1.0106 / total_loss : 1.0893 /  
+DEV: rec_loss : 1.0168 / kl_loss : 1.0048 / total_loss : 1.1173 /  
+.....................
+EPOCH: 626
+Train: rec_loss : 0.996 / kl_loss : 1.0219 / total_loss : 1.0982 /  
+DEV: rec_loss : 1.0104 / kl_loss : 1.0253 / total_loss : 1.1129 /  
+.....................
+EPOCH: 627
+Train: rec_loss : 1.0009 / kl_loss : 1.0012 / total_loss : 1.1011 /  
+DEV: rec_loss : 0.9971 / kl_loss : 0.9923 / total_loss : 1.0963 /  
+.....................
+EPOCH: 628
+Train: rec_loss : 0.9991 / kl_loss : 1.0058 / total_loss : 1.0996 /  
+DEV: rec_loss : 0.9896 / kl_loss : 0.9781 / total_loss : 1.0874 /  
+.....................
+EPOCH: 629
+Train: rec_loss : 0.9883 / kl_loss : 0.9982 / total_loss : 1.0881 /  
+DEV: rec_loss : 0.9957 / kl_loss : 0.9626 / total_loss : 1.0919 /  
+.....................
+EPOCH: 630
+Train: rec_loss : 0.9881 / kl_loss : 0.9869 / total_loss : 1.0868 /  
+DEV: rec_loss : 1.0068 / kl_loss : 1.0072 / total_loss : 1.1076 /  
+.....................
+EPOCH: 631
+Train: rec_loss : 1.0167 / kl_loss : 1.0157 / total_loss : 1.1183 /  
+DEV: rec_loss : 1.0013 / kl_loss : 0.9974 / total_loss : 1.101 /  
+.....................
+EPOCH: 632
+Train: rec_loss : 0.9954 / kl_loss : 0.9891 / total_loss : 1.0943 /  
+DEV: rec_loss : 1.0235 / kl_loss : 0.9888 / total_loss : 1.1224 /  
+.....................
+EPOCH: 633
+Train: rec_loss : 1.0044 / kl_loss : 1.0094 / total_loss : 1.1053 /  
+DEV: rec_loss : 0.9863 / kl_loss : 0.9918 / total_loss : 1.0855 /  
+.....................
+EPOCH: 634
+Train: rec_loss : 0.9915 / kl_loss : 1.0143 / total_loss : 1.0929 /  
+DEV: rec_loss : 1.0302 / kl_loss : 0.9838 / total_loss : 1.1286 /  
+.....................
+EPOCH: 635
+Train: rec_loss : 0.9891 / kl_loss : 0.9906 / total_loss : 1.0881 /  
+DEV: rec_loss : 1.0126 / kl_loss : 1.0028 / total_loss : 1.1129 /  
+.....................
+EPOCH: 636
+Train: rec_loss : 1.0027 / kl_loss : 1.0083 / total_loss : 1.1035 /  
+DEV: rec_loss : 1.0002 / kl_loss : 0.973 / total_loss : 1.0975 /  
+.....................
+EPOCH: 637
+Train: rec_loss : 0.9947 / kl_loss : 1.0025 / total_loss : 1.095 /  
+DEV: rec_loss : 1.0036 / kl_loss : 0.9636 / total_loss : 1.1 /  
+.....................
+EPOCH: 638
+Train: rec_loss : 1.0013 / kl_loss : 0.9843 / total_loss : 1.0997 /  
+DEV: rec_loss : 1.0221 / kl_loss : 0.986 / total_loss : 1.1207 /  
+.....................
+EPOCH: 639
+Train: rec_loss : 0.9996 / kl_loss : 1.0103 / total_loss : 1.1006 /  
+DEV: rec_loss : 1.012 / kl_loss : 0.9904 / total_loss : 1.1111 /  
+.....................
+EPOCH: 640
+Train: rec_loss : 1.0018 / kl_loss : 0.9916 / total_loss : 1.101 /  
+DEV: rec_loss : 1.0195 / kl_loss : 0.9852 / total_loss : 1.1181 /  
+.....................
+EPOCH: 641
+Train: rec_loss : 0.9989 / kl_loss : 1.0034 / total_loss : 1.0992 /  
+DEV: rec_loss : 1.0066 / kl_loss : 0.9769 / total_loss : 1.1042 /  
+.....................
+EPOCH: 642
+Train: rec_loss : 1.0047 / kl_loss : 1.0222 / total_loss : 1.1069 /  
+DEV: rec_loss : 1.0103 / kl_loss : 1.0098 / total_loss : 1.1113 /  
+.....................
+EPOCH: 643
+Train: rec_loss : 0.9984 / kl_loss : 1.0133 / total_loss : 1.0997 /  
+DEV: rec_loss : 1.0045 / kl_loss : 0.9915 / total_loss : 1.1037 /  
+.....................
+EPOCH: 644
+Train: rec_loss : 1.005 / kl_loss : 1.0063 / total_loss : 1.1057 /  
+DEV: rec_loss : 1.0077 / kl_loss : 0.9726 / total_loss : 1.1049 /  
+.....................
+EPOCH: 645
+Train: rec_loss : 0.9875 / kl_loss : 1.0043 / total_loss : 1.0879 /  
+DEV: rec_loss : 1.0049 / kl_loss : 1.025 / total_loss : 1.1074 /  
+.....................
+EPOCH: 646
+Train: rec_loss : 0.9927 / kl_loss : 1.0043 / total_loss : 1.0932 /  
+DEV: rec_loss : 1.0202 / kl_loss : 1.0031 / total_loss : 1.1205 /  
+.....................
+EPOCH: 647
+Train: rec_loss : 0.996 / kl_loss : 1.0142 / total_loss : 1.0974 /  
+DEV: rec_loss : 0.997 / kl_loss : 1.0064 / total_loss : 1.0976 /  
+.....................
+EPOCH: 648
+Train: rec_loss : 0.9898 / kl_loss : 0.9999 / total_loss : 1.0898 /  
+DEV: rec_loss : 1.0109 / kl_loss : 0.9938 / total_loss : 1.1103 /  
+.....................
+EPOCH: 649
+Train: rec_loss : 0.9953 / kl_loss : 1.0039 / total_loss : 1.0957 /  
+DEV: rec_loss : 1.0145 / kl_loss : 1.007 / total_loss : 1.1152 /  
+.....................
+EPOCH: 650
+Train: rec_loss : 1.0004 / kl_loss : 1.0125 / total_loss : 1.1017 /  
+DEV: rec_loss : 1.0105 / kl_loss : 0.9886 / total_loss : 1.1094 /  
+.....................
+EPOCH: 651
+Train: rec_loss : 0.9909 / kl_loss : 0.999 / total_loss : 1.0908 /  
+DEV: rec_loss : 1.0221 / kl_loss : 1.0062 / total_loss : 1.1227 /  
+.....................
+EPOCH: 652
+Train: rec_loss : 1.0048 / kl_loss : 1.0095 / total_loss : 1.1057 /  
+DEV: rec_loss : 1.0094 / kl_loss : 1.0344 / total_loss : 1.1128 /  
+.....................
+EPOCH: 653
+Train: rec_loss : 0.9943 / kl_loss : 1.006 / total_loss : 1.0949 /  
+DEV: rec_loss : 1.0247 / kl_loss : 0.9943 / total_loss : 1.1241 /  
+.....................
+EPOCH: 654
+Train: rec_loss : 1.0021 / kl_loss : 1.0071 / total_loss : 1.1028 /  
+DEV: rec_loss : 0.9893 / kl_loss : 0.9807 / total_loss : 1.0874 /  
+.....................
+EPOCH: 655
+Train: rec_loss : 0.9863 / kl_loss : 0.991 / total_loss : 1.0854 /  
+DEV: rec_loss : 1.0075 / kl_loss : 0.9874 / total_loss : 1.1063 /  
+.....................
+EPOCH: 656
+Train: rec_loss : 0.9941 / kl_loss : 1.017 / total_loss : 1.0958 /  
+DEV: rec_loss : 1.0143 / kl_loss : 1.0022 / total_loss : 1.1146 /  
+.....................
+EPOCH: 657
+Train: rec_loss : 0.9933 / kl_loss : 1.0027 / total_loss : 1.0935 /  
+DEV: rec_loss : 1.0164 / kl_loss : 0.9937 / total_loss : 1.1157 /  
+.....................
+EPOCH: 658
+Train: rec_loss : 0.9959 / kl_loss : 1.0001 / total_loss : 1.096 /  
+DEV: rec_loss : 1.0056 / kl_loss : 0.994 / total_loss : 1.105 /  
+.....................
+EPOCH: 659
+Train: rec_loss : 1.0024 / kl_loss : 0.9988 / total_loss : 1.1022 /  
+DEV: rec_loss : 1.0051 / kl_loss : 1.0195 / total_loss : 1.1071 /  
+.....................
+EPOCH: 660
+Train: rec_loss : 0.9965 / kl_loss : 1.006 / total_loss : 1.097 /  
+DEV: rec_loss : 1.015 / kl_loss : 0.9941 / total_loss : 1.1144 /  
+.....................
+EPOCH: 661
+Train: rec_loss : 0.9968 / kl_loss : 1.0092 / total_loss : 1.0978 /  
+DEV: rec_loss : 1.0136 / kl_loss : 1.0195 / total_loss : 1.1156 /  
+.....................
+EPOCH: 662
+Train: rec_loss : 0.9952 / kl_loss : 0.9967 / total_loss : 1.0949 /  
+DEV: rec_loss : 1.0094 / kl_loss : 1.0056 / total_loss : 1.11 /  
+.....................
+EPOCH: 663
+Train: rec_loss : 0.9943 / kl_loss : 1.0119 / total_loss : 1.0955 /  
+DEV: rec_loss : 1.0201 / kl_loss : 1.0042 / total_loss : 1.1206 /  
+.....................
+EPOCH: 664
+Train: rec_loss : 1.0022 / kl_loss : 0.9999 / total_loss : 1.1022 /  
+DEV: rec_loss : 1.0206 / kl_loss : 0.9894 / total_loss : 1.1195 /  
+.....................
+EPOCH: 665
+Train: rec_loss : 0.9863 / kl_loss : 0.9961 / total_loss : 1.0859 /  
+DEV: rec_loss : 1.0024 / kl_loss : 0.9914 / total_loss : 1.1015 /  
+.....................
+EPOCH: 666
+Train: rec_loss : 0.9962 / kl_loss : 1.0021 / total_loss : 1.0964 /  
+DEV: rec_loss : 1.015 / kl_loss : 1.0051 / total_loss : 1.1155 /  
+.....................
+EPOCH: 667
+Train: rec_loss : 0.9929 / kl_loss : 1.0077 / total_loss : 1.0937 /  
+DEV: rec_loss : 1.0236 / kl_loss : 1.013 / total_loss : 1.1249 /  
+.....................
+EPOCH: 668
+Train: rec_loss : 0.9924 / kl_loss : 0.9972 / total_loss : 1.0922 /  
+DEV: rec_loss : 1.0127 / kl_loss : 1.0041 / total_loss : 1.1131 /  
+.....................
+EPOCH: 669
+Train: rec_loss : 0.9855 / kl_loss : 1.005 / total_loss : 1.086 /  
+DEV: rec_loss : 1.0269 / kl_loss : 0.9946 / total_loss : 1.1264 /  
+.....................
+EPOCH: 670
+Train: rec_loss : 0.9918 / kl_loss : 0.9928 / total_loss : 1.0911 /  
+DEV: rec_loss : 1.0073 / kl_loss : 0.9911 / total_loss : 1.1065 /  
+.....................
+EPOCH: 671
+Train: rec_loss : 0.989 / kl_loss : 0.9953 / total_loss : 1.0885 /  
+DEV: rec_loss : 1.001 / kl_loss : 0.9927 / total_loss : 1.1003 /  
+.....................
+EPOCH: 672
+Train: rec_loss : 0.9962 / kl_loss : 1.0029 / total_loss : 1.0965 /  
+DEV: rec_loss : 0.9785 / kl_loss : 0.9935 / total_loss : 1.0778 /  
+.....................
+EPOCH: 673
+Train: rec_loss : 1.003 / kl_loss : 1.0201 / total_loss : 1.105 /  
+DEV: rec_loss : 1.008 / kl_loss : 1.0143 / total_loss : 1.1094 /  
+.....................
+EPOCH: 674
+Train: rec_loss : 0.9996 / kl_loss : 1.0178 / total_loss : 1.1014 /  
+DEV: rec_loss : 1.0167 / kl_loss : 1.0226 / total_loss : 1.1189 /  
+.....................
+EPOCH: 675
+Train: rec_loss : 0.9975 / kl_loss : 1.0213 / total_loss : 1.0997 /  
+DEV: rec_loss : 1.0222 / kl_loss : 1.0024 / total_loss : 1.1224 /  
+.....................
+EPOCH: 676
+Train: rec_loss : 1.0003 / kl_loss : 0.9977 / total_loss : 1.1001 /  
+DEV: rec_loss : 0.9941 / kl_loss : 0.9685 / total_loss : 1.091 /  
+.....................
+EPOCH: 677
+Train: rec_loss : 0.9972 / kl_loss : 1.0063 / total_loss : 1.0978 /  
+DEV: rec_loss : 1.01 / kl_loss : 1.0037 / total_loss : 1.1104 /  
+.....................
+EPOCH: 678
+Train: rec_loss : 1.001 / kl_loss : 1.0219 / total_loss : 1.1032 /  
+DEV: rec_loss : 1.0015 / kl_loss : 1.0072 / total_loss : 1.1022 /  
+.....................
+EPOCH: 679
+Train: rec_loss : 0.9966 / kl_loss : 1.0044 / total_loss : 1.0971 /  
+DEV: rec_loss : 1.0208 / kl_loss : 1.0195 / total_loss : 1.1227 /  
+.....................
+EPOCH: 680
+Train: rec_loss : 0.9926 / kl_loss : 1.0167 / total_loss : 1.0942 /  
+DEV: rec_loss : 1.0008 / kl_loss : 0.9872 / total_loss : 1.0995 /  
+.....................
+EPOCH: 681
+Train: rec_loss : 0.9963 / kl_loss : 0.9998 / total_loss : 1.0963 /  
+DEV: rec_loss : 1.0003 / kl_loss : 0.9606 / total_loss : 1.0963 /  
+.....................
+EPOCH: 682
+Train: rec_loss : 0.9985 / kl_loss : 0.9987 / total_loss : 1.0984 /  
+DEV: rec_loss : 1.0125 / kl_loss : 1.0136 / total_loss : 1.1138 /  
+.....................
+EPOCH: 683
+Train: rec_loss : 1.0031 / kl_loss : 1.0167 / total_loss : 1.1047 /  
+DEV: rec_loss : 0.997 / kl_loss : 0.9747 / total_loss : 1.0945 /  
+.....................
+EPOCH: 684
+Train: rec_loss : 0.9955 / kl_loss : 1.0046 / total_loss : 1.096 /  
+DEV: rec_loss : 1.0078 / kl_loss : 1.0032 / total_loss : 1.1081 /  
+.....................
+EPOCH: 685
+Train: rec_loss : 0.9958 / kl_loss : 1.0189 / total_loss : 1.0977 /  
+DEV: rec_loss : 1.0286 / kl_loss : 1.0035 / total_loss : 1.1289 /  
+.....................
+EPOCH: 686
+Train: rec_loss : 1.0063 / kl_loss : 1.0269 / total_loss : 1.109 /  
+DEV: rec_loss : 1.0149 / kl_loss : 0.9982 / total_loss : 1.1147 /  
+.....................
+EPOCH: 687
+Train: rec_loss : 1.0006 / kl_loss : 1.0292 / total_loss : 1.1035 /  
+DEV: rec_loss : 1.0044 / kl_loss : 0.9994 / total_loss : 1.1043 /  
+.....................
+EPOCH: 688
+Train: rec_loss : 0.9951 / kl_loss : 1.0151 / total_loss : 1.0966 /  
+DEV: rec_loss : 1.0129 / kl_loss : 1.0145 / total_loss : 1.1144 /  
+.....................
+EPOCH: 689
+Train: rec_loss : 0.9971 / kl_loss : 1.0174 / total_loss : 1.0988 /  
+DEV: rec_loss : 1.0257 / kl_loss : 1.0127 / total_loss : 1.127 /  
+.....................
+EPOCH: 690
+Train: rec_loss : 0.9956 / kl_loss : 1.0202 / total_loss : 1.0976 /  
+DEV: rec_loss : 1.0167 / kl_loss : 1.0047 / total_loss : 1.1171 /  
+.....................
+EPOCH: 691
+Train: rec_loss : 1.0017 / kl_loss : 1.0061 / total_loss : 1.1023 /  
+DEV: rec_loss : 1.0113 / kl_loss : 1.0033 / total_loss : 1.1117 /  
+.....................
+EPOCH: 692
+Train: rec_loss : 0.976 / kl_loss : 0.9868 / total_loss : 1.0747 /  
+DEV: rec_loss : 1.005 / kl_loss : 0.9717 / total_loss : 1.1022 /  
+.....................
+EPOCH: 693
+Train: rec_loss : 0.9988 / kl_loss : 0.9973 / total_loss : 1.0985 /  
+DEV: rec_loss : 0.99 / kl_loss : 0.9863 / total_loss : 1.0886 /  
+.....................
+EPOCH: 694
+Train: rec_loss : 0.9971 / kl_loss : 1.0082 / total_loss : 1.0979 /  
+DEV: rec_loss : 0.9792 / kl_loss : 0.9695 / total_loss : 1.0762 /  
+.....................
+EPOCH: 695
+Train: rec_loss : 0.9958 / kl_loss : 1.0113 / total_loss : 1.0969 /  
+DEV: rec_loss : 0.978 / kl_loss : 0.9618 / total_loss : 1.0742 /  
+.....................
+EPOCH: 696
+Train: rec_loss : 1.0048 / kl_loss : 1.0143 / total_loss : 1.1063 /  
+DEV: rec_loss : 1.0195 / kl_loss : 1.0053 / total_loss : 1.1201 /  
+.....................
+EPOCH: 697
+Train: rec_loss : 1.0021 / kl_loss : 1.0111 / total_loss : 1.1032 /  
+DEV: rec_loss : 1.009 / kl_loss : 1.0204 / total_loss : 1.111 /  
+.....................
+EPOCH: 698
+Train: rec_loss : 1.002 / kl_loss : 1.0165 / total_loss : 1.1037 /  
+DEV: rec_loss : 1.0203 / kl_loss : 1.0143 / total_loss : 1.1218 /  
+.....................
+EPOCH: 699
+Train: rec_loss : 0.9906 / kl_loss : 0.9902 / total_loss : 1.0896 /  
+DEV: rec_loss : 0.9751 / kl_loss : 0.9535 / total_loss : 1.0704 /  
+.....................
+EPOCH: 700
+Train: rec_loss : 0.9949 / kl_loss : 1.0141 / total_loss : 1.0963 /  
+DEV: rec_loss : 1.0395 / kl_loss : 1.0146 / total_loss : 1.141 /  
+.....................
+EPOCH: 701
+Train: rec_loss : 0.9902 / kl_loss : 1.0097 / total_loss : 1.0911 /  
+DEV: rec_loss : 1.0165 / kl_loss : 0.9923 / total_loss : 1.1157 /  
+.....................
+EPOCH: 702
+Train: rec_loss : 0.9908 / kl_loss : 0.9973 / total_loss : 1.0905 /  
+DEV: rec_loss : 1.0108 / kl_loss : 1.0023 / total_loss : 1.111 /  
+.....................
+EPOCH: 703
+Train: rec_loss : 0.9916 / kl_loss : 0.9966 / total_loss : 1.0912 /  
+DEV: rec_loss : 1.0025 / kl_loss : 0.9677 / total_loss : 1.0992 /  
+.....................
+EPOCH: 704
+Train: rec_loss : 0.9952 / kl_loss : 1.0047 / total_loss : 1.0957 /  
+DEV: rec_loss : 1.0146 / kl_loss : 0.9981 / total_loss : 1.1144 /  
+.....................
+EPOCH: 705
+Train: rec_loss : 0.9862 / kl_loss : 1.0072 / total_loss : 1.0869 /  
+DEV: rec_loss : 1.0047 / kl_loss : 1.0257 / total_loss : 1.1073 /  
+.....................
+EPOCH: 706
+Train: rec_loss : 0.9938 / kl_loss : 1.0091 / total_loss : 1.0947 /  
+DEV: rec_loss : 1.0145 / kl_loss : 0.9968 / total_loss : 1.1141 /  
+.....................
+EPOCH: 707
+Train: rec_loss : 0.9982 / kl_loss : 1.02 / total_loss : 1.1002 /  
+DEV: rec_loss : 1.0111 / kl_loss : 0.9597 / total_loss : 1.1071 /  
+.....................
+EPOCH: 708
+Train: rec_loss : 0.993 / kl_loss : 1.0021 / total_loss : 1.0932 /  
+DEV: rec_loss : 1.0226 / kl_loss : 0.9953 / total_loss : 1.1222 /  
+.....................
+EPOCH: 709
+Train: rec_loss : 0.9795 / kl_loss : 1.004 / total_loss : 1.0799 /  
+DEV: rec_loss : 1.0146 / kl_loss : 0.9913 / total_loss : 1.1137 /  
+.....................
+EPOCH: 710
+Train: rec_loss : 0.9949 / kl_loss : 1.0182 / total_loss : 1.0967 /  
+DEV: rec_loss : 1.0164 / kl_loss : 1.0154 / total_loss : 1.1179 /  
+.....................
+EPOCH: 711
+Train: rec_loss : 0.9881 / kl_loss : 1.0016 / total_loss : 1.0883 /  
+DEV: rec_loss : 1.0167 / kl_loss : 1.0153 / total_loss : 1.1182 /  
+.....................
+EPOCH: 712
+Train: rec_loss : 0.9995 / kl_loss : 1.0074 / total_loss : 1.1002 /  
+DEV: rec_loss : 0.9882 / kl_loss : 0.9816 / total_loss : 1.0864 /  
+.....................
+EPOCH: 713
+Train: rec_loss : 0.9948 / kl_loss : 1.0184 / total_loss : 1.0967 /  
+DEV: rec_loss : 1.0056 / kl_loss : 1.0161 / total_loss : 1.1072 /  
+.....................
+EPOCH: 714
+Train: rec_loss : 0.9998 / kl_loss : 1.0232 / total_loss : 1.1021 /  
+DEV: rec_loss : 1.0017 / kl_loss : 0.9987 / total_loss : 1.1016 /  
+.....................
+EPOCH: 715
+Train: rec_loss : 0.9923 / kl_loss : 1.0162 / total_loss : 1.0939 /  
+DEV: rec_loss : 1.0318 / kl_loss : 0.9938 / total_loss : 1.1311 /  
+.....................
+EPOCH: 716
+Train: rec_loss : 0.9862 / kl_loss : 0.9932 / total_loss : 1.0855 /  
+DEV: rec_loss : 1.0239 / kl_loss : 1.0212 / total_loss : 1.1261 /  
+.....................
+EPOCH: 717
+Train: rec_loss : 0.9918 / kl_loss : 1.0082 / total_loss : 1.0926 /  
+DEV: rec_loss : 1.0138 / kl_loss : 1.0157 / total_loss : 1.1154 /  
+.....................
+EPOCH: 718
+Train: rec_loss : 0.9939 / kl_loss : 1.0098 / total_loss : 1.0949 /  
+DEV: rec_loss : 1.0204 / kl_loss : 0.9844 / total_loss : 1.1188 /  
+.....................
+EPOCH: 719
+Train: rec_loss : 0.9928 / kl_loss : 1.001 / total_loss : 1.0929 /  
+DEV: rec_loss : 1.0117 / kl_loss : 0.9968 / total_loss : 1.1114 /  
+.....................
+EPOCH: 720
+Train: rec_loss : 0.9941 / kl_loss : 1.0215 / total_loss : 1.0962 /  
+DEV: rec_loss : 1.007 / kl_loss : 1.0083 / total_loss : 1.1078 /  
+.....................
+EPOCH: 721
+Train: rec_loss : 0.9834 / kl_loss : 1.0012 / total_loss : 1.0835 /  
+DEV: rec_loss : 0.9808 / kl_loss : 0.9818 / total_loss : 1.079 /  
+.....................
+EPOCH: 722
+Train: rec_loss : 0.9871 / kl_loss : 1.0044 / total_loss : 1.0875 /  
+DEV: rec_loss : 1.0104 / kl_loss : 1.0371 / total_loss : 1.1141 /  
+.....................
+EPOCH: 723
+Train: rec_loss : 1.0042 / kl_loss : 1.0283 / total_loss : 1.107 /  
+DEV: rec_loss : 1.0084 / kl_loss : 0.9809 / total_loss : 1.1065 /  
+.....................
+EPOCH: 724
+Train: rec_loss : 1.0057 / kl_loss : 1.0282 / total_loss : 1.1086 /  
+DEV: rec_loss : 1.0075 / kl_loss : 0.9879 / total_loss : 1.1063 /  
+.....................
+EPOCH: 725
+Train: rec_loss : 0.9955 / kl_loss : 1.0087 / total_loss : 1.0964 /  
+DEV: rec_loss : 1.0006 / kl_loss : 1.0017 / total_loss : 1.1008 /  
+.....................
+EPOCH: 726
+Train: rec_loss : 0.9994 / kl_loss : 1.015 / total_loss : 1.1009 /  
+DEV: rec_loss : 1.0019 / kl_loss : 0.9945 / total_loss : 1.1013 /  
+.....................
+EPOCH: 727
+Train: rec_loss : 0.9949 / kl_loss : 1.0253 / total_loss : 1.0975 /  
+DEV: rec_loss : 1.0069 / kl_loss : 1.0142 / total_loss : 1.1083 /  
+.....................
+EPOCH: 728
+Train: rec_loss : 0.9952 / kl_loss : 1.0129 / total_loss : 1.0965 /  
+DEV: rec_loss : 0.9929 / kl_loss : 0.9964 / total_loss : 1.0926 /  
+.....................
+EPOCH: 729
+Train: rec_loss : 0.9902 / kl_loss : 1.0082 / total_loss : 1.0911 /  
+DEV: rec_loss : 1.0068 / kl_loss : 0.9971 / total_loss : 1.1065 /  
+.....................
+EPOCH: 730
+Train: rec_loss : 1.0015 / kl_loss : 1.0082 / total_loss : 1.1023 /  
+DEV: rec_loss : 1.003 / kl_loss : 0.9926 / total_loss : 1.1023 /  
+.....................
+EPOCH: 731
+Train: rec_loss : 0.987 / kl_loss : 0.9954 / total_loss : 1.0865 /  
+DEV: rec_loss : 1.0249 / kl_loss : 1.0201 / total_loss : 1.1269 /  
+.....................
+EPOCH: 732
+Train: rec_loss : 0.9915 / kl_loss : 1.0034 / total_loss : 1.0919 /  
+DEV: rec_loss : 1.0176 / kl_loss : 0.9679 / total_loss : 1.1144 /  
+.....................
+EPOCH: 733
+Train: rec_loss : 0.9921 / kl_loss : 1.0093 / total_loss : 1.093 /  
+DEV: rec_loss : 1.0209 / kl_loss : 1.0165 / total_loss : 1.1226 /  
+.....................
+EPOCH: 734
+Train: rec_loss : 1.0038 / kl_loss : 1.0223 / total_loss : 1.1061 /  
+DEV: rec_loss : 1.019 / kl_loss : 1.0194 / total_loss : 1.1209 /  
+.....................
+EPOCH: 735
+Train: rec_loss : 0.9925 / kl_loss : 1.0094 / total_loss : 1.0934 /  
+DEV: rec_loss : 1.016 / kl_loss : 1.0131 / total_loss : 1.1173 /  
+.....................
+EPOCH: 736
+Train: rec_loss : 0.9914 / kl_loss : 1.0204 / total_loss : 1.0935 /  
+DEV: rec_loss : 1.0134 / kl_loss : 1.0103 / total_loss : 1.1145 /  
+.....................
+EPOCH: 737
+Train: rec_loss : 1.0023 / kl_loss : 1.0205 / total_loss : 1.1043 /  
+DEV: rec_loss : 1.0128 / kl_loss : 1.0043 / total_loss : 1.1132 /  
+.....................
+EPOCH: 738
+Train: rec_loss : 0.9941 / kl_loss : 1.0026 / total_loss : 1.0943 /  
+DEV: rec_loss : 1.0016 / kl_loss : 0.9679 / total_loss : 1.0984 /  
+.....................
+EPOCH: 739
+Train: rec_loss : 0.9995 / kl_loss : 1.0022 / total_loss : 1.0997 /  
+DEV: rec_loss : 1.0213 / kl_loss : 1.0009 / total_loss : 1.1214 /  
+.....................
+EPOCH: 740
+Train: rec_loss : 0.9905 / kl_loss : 1.0099 / total_loss : 1.0915 /  
+DEV: rec_loss : 0.9991 / kl_loss : 0.9987 / total_loss : 1.0989 /  
+.....................
+EPOCH: 741
+Train: rec_loss : 0.9914 / kl_loss : 1.0127 / total_loss : 1.0927 /  
+DEV: rec_loss : 1.0348 / kl_loss : 1.0298 / total_loss : 1.1378 /  
+.....................
+EPOCH: 742
+Train: rec_loss : 1.0056 / kl_loss : 1.0179 / total_loss : 1.1074 /  
+DEV: rec_loss : 1.0116 / kl_loss : 0.9949 / total_loss : 1.1111 /  
+.....................
+EPOCH: 743
+Train: rec_loss : 0.9919 / kl_loss : 1.0083 / total_loss : 1.0927 /  
+DEV: rec_loss : 1.0093 / kl_loss : 0.9984 / total_loss : 1.1091 /  
+.....................
+EPOCH: 744
+Train: rec_loss : 0.9983 / kl_loss : 1.007 / total_loss : 1.099 /  
+DEV: rec_loss : 1.019 / kl_loss : 1.0086 / total_loss : 1.1198 /  
+.....................
+EPOCH: 745
+Train: rec_loss : 0.9966 / kl_loss : 1.0091 / total_loss : 1.0975 /  
+DEV: rec_loss : 1.0199 / kl_loss : 1.0053 / total_loss : 1.1204 /  
+.....................
+EPOCH: 746
+Train: rec_loss : 0.9929 / kl_loss : 1.025 / total_loss : 1.0954 /  
+DEV: rec_loss : 1.0125 / kl_loss : 0.9989 / total_loss : 1.1123 /  
+.....................
+EPOCH: 747
+Train: rec_loss : 0.9963 / kl_loss : 1.0097 / total_loss : 1.0972 /  
+DEV: rec_loss : 0.9985 / kl_loss : 0.9899 / total_loss : 1.0975 /  
+.....................
+EPOCH: 748
+Train: rec_loss : 0.9893 / kl_loss : 1.003 / total_loss : 1.0896 /  
+DEV: rec_loss : 0.9962 / kl_loss : 1.0138 / total_loss : 1.0976 /  
+.....................
+EPOCH: 749
+Train: rec_loss : 1.0069 / kl_loss : 1.0279 / total_loss : 1.1097 /  
+DEV: rec_loss : 1.0059 / kl_loss : 0.989 / total_loss : 1.1048 /  
+.....................
+EPOCH: 750
+Train: rec_loss : 1.0014 / kl_loss : 1.0133 / total_loss : 1.1027 /  
+DEV: rec_loss : 1.0171 / kl_loss : 0.9913 / total_loss : 1.1163 /  
+.....................
+EPOCH: 751
+Train: rec_loss : 0.9954 / kl_loss : 1.009 / total_loss : 1.0963 /  
+DEV: rec_loss : 1.0141 / kl_loss : 1.0246 / total_loss : 1.1166 /  
+.....................
+EPOCH: 752
+Train: rec_loss : 0.9953 / kl_loss : 1.0217 / total_loss : 1.0975 /  
+DEV: rec_loss : 1.0159 / kl_loss : 1.0643 / total_loss : 1.1223 /  
+.....................
+EPOCH: 753
+Train: rec_loss : 0.9926 / kl_loss : 1.0225 / total_loss : 1.0949 /  
+DEV: rec_loss : 1.0164 / kl_loss : 1.0196 / total_loss : 1.1184 /  
+.....................
+EPOCH: 754
+Train: rec_loss : 0.9966 / kl_loss : 1.02 / total_loss : 1.0986 /  
+DEV: rec_loss : 1.0153 / kl_loss : 1.0175 / total_loss : 1.117 /  
+.....................
+EPOCH: 755
+Train: rec_loss : 1.0004 / kl_loss : 1.0315 / total_loss : 1.1035 /  
+DEV: rec_loss : 1.0254 / kl_loss : 1.0304 / total_loss : 1.1285 /  
+.....................
+EPOCH: 756
+Train: rec_loss : 0.9974 / kl_loss : 1.0249 / total_loss : 1.0999 /  
+DEV: rec_loss : 1.0094 / kl_loss : 1.0214 / total_loss : 1.1115 /  
+.....................
+EPOCH: 757
+Train: rec_loss : 0.9916 / kl_loss : 1.0128 / total_loss : 1.0928 /  
+DEV: rec_loss : 1.0175 / kl_loss : 1.016 / total_loss : 1.1191 /  
+.....................
+EPOCH: 758
+Train: rec_loss : 0.9928 / kl_loss : 1.0175 / total_loss : 1.0945 /  
+DEV: rec_loss : 1.0179 / kl_loss : 1.0077 / total_loss : 1.1187 /  
+.....................
+EPOCH: 759
+Train: rec_loss : 0.9918 / kl_loss : 1.0137 / total_loss : 1.0932 /  
+DEV: rec_loss : 0.9982 / kl_loss : 0.9876 / total_loss : 1.097 /  
+.....................
+EPOCH: 760
+Train: rec_loss : 0.9866 / kl_loss : 1.0079 / total_loss : 1.0874 /  
+DEV: rec_loss : 0.9823 / kl_loss : 1.0018 / total_loss : 1.0825 /  
+.....................
+EPOCH: 761
+Train: rec_loss : 0.9855 / kl_loss : 1.0149 / total_loss : 1.087 /  
+DEV: rec_loss : 1.0026 / kl_loss : 0.9999 / total_loss : 1.1026 /  
+.....................
+EPOCH: 762
+Train: rec_loss : 0.9928 / kl_loss : 1.017 / total_loss : 1.0945 /  
+DEV: rec_loss : 0.9901 / kl_loss : 1.002 / total_loss : 1.0904 /  
+.....................
+EPOCH: 763
+Train: rec_loss : 0.9833 / kl_loss : 1.0041 / total_loss : 1.0837 /  
+DEV: rec_loss : 1.0139 / kl_loss : 0.992 / total_loss : 1.1131 /  
+.....................
+EPOCH: 764
+Train: rec_loss : 0.995 / kl_loss : 1.0071 / total_loss : 1.0957 /  
+DEV: rec_loss : 1.0125 / kl_loss : 0.9981 / total_loss : 1.1123 /  
+.....................
+EPOCH: 765
+Train: rec_loss : 0.9964 / kl_loss : 1.0072 / total_loss : 1.0971 /  
+DEV: rec_loss : 0.9989 / kl_loss : 1.0168 / total_loss : 1.1005 /  
+.....................
+EPOCH: 766
+Train: rec_loss : 0.9941 / kl_loss : 1.0067 / total_loss : 1.0948 /  
+DEV: rec_loss : 1.014 / kl_loss : 1.0215 / total_loss : 1.1162 /  
+.....................
+EPOCH: 767
+Train: rec_loss : 0.9993 / kl_loss : 1.0197 / total_loss : 1.1013 /  
+DEV: rec_loss : 1.027 / kl_loss : 1.0328 / total_loss : 1.1303 /  
+.....................
+EPOCH: 768
+Train: rec_loss : 0.9878 / kl_loss : 1.0119 / total_loss : 1.089 /  
+DEV: rec_loss : 0.9956 / kl_loss : 0.9953 / total_loss : 1.0951 /  
+.....................
+EPOCH: 769
+Train: rec_loss : 0.9832 / kl_loss : 1.0031 / total_loss : 1.0835 /  
+DEV: rec_loss : 0.987 / kl_loss : 0.9881 / total_loss : 1.0858 /  
+.....................
+EPOCH: 770
+Train: rec_loss : 0.9911 / kl_loss : 1.0045 / total_loss : 1.0916 /  
+DEV: rec_loss : 1.0087 / kl_loss : 0.9868 / total_loss : 1.1073 /  
+.....................
+EPOCH: 771
+Train: rec_loss : 0.993 / kl_loss : 1.002 / total_loss : 1.0932 /  
+DEV: rec_loss : 1.0015 / kl_loss : 1.0121 / total_loss : 1.1027 /  
+.....................
+EPOCH: 772
+Train: rec_loss : 0.9989 / kl_loss : 1.0201 / total_loss : 1.1009 /  
+DEV: rec_loss : 0.992 / kl_loss : 1.0098 / total_loss : 1.093 /  
+.....................
+EPOCH: 773
+Train: rec_loss : 0.9932 / kl_loss : 1.02 / total_loss : 1.0952 /  
+DEV: rec_loss : 1.0043 / kl_loss : 0.9833 / total_loss : 1.1027 /  
+.....................
+EPOCH: 774
+Train: rec_loss : 0.9836 / kl_loss : 1.0058 / total_loss : 1.0841 /  
+DEV: rec_loss : 1.0316 / kl_loss : 1.0106 / total_loss : 1.1327 /  
+.....................
+EPOCH: 775
+Train: rec_loss : 0.9947 / kl_loss : 1.0152 / total_loss : 1.0962 /  
+DEV: rec_loss : 1.0046 / kl_loss : 0.9975 / total_loss : 1.1043 /  
+.....................
+EPOCH: 776
+Train: rec_loss : 0.9892 / kl_loss : 1.0037 / total_loss : 1.0896 /  
+DEV: rec_loss : 1.0029 / kl_loss : 0.9865 / total_loss : 1.1015 /  
+.....................
+EPOCH: 777
+Train: rec_loss : 1.0009 / kl_loss : 1.0151 / total_loss : 1.1024 /  
+DEV: rec_loss : 1.0151 / kl_loss : 1.0074 / total_loss : 1.1159 /  
+.....................
+EPOCH: 778
+Train: rec_loss : 1.0026 / kl_loss : 1.0238 / total_loss : 1.1049 /  
+DEV: rec_loss : 1.0153 / kl_loss : 0.987 / total_loss : 1.114 /  
+.....................
+EPOCH: 779
+Train: rec_loss : 0.9839 / kl_loss : 1.0088 / total_loss : 1.0848 /  
+DEV: rec_loss : 1.0254 / kl_loss : 0.9661 / total_loss : 1.122 /  
+.....................
+EPOCH: 780
+Train: rec_loss : 0.9938 / kl_loss : 1.0229 / total_loss : 1.0961 /  
+DEV: rec_loss : 1.0072 / kl_loss : 1.0128 / total_loss : 1.1085 /  
+.....................
+EPOCH: 781
+Train: rec_loss : 0.995 / kl_loss : 1.0194 / total_loss : 1.0969 /  
+DEV: rec_loss : 1.0019 / kl_loss : 0.9962 / total_loss : 1.1015 /  
+.....................
+EPOCH: 782
+Train: rec_loss : 1.0013 / kl_loss : 1.0235 / total_loss : 1.1037 /  
+DEV: rec_loss : 1.013 / kl_loss : 1.0144 / total_loss : 1.1145 /  
+.....................
+EPOCH: 783
+Train: rec_loss : 0.9892 / kl_loss : 1.016 / total_loss : 1.0908 /  
+DEV: rec_loss : 1.0221 / kl_loss : 1.0301 / total_loss : 1.1252 /  
+.....................
+EPOCH: 784
+Train: rec_loss : 0.9901 / kl_loss : 1.0249 / total_loss : 1.0926 /  
+DEV: rec_loss : 0.9919 / kl_loss : 0.9776 / total_loss : 1.0897 /  
+.....................
+EPOCH: 785
+Train: rec_loss : 1.0025 / kl_loss : 1.0188 / total_loss : 1.1043 /  
+DEV: rec_loss : 1.0197 / kl_loss : 0.9903 / total_loss : 1.1187 /  
+.....................
+EPOCH: 786
+Train: rec_loss : 0.9912 / kl_loss : 0.9998 / total_loss : 1.0912 /  
+DEV: rec_loss : 1.0104 / kl_loss : 1.0122 / total_loss : 1.1116 /  
+.....................
+EPOCH: 787
+Train: rec_loss : 0.9993 / kl_loss : 1.0163 / total_loss : 1.1009 /  
+DEV: rec_loss : 0.999 / kl_loss : 1.006 / total_loss : 1.0996 /  
+.....................
+EPOCH: 788
+Train: rec_loss : 0.9968 / kl_loss : 1.0288 / total_loss : 1.0997 /  
+DEV: rec_loss : 0.9985 / kl_loss : 1.0237 / total_loss : 1.1009 /  
+.....................
+EPOCH: 789
+Train: rec_loss : 0.9889 / kl_loss : 1.0148 / total_loss : 1.0904 /  
+DEV: rec_loss : 1.0155 / kl_loss : 0.9896 / total_loss : 1.1144 /  
+.....................
+EPOCH: 790
+Train: rec_loss : 0.9904 / kl_loss : 1.0153 / total_loss : 1.0919 /  
+DEV: rec_loss : 1.0046 / kl_loss : 0.9915 / total_loss : 1.1037 /  
+.....................
+EPOCH: 791
+Train: rec_loss : 0.9914 / kl_loss : 1.0041 / total_loss : 1.0918 /  
+DEV: rec_loss : 1.0059 / kl_loss : 1.0098 / total_loss : 1.1069 /  
+.....................
+EPOCH: 792
+Train: rec_loss : 0.9907 / kl_loss : 1.0195 / total_loss : 1.0927 /  
+DEV: rec_loss : 1.0132 / kl_loss : 1.0222 / total_loss : 1.1154 /  
+.....................
+EPOCH: 793
+Train: rec_loss : 0.9989 / kl_loss : 1.0382 / total_loss : 1.1028 /  
+DEV: rec_loss : 1.0294 / kl_loss : 1.0061 / total_loss : 1.13 /  
+.....................
+EPOCH: 794
+Train: rec_loss : 0.99 / kl_loss : 1.0168 / total_loss : 1.0917 /  
+DEV: rec_loss : 1.0151 / kl_loss : 1.0211 / total_loss : 1.1172 /  
+.....................
+EPOCH: 795
+Train: rec_loss : 1.0086 / kl_loss : 1.0308 / total_loss : 1.1116 /  
+DEV: rec_loss : 1.0012 / kl_loss : 1.0083 / total_loss : 1.102 /  
+.....................
+EPOCH: 796
+Train: rec_loss : 0.9892 / kl_loss : 1.0055 / total_loss : 1.0898 /  
+DEV: rec_loss : 1.0105 / kl_loss : 1.0365 / total_loss : 1.1141 /  
+.....................
+EPOCH: 797
+Train: rec_loss : 0.9962 / kl_loss : 1.0254 / total_loss : 1.0987 /  
+DEV: rec_loss : 1.0097 / kl_loss : 0.9981 / total_loss : 1.1095 /  
+.....................
+EPOCH: 798
+Train: rec_loss : 0.9876 / kl_loss : 1.0098 / total_loss : 1.0885 /  
+DEV: rec_loss : 0.9677 / kl_loss : 0.9787 / total_loss : 1.0656 /  
+.....................
+EPOCH: 799
+Train: rec_loss : 0.9924 / kl_loss : 1.0192 / total_loss : 1.0943 /  
+DEV: rec_loss : 0.9842 / kl_loss : 0.9957 / total_loss : 1.0838 /  
+.....................
+EPOCH: 800
+Train: rec_loss : 0.9927 / kl_loss : 1.0292 / total_loss : 1.0956 /  
+DEV: rec_loss : 1.024 / kl_loss : 1.0297 / total_loss : 1.127 /  
+.....................
+EPOCH: 801
+Train: rec_loss : 0.9897 / kl_loss : 1.0201 / total_loss : 1.0917 /  
+DEV: rec_loss : 1.0136 / kl_loss : 1.0381 / total_loss : 1.1174 /  
+.....................
+EPOCH: 802
+Train: rec_loss : 1.0001 / kl_loss : 1.0258 / total_loss : 1.1027 /  
+DEV: rec_loss : 0.9944 / kl_loss : 0.9736 / total_loss : 1.0918 /  
+.....................
+EPOCH: 803
+Train: rec_loss : 1.0004 / kl_loss : 1.0037 / total_loss : 1.1007 /  
+DEV: rec_loss : 0.9943 / kl_loss : 0.9671 / total_loss : 1.091 /  
+.....................
+EPOCH: 804
+Train: rec_loss : 1.0016 / kl_loss : 1.0271 / total_loss : 1.1043 /  
+DEV: rec_loss : 1.0166 / kl_loss : 0.9959 / total_loss : 1.1161 /  
+.....................
+EPOCH: 805
+Train: rec_loss : 0.9908 / kl_loss : 1.0211 / total_loss : 1.0929 /  
+DEV: rec_loss : 1.0226 / kl_loss : 1.0197 / total_loss : 1.1246 /  
+.....................
+EPOCH: 806
+Train: rec_loss : 0.9962 / kl_loss : 1.0044 / total_loss : 1.0967 /  
+DEV: rec_loss : 1.0164 / kl_loss : 0.9925 / total_loss : 1.1156 /  
+.....................
+EPOCH: 807
+Train: rec_loss : 0.9906 / kl_loss : 1.002 / total_loss : 1.0908 /  
+DEV: rec_loss : 1.0126 / kl_loss : 1.0271 / total_loss : 1.1153 /  
+.....................
+EPOCH: 808
+Train: rec_loss : 0.9881 / kl_loss : 1.0053 / total_loss : 1.0887 /  
+DEV: rec_loss : 1.0123 / kl_loss : 1.0062 / total_loss : 1.1129 /  
+.....................
+EPOCH: 809
+Train: rec_loss : 0.9957 / kl_loss : 1.0108 / total_loss : 1.0968 /  
+DEV: rec_loss : 0.9971 / kl_loss : 0.9943 / total_loss : 1.0966 /  
+.....................
+EPOCH: 810
+Train: rec_loss : 0.9839 / kl_loss : 1.0183 / total_loss : 1.0857 /  
+DEV: rec_loss : 1.0272 / kl_loss : 1.031 / total_loss : 1.1303 /  
+.....................
+EPOCH: 811
+Train: rec_loss : 0.996 / kl_loss : 1.0251 / total_loss : 1.0985 /  
+DEV: rec_loss : 1.0014 / kl_loss : 1.0013 / total_loss : 1.1015 /  
+.....................
+EPOCH: 812
+Train: rec_loss : 0.9895 / kl_loss : 1.0039 / total_loss : 1.0899 /  
+DEV: rec_loss : 1.0137 / kl_loss : 1.0297 / total_loss : 1.1167 /  
+.....................
+EPOCH: 813
+Train: rec_loss : 0.9889 / kl_loss : 1.0178 / total_loss : 1.0907 /  
+DEV: rec_loss : 0.9897 / kl_loss : 0.9807 / total_loss : 1.0878 /  
+.....................
+EPOCH: 814
+Train: rec_loss : 0.9975 / kl_loss : 1.018 / total_loss : 1.0993 /  
+DEV: rec_loss : 1.0078 / kl_loss : 0.991 / total_loss : 1.1069 /  
+.....................
+EPOCH: 815
+Train: rec_loss : 0.9882 / kl_loss : 1.0267 / total_loss : 1.0908 /  
+DEV: rec_loss : 1.0238 / kl_loss : 1.0352 / total_loss : 1.1273 /  
+.....................
+EPOCH: 816
+Train: rec_loss : 0.992 / kl_loss : 1.0202 / total_loss : 1.094 /  
+DEV: rec_loss : 1.0215 / kl_loss : 1.0215 / total_loss : 1.1236 /  
+.....................
+EPOCH: 817
+Train: rec_loss : 0.9919 / kl_loss : 1.0152 / total_loss : 1.0934 /  
+DEV: rec_loss : 1.0027 / kl_loss : 0.9858 / total_loss : 1.1013 /  
+.....................
+EPOCH: 818
+Train: rec_loss : 0.9917 / kl_loss : 0.9987 / total_loss : 1.0916 /  
+DEV: rec_loss : 1.0233 / kl_loss : 0.989 / total_loss : 1.1222 /  
+.....................
+EPOCH: 819
+Train: rec_loss : 0.9916 / kl_loss : 1.011 / total_loss : 1.0927 /  
+DEV: rec_loss : 1.0229 / kl_loss : 1.0121 / total_loss : 1.1241 /  
+.....................
+EPOCH: 820
+Train: rec_loss : 0.9934 / kl_loss : 1.0111 / total_loss : 1.0945 /  
+DEV: rec_loss : 1.0004 / kl_loss : 1.0075 / total_loss : 1.1011 /  
+.....................
+EPOCH: 821
+Train: rec_loss : 0.9951 / kl_loss : 1.0073 / total_loss : 1.0958 /  
+DEV: rec_loss : 0.9929 / kl_loss : 1.0194 / total_loss : 1.0949 /  
+.....................
+EPOCH: 822
+Train: rec_loss : 0.9903 / kl_loss : 1.0466 / total_loss : 1.0949 /  
+DEV: rec_loss : 1.0063 / kl_loss : 1.0495 / total_loss : 1.1113 /  
+.....................
+EPOCH: 823
+Train: rec_loss : 0.9901 / kl_loss : 1.0224 / total_loss : 1.0924 /  
+DEV: rec_loss : 0.9944 / kl_loss : 1.0047 / total_loss : 1.0949 /  
+.....................
+EPOCH: 824
+Train: rec_loss : 0.9979 / kl_loss : 1.0209 / total_loss : 1.1 /  
+DEV: rec_loss : 0.9829 / kl_loss : 0.9951 / total_loss : 1.0824 /  
+.....................
+EPOCH: 825
+Train: rec_loss : 0.9906 / kl_loss : 1.0072 / total_loss : 1.0913 /  
+DEV: rec_loss : 1.0028 / kl_loss : 0.9982 / total_loss : 1.1027 /  
+.....................
+EPOCH: 826
+Train: rec_loss : 0.9933 / kl_loss : 1.0174 / total_loss : 1.095 /  
+DEV: rec_loss : 1.0247 / kl_loss : 1.0397 / total_loss : 1.1287 /  
+.....................
+EPOCH: 827
+Train: rec_loss : 0.9917 / kl_loss : 1.0166 / total_loss : 1.0934 /  
+DEV: rec_loss : 1.0084 / kl_loss : 1.0029 / total_loss : 1.1087 /  
+.....................
+EPOCH: 828
+Train: rec_loss : 0.9919 / kl_loss : 1.0218 / total_loss : 1.0941 /  
+DEV: rec_loss : 1.0153 / kl_loss : 1.0055 / total_loss : 1.1159 /  
+.....................
+EPOCH: 829
+Train: rec_loss : 0.982 / kl_loss : 1.0134 / total_loss : 1.0834 /  
+DEV: rec_loss : 1.0183 / kl_loss : 1.0272 / total_loss : 1.121 /  
+.....................
+EPOCH: 830
+Train: rec_loss : 0.9879 / kl_loss : 1.0184 / total_loss : 1.0897 /  
+DEV: rec_loss : 0.9934 / kl_loss : 0.9711 / total_loss : 1.0905 /  
+.....................
+EPOCH: 831
+Train: rec_loss : 0.9849 / kl_loss : 1.015 / total_loss : 1.0864 /  
+DEV: rec_loss : 1.013 / kl_loss : 1.0393 / total_loss : 1.1169 /  
+.....................
+EPOCH: 832
+Train: rec_loss : 0.9867 / kl_loss : 1.0286 / total_loss : 1.0896 /  
+DEV: rec_loss : 1.0162 / kl_loss : 1.0048 / total_loss : 1.1167 /  
+.....................
+EPOCH: 833
+Train: rec_loss : 0.9917 / kl_loss : 1.0143 / total_loss : 1.0931 /  
+DEV: rec_loss : 1.0258 / kl_loss : 1.0162 / total_loss : 1.1274 /  
+.....................
+EPOCH: 834
+Train: rec_loss : 0.998 / kl_loss : 1.0154 / total_loss : 1.0995 /  
+DEV: rec_loss : 1.0133 / kl_loss : 1.0328 / total_loss : 1.1166 /  
+.....................
+EPOCH: 835
+Train: rec_loss : 0.997 / kl_loss : 1.0301 / total_loss : 1.1 /  
+DEV: rec_loss : 1.0184 / kl_loss : 0.9868 / total_loss : 1.1171 /  
+.....................
+EPOCH: 836
+Train: rec_loss : 0.9865 / kl_loss : 1.0183 / total_loss : 1.0883 /  
+DEV: rec_loss : 1.0235 / kl_loss : 1.038 / total_loss : 1.1273 /  
+.....................
+EPOCH: 837
+Train: rec_loss : 0.9948 / kl_loss : 1.007 / total_loss : 1.0955 /  
+DEV: rec_loss : 1.0061 / kl_loss : 0.9998 / total_loss : 1.1061 /  
+.....................
+EPOCH: 838
+Train: rec_loss : 0.9816 / kl_loss : 1.0164 / total_loss : 1.0833 /  
+DEV: rec_loss : 0.9934 / kl_loss : 1.0122 / total_loss : 1.0946 /  
+.....................
+EPOCH: 839
+Train: rec_loss : 0.9872 / kl_loss : 1.0242 / total_loss : 1.0896 /  
+DEV: rec_loss : 1.0029 / kl_loss : 0.9981 / total_loss : 1.1027 /  
+.....................
+EPOCH: 840
+Train: rec_loss : 0.9836 / kl_loss : 1.0147 / total_loss : 1.0851 /  
+DEV: rec_loss : 1.0073 / kl_loss : 1.0298 / total_loss : 1.1103 /  
+.....................
+EPOCH: 841
+Train: rec_loss : 0.9841 / kl_loss : 1.0086 / total_loss : 1.085 /  
+DEV: rec_loss : 1.0034 / kl_loss : 1.0174 / total_loss : 1.1051 /  
+.....................
+EPOCH: 842
+Train: rec_loss : 0.984 / kl_loss : 1.0125 / total_loss : 1.0852 /  
+DEV: rec_loss : 1.0039 / kl_loss : 1.0046 / total_loss : 1.1044 /  
+.....................
+EPOCH: 843
+Train: rec_loss : 0.9973 / kl_loss : 1.0279 / total_loss : 1.1001 /  
+DEV: rec_loss : 1.0149 / kl_loss : 0.9986 / total_loss : 1.1148 /  
+.....................
+EPOCH: 844
+Train: rec_loss : 1.0014 / kl_loss : 1.0345 / total_loss : 1.1048 /  
+DEV: rec_loss : 0.9791 / kl_loss : 0.997 / total_loss : 1.0788 /  
+.....................
+EPOCH: 845
+Train: rec_loss : 0.9952 / kl_loss : 1.0162 / total_loss : 1.0968 /  
+DEV: rec_loss : 0.9941 / kl_loss : 0.9941 / total_loss : 1.0935 /  
+.....................
+EPOCH: 846
+Train: rec_loss : 0.9972 / kl_loss : 1.0277 / total_loss : 1.1 /  
+DEV: rec_loss : 0.9986 / kl_loss : 0.9872 / total_loss : 1.0973 /  
+.....................
+EPOCH: 847
+Train: rec_loss : 0.9833 / kl_loss : 1.0149 / total_loss : 1.0848 /  
+DEV: rec_loss : 0.9945 / kl_loss : 1.0177 / total_loss : 1.0963 /  
+.....................
+EPOCH: 848
+Train: rec_loss : 1.0016 / kl_loss : 1.032 / total_loss : 1.1048 /  
+DEV: rec_loss : 0.9851 / kl_loss : 0.9942 / total_loss : 1.0845 /  
+.....................
+EPOCH: 849
+Train: rec_loss : 0.9918 / kl_loss : 1.0084 / total_loss : 1.0927 /  
+DEV: rec_loss : 0.9836 / kl_loss : 1.0015 / total_loss : 1.0838 /  
+.....................
+EPOCH: 850
+Train: rec_loss : 0.9846 / kl_loss : 1.0199 / total_loss : 1.0866 /  
+DEV: rec_loss : 1.0197 / kl_loss : 1.0005 / total_loss : 1.1198 /  
+.....................
+EPOCH: 851
+Train: rec_loss : 0.9858 / kl_loss : 1.0115 / total_loss : 1.0869 /  
+DEV: rec_loss : 1.0012 / kl_loss : 0.9741 / total_loss : 1.0987 /  
+.....................
+EPOCH: 852
+Train: rec_loss : 0.9995 / kl_loss : 1.0221 / total_loss : 1.1017 /  
+DEV: rec_loss : 0.9915 / kl_loss : 1.021 / total_loss : 1.0936 /  
+.....................
+EPOCH: 853
+Train: rec_loss : 0.9972 / kl_loss : 1.0344 / total_loss : 1.1006 /  
+DEV: rec_loss : 1.0123 / kl_loss : 0.9981 / total_loss : 1.1121 /  
+.....................
+EPOCH: 854
+Train: rec_loss : 0.9964 / kl_loss : 1.0281 / total_loss : 1.0992 /  
+DEV: rec_loss : 1.0062 / kl_loss : 0.9896 / total_loss : 1.1052 /  
+.....................
+EPOCH: 855
+Train: rec_loss : 0.9943 / kl_loss : 1.0111 / total_loss : 1.0954 /  
+DEV: rec_loss : 1.0077 / kl_loss : 1.0056 / total_loss : 1.1083 /  
+.....................
+EPOCH: 856
+Train: rec_loss : 0.9894 / kl_loss : 1.0327 / total_loss : 1.0927 /  
+DEV: rec_loss : 0.9973 / kl_loss : 1.0191 / total_loss : 1.0992 /  
+.....................
+EPOCH: 857
+Train: rec_loss : 0.992 / kl_loss : 1.0133 / total_loss : 1.0933 /  
+DEV: rec_loss : 0.9897 / kl_loss : 1.0028 / total_loss : 1.09 /  
+.....................
+EPOCH: 858
+Train: rec_loss : 0.9905 / kl_loss : 1.0299 / total_loss : 1.0935 /  
+DEV: rec_loss : 1.0012 / kl_loss : 1.0073 / total_loss : 1.102 /  
+.....................
+EPOCH: 859
+Train: rec_loss : 0.9876 / kl_loss : 1.0144 / total_loss : 1.089 /  
+DEV: rec_loss : 0.9981 / kl_loss : 0.9954 / total_loss : 1.0976 /  
+.....................
+EPOCH: 860
+Train: rec_loss : 0.9952 / kl_loss : 1.0153 / total_loss : 1.0967 /  
+DEV: rec_loss : 1.0094 / kl_loss : 1.0004 / total_loss : 1.1094 /  
+.....................
+EPOCH: 861
+Train: rec_loss : 0.9915 / kl_loss : 1.0252 / total_loss : 1.094 /  
+DEV: rec_loss : 1.0218 / kl_loss : 1.0064 / total_loss : 1.1224 /  
+.....................
+EPOCH: 862
+Train: rec_loss : 0.9942 / kl_loss : 1.0048 / total_loss : 1.0947 /  
+DEV: rec_loss : 1.0096 / kl_loss : 1.0086 / total_loss : 1.1104 /  
+.....................
+EPOCH: 863
+Train: rec_loss : 1.0007 / kl_loss : 1.0294 / total_loss : 1.1037 /  
+DEV: rec_loss : 0.9847 / kl_loss : 1.0004 / total_loss : 1.0847 /  
+.....................
+EPOCH: 864
+Train: rec_loss : 0.9927 / kl_loss : 1.0286 / total_loss : 1.0955 /  
+DEV: rec_loss : 1.0206 / kl_loss : 1.035 / total_loss : 1.1241 /  
+.....................
+EPOCH: 865
+Train: rec_loss : 0.9902 / kl_loss : 1.0244 / total_loss : 1.0926 /  
+DEV: rec_loss : 1.0066 / kl_loss : 1.0091 / total_loss : 1.1075 /  
+.....................
+EPOCH: 866
+Train: rec_loss : 0.988 / kl_loss : 1.0073 / total_loss : 1.0887 /  
+DEV: rec_loss : 1.0077 / kl_loss : 1.005 / total_loss : 1.1082 /  
+.....................
+EPOCH: 867
+Train: rec_loss : 0.9993 / kl_loss : 1.0213 / total_loss : 1.1014 /  
+DEV: rec_loss : 1.0084 / kl_loss : 0.9855 / total_loss : 1.1069 /  
+.....................
+EPOCH: 868
+Train: rec_loss : 0.9929 / kl_loss : 1.0144 / total_loss : 1.0944 /  
+DEV: rec_loss : 0.9894 / kl_loss : 0.9896 / total_loss : 1.0883 /  
+.....................
+EPOCH: 869
+Train: rec_loss : 0.978 / kl_loss : 1.0135 / total_loss : 1.0794 /  
+DEV: rec_loss : 1.0087 / kl_loss : 1.0545 / total_loss : 1.1142 /  
+.....................
+EPOCH: 870
+Train: rec_loss : 0.9941 / kl_loss : 1.0333 / total_loss : 1.0974 /  
+DEV: rec_loss : 0.9972 / kl_loss : 1.0261 / total_loss : 1.0998 /  
+.....................
+EPOCH: 871
+Train: rec_loss : 0.9932 / kl_loss : 1.0292 / total_loss : 1.0962 /  
+DEV: rec_loss : 1.0184 / kl_loss : 1.0237 / total_loss : 1.1208 /  
+.....................
+EPOCH: 872
+Train: rec_loss : 0.9937 / kl_loss : 1.0194 / total_loss : 1.0956 /  
+DEV: rec_loss : 1.0019 / kl_loss : 0.9932 / total_loss : 1.1012 /  
+.....................
+EPOCH: 873
+Train: rec_loss : 0.9909 / kl_loss : 1.013 / total_loss : 1.0922 /  
+DEV: rec_loss : 1.013 / kl_loss : 1.0161 / total_loss : 1.1146 /  
+.....................
+EPOCH: 874
+Train: rec_loss : 0.9843 / kl_loss : 1.0033 / total_loss : 1.0847 /  
+DEV: rec_loss : 1.0334 / kl_loss : 1.0286 / total_loss : 1.1363 /  
+.....................
+EPOCH: 875
+Train: rec_loss : 0.9965 / kl_loss : 1.0369 / total_loss : 1.1002 /  
+DEV: rec_loss : 1.0027 / kl_loss : 1.0236 / total_loss : 1.105 /  
+.....................
+EPOCH: 876
+Train: rec_loss : 0.9901 / kl_loss : 1.0126 / total_loss : 1.0914 /  
+DEV: rec_loss : 1.0245 / kl_loss : 1.0318 / total_loss : 1.1277 /  
+.....................
+EPOCH: 877
+Train: rec_loss : 0.9987 / kl_loss : 1.0248 / total_loss : 1.1012 /  
+DEV: rec_loss : 1.016 / kl_loss : 1.008 / total_loss : 1.1168 /  
+.....................
+EPOCH: 878
+Train: rec_loss : 0.9923 / kl_loss : 1.0244 / total_loss : 1.0947 /  
+DEV: rec_loss : 0.9955 / kl_loss : 0.9875 / total_loss : 1.0942 /  
+.....................
+EPOCH: 879
+Train: rec_loss : 0.9951 / kl_loss : 1.0248 / total_loss : 1.0976 /  
+DEV: rec_loss : 1.0033 / kl_loss : 0.9951 / total_loss : 1.1028 /  
+.....................
+EPOCH: 880
+Train: rec_loss : 0.9778 / kl_loss : 1.0157 / total_loss : 1.0793 /  
+DEV: rec_loss : 1.0068 / kl_loss : 1.004 / total_loss : 1.1072 /  
+.....................
+EPOCH: 881
+Train: rec_loss : 0.9826 / kl_loss : 1.0155 / total_loss : 1.0842 /  
+DEV: rec_loss : 1.0087 / kl_loss : 1.015 / total_loss : 1.1102 /  
+.....................
+EPOCH: 882
+Train: rec_loss : 0.9922 / kl_loss : 1.0266 / total_loss : 1.0948 /  
+DEV: rec_loss : 1.0087 / kl_loss : 1.0168 / total_loss : 1.1104 /  
+.....................
+EPOCH: 883
+Train: rec_loss : 0.9846 / kl_loss : 1.0111 / total_loss : 1.0857 /  
+DEV: rec_loss : 1.0122 / kl_loss : 1.0094 / total_loss : 1.1132 /  
+.....................
+EPOCH: 884
+Train: rec_loss : 0.987 / kl_loss : 1.0336 / total_loss : 1.0903 /  
+DEV: rec_loss : 0.9993 / kl_loss : 0.9956 / total_loss : 1.0988 /  
+.....................
+EPOCH: 885
+Train: rec_loss : 0.9947 / kl_loss : 1.0274 / total_loss : 1.0974 /  
+DEV: rec_loss : 1.0039 / kl_loss : 1.0168 / total_loss : 1.1056 /  
+.....................
+EPOCH: 886
+Train: rec_loss : 0.9895 / kl_loss : 1.0203 / total_loss : 1.0915 /  
+DEV: rec_loss : 1.0009 / kl_loss : 1.0112 / total_loss : 1.102 /  
+.....................
+EPOCH: 887
+Train: rec_loss : 0.9899 / kl_loss : 1.0377 / total_loss : 1.0937 /  
+DEV: rec_loss : 1.0272 / kl_loss : 1.0052 / total_loss : 1.1277 /  
+.....................
+EPOCH: 888
+Train: rec_loss : 0.9847 / kl_loss : 1.017 / total_loss : 1.0864 /  
+DEV: rec_loss : 0.9957 / kl_loss : 0.977 / total_loss : 1.0934 /  
+.....................
+EPOCH: 889
+Train: rec_loss : 0.9928 / kl_loss : 1.0159 / total_loss : 1.0944 /  
+DEV: rec_loss : 1.0033 / kl_loss : 1.004 / total_loss : 1.1037 /  
+.....................
+EPOCH: 890
+Train: rec_loss : 0.9888 / kl_loss : 1.031 / total_loss : 1.0919 /  
+DEV: rec_loss : 1.0039 / kl_loss : 1.0131 / total_loss : 1.1052 /  
+.....................
+EPOCH: 891
+Train: rec_loss : 1.0002 / kl_loss : 1.0231 / total_loss : 1.1025 /  
+DEV: rec_loss : 0.9858 / kl_loss : 0.9917 / total_loss : 1.0849 /  
+.....................
+EPOCH: 892
+Train: rec_loss : 0.9859 / kl_loss : 1.026 / total_loss : 1.0885 /  
+DEV: rec_loss : 0.9918 / kl_loss : 0.9909 / total_loss : 1.0909 /  
+.....................
+EPOCH: 893
+Train: rec_loss : 0.9905 / kl_loss : 1.0332 / total_loss : 1.0938 /  
+DEV: rec_loss : 1.0104 / kl_loss : 1.029 / total_loss : 1.1133 /  
+.....................
+EPOCH: 894
+Train: rec_loss : 0.993 / kl_loss : 1.0168 / total_loss : 1.0947 /  
+DEV: rec_loss : 1.0196 / kl_loss : 1.0167 / total_loss : 1.1213 /  
+.....................
+EPOCH: 895
+Train: rec_loss : 0.9938 / kl_loss : 1.0226 / total_loss : 1.0961 /  
+DEV: rec_loss : 1.0016 / kl_loss : 1.0202 / total_loss : 1.1037 /  
+.....................
+EPOCH: 896
+Train: rec_loss : 0.986 / kl_loss : 1.0206 / total_loss : 1.0881 /  
+DEV: rec_loss : 1.0085 / kl_loss : 1.0169 / total_loss : 1.1102 /  
+.....................
+EPOCH: 897
+Train: rec_loss : 0.984 / kl_loss : 1.0139 / total_loss : 1.0854 /  
+DEV: rec_loss : 0.9992 / kl_loss : 0.9796 / total_loss : 1.0972 /  
+.....................
+EPOCH: 898
+Train: rec_loss : 0.9969 / kl_loss : 1.0207 / total_loss : 1.0989 /  
+DEV: rec_loss : 1.0123 / kl_loss : 1.0002 / total_loss : 1.1123 /  
+.....................
+EPOCH: 899
+Train: rec_loss : 0.9914 / kl_loss : 1.0177 / total_loss : 1.0931 /  
+DEV: rec_loss : 1.0127 / kl_loss : 1.0189 / total_loss : 1.1146 /  
+.....................
+EPOCH: 900
+Train: rec_loss : 0.983 / kl_loss : 1.0128 / total_loss : 1.0843 /  
+DEV: rec_loss : 1.0045 / kl_loss : 0.9978 / total_loss : 1.1043 /  
+.....................
+EPOCH: 901
+Train: rec_loss : 0.9886 / kl_loss : 1.016 / total_loss : 1.0902 /  
+DEV: rec_loss : 1.0168 / kl_loss : 1.034 / total_loss : 1.1202 /  
+.....................
+EPOCH: 902
+Train: rec_loss : 0.983 / kl_loss : 1.0126 / total_loss : 1.0842 /  
+DEV: rec_loss : 1.0149 / kl_loss : 1.0133 / total_loss : 1.1163 /  
+.....................
+EPOCH: 903
+Train: rec_loss : 0.9917 / kl_loss : 1.0269 / total_loss : 1.0944 /  
+DEV: rec_loss : 0.9953 / kl_loss : 0.9884 / total_loss : 1.0942 /  
+.....................
+EPOCH: 904
+Train: rec_loss : 0.9909 / kl_loss : 1.0326 / total_loss : 1.0942 /  
+DEV: rec_loss : 1.0205 / kl_loss : 1.0165 / total_loss : 1.1221 /  
+.....................
+EPOCH: 905
+Train: rec_loss : 0.9861 / kl_loss : 1.0201 / total_loss : 1.0881 /  
+DEV: rec_loss : 1.0058 / kl_loss : 1.0156 / total_loss : 1.1074 /  
+.....................
+EPOCH: 906
+Train: rec_loss : 0.9839 / kl_loss : 1.0237 / total_loss : 1.0862 /  
+DEV: rec_loss : 1.0074 / kl_loss : 0.9986 / total_loss : 1.1072 /  
+.....................
+EPOCH: 907
+Train: rec_loss : 0.9887 / kl_loss : 1.0204 / total_loss : 1.0907 /  
+DEV: rec_loss : 0.9947 / kl_loss : 0.9744 / total_loss : 1.0921 /  
+.....................
+EPOCH: 908
+Train: rec_loss : 0.9808 / kl_loss : 0.9999 / total_loss : 1.0808 /  
+DEV: rec_loss : 1.0041 / kl_loss : 1.0019 / total_loss : 1.1043 /  
+.....................
+EPOCH: 909
+Train: rec_loss : 0.9958 / kl_loss : 1.0157 / total_loss : 1.0974 /  
+DEV: rec_loss : 1.0175 / kl_loss : 1.0125 / total_loss : 1.1188 /  
+.....................
+EPOCH: 910
+Train: rec_loss : 0.9931 / kl_loss : 1.016 / total_loss : 1.0947 /  
+DEV: rec_loss : 1.0044 / kl_loss : 1.0205 / total_loss : 1.1064 /  
+.....................
+EPOCH: 911
+Train: rec_loss : 0.9883 / kl_loss : 1.0234 / total_loss : 1.0906 /  
+DEV: rec_loss : 1.0063 / kl_loss : 1.0271 / total_loss : 1.109 /  
+.....................
+EPOCH: 912
+Train: rec_loss : 0.9851 / kl_loss : 1.0219 / total_loss : 1.0873 /  
+DEV: rec_loss : 0.9977 / kl_loss : 1.0125 / total_loss : 1.0989 /  
+.....................
+EPOCH: 913
+Train: rec_loss : 0.9889 / kl_loss : 1.023 / total_loss : 1.0912 /  
+DEV: rec_loss : 1.012 / kl_loss : 1.0336 / total_loss : 1.1154 /  
+.....................
+EPOCH: 914
+Train: rec_loss : 0.9939 / kl_loss : 1.0286 / total_loss : 1.0968 /  
+DEV: rec_loss : 0.9929 / kl_loss : 1.0396 / total_loss : 1.0969 /  
+.....................
+EPOCH: 915
+Train: rec_loss : 0.9893 / kl_loss : 1.0291 / total_loss : 1.0922 /  
+DEV: rec_loss : 1.0175 / kl_loss : 1.0159 / total_loss : 1.1191 /  
+.....................
+EPOCH: 916
+Train: rec_loss : 0.9915 / kl_loss : 1.0215 / total_loss : 1.0936 /  
+DEV: rec_loss : 1.0026 / kl_loss : 1.0305 / total_loss : 1.1057 /  
+.....................
+EPOCH: 917
+Train: rec_loss : 0.9978 / kl_loss : 1.034 / total_loss : 1.1012 /  
+DEV: rec_loss : 1.0241 / kl_loss : 1.0031 / total_loss : 1.1244 /  
+.....................
+EPOCH: 918
+Train: rec_loss : 0.9948 / kl_loss : 1.02 / total_loss : 1.0968 /  
+DEV: rec_loss : 1.0104 / kl_loss : 0.9906 / total_loss : 1.1094 /  
+.....................
+EPOCH: 919
+Train: rec_loss : 0.9855 / kl_loss : 1.0056 / total_loss : 1.0861 /  
+DEV: rec_loss : 1.0184 / kl_loss : 1.0167 / total_loss : 1.1201 /  
+.....................
+EPOCH: 920
+Train: rec_loss : 0.9893 / kl_loss : 1.0372 / total_loss : 1.093 /  
+DEV: rec_loss : 1.012 / kl_loss : 1.002 / total_loss : 1.1122 /  
+.....................
+EPOCH: 921
+Train: rec_loss : 0.9853 / kl_loss : 1.0221 / total_loss : 1.0875 /  
+DEV: rec_loss : 1.02 / kl_loss : 1.0177 / total_loss : 1.1218 /  
+.....................
+EPOCH: 922
+Train: rec_loss : 0.9938 / kl_loss : 1.0193 / total_loss : 1.0957 /  
+DEV: rec_loss : 1.0009 / kl_loss : 1.0074 / total_loss : 1.1016 /  
+.....................
+EPOCH: 923
+Train: rec_loss : 0.9872 / kl_loss : 1.025 / total_loss : 1.0897 /  
+DEV: rec_loss : 1.0077 / kl_loss : 1.0375 / total_loss : 1.1115 /  
+.....................
+EPOCH: 924
+Train: rec_loss : 0.9891 / kl_loss : 1.0144 / total_loss : 1.0905 /  
+DEV: rec_loss : 1.0053 / kl_loss : 1.0012 / total_loss : 1.1054 /  
+.....................
+EPOCH: 925
+Train: rec_loss : 0.9967 / kl_loss : 1.0238 / total_loss : 1.0991 /  
+DEV: rec_loss : 1.0107 / kl_loss : 0.9745 / total_loss : 1.1081 /  
+.....................
+EPOCH: 926
+Train: rec_loss : 0.9941 / kl_loss : 1.0262 / total_loss : 1.0967 /  
+DEV: rec_loss : 1.0064 / kl_loss : 1.0235 / total_loss : 1.1088 /  
+.....................
+EPOCH: 927
+Train: rec_loss : 0.9945 / kl_loss : 1.0308 / total_loss : 1.0976 /  
+DEV: rec_loss : 1.0161 / kl_loss : 1.0236 / total_loss : 1.1184 /  
+.....................
+EPOCH: 928
+Train: rec_loss : 0.9848 / kl_loss : 1.0165 / total_loss : 1.0864 /  
+DEV: rec_loss : 0.9805 / kl_loss : 0.9771 / total_loss : 1.0782 /  
+.....................
+EPOCH: 929
+Train: rec_loss : 0.9953 / kl_loss : 1.0292 / total_loss : 1.0982 /  
+DEV: rec_loss : 1.0102 / kl_loss : 1.0014 / total_loss : 1.1103 /  
+.....................
+EPOCH: 930
+Train: rec_loss : 0.9938 / kl_loss : 1.0211 / total_loss : 1.0959 /  
+DEV: rec_loss : 0.9958 / kl_loss : 1.0501 / total_loss : 1.1008 /  
+.....................
+EPOCH: 931
+Train: rec_loss : 0.982 / kl_loss : 1.027 / total_loss : 1.0847 /  
+DEV: rec_loss : 0.9977 / kl_loss : 1.01 / total_loss : 1.0987 /  
+.....................
+EPOCH: 932
+Train: rec_loss : 0.9916 / kl_loss : 1.0315 / total_loss : 1.0947 /  
+DEV: rec_loss : 1.0057 / kl_loss : 0.9925 / total_loss : 1.105 /  
+.....................
+EPOCH: 933
+Train: rec_loss : 0.9988 / kl_loss : 1.0198 / total_loss : 1.1008 /  
+DEV: rec_loss : 0.9986 / kl_loss : 0.9928 / total_loss : 1.0979 /  
+.....................
+EPOCH: 934
+Train: rec_loss : 1.0026 / kl_loss : 1.0286 / total_loss : 1.1055 /  
+DEV: rec_loss : 1.0099 / kl_loss : 1.0395 / total_loss : 1.1139 /  
+.....................
+EPOCH: 935
+Train: rec_loss : 0.9915 / kl_loss : 1.0445 / total_loss : 1.096 /  
+DEV: rec_loss : 0.9963 / kl_loss : 0.9835 / total_loss : 1.0946 /  
+.....................
+EPOCH: 936
+Train: rec_loss : 0.996 / kl_loss : 1.0294 / total_loss : 1.0989 /  
+DEV: rec_loss : 1.0056 / kl_loss : 1.0061 / total_loss : 1.1062 /  
+.....................
+EPOCH: 937
+Train: rec_loss : 0.9908 / kl_loss : 1.0335 / total_loss : 1.0941 /  
+DEV: rec_loss : 0.9992 / kl_loss : 1.0038 / total_loss : 1.0996 /  
+.....................
+EPOCH: 938
+Train: rec_loss : 0.9907 / kl_loss : 1.0256 / total_loss : 1.0933 /  
+DEV: rec_loss : 1.0133 / kl_loss : 1.0125 / total_loss : 1.1146 /  
+.....................
+EPOCH: 939
+Train: rec_loss : 0.9789 / kl_loss : 1.0314 / total_loss : 1.0821 /  
+DEV: rec_loss : 0.9971 / kl_loss : 1.015 / total_loss : 1.0986 /  
+.....................
+EPOCH: 940
+Train: rec_loss : 0.995 / kl_loss : 1.0266 / total_loss : 1.0976 /  
+DEV: rec_loss : 1.0154 / kl_loss : 1.0318 / total_loss : 1.1186 /  
+.....................
+EPOCH: 941
+Train: rec_loss : 0.986 / kl_loss : 1.0336 / total_loss : 1.0894 /  
+DEV: rec_loss : 1.0229 / kl_loss : 1.0217 / total_loss : 1.1251 /  
+.....................
+EPOCH: 942
+Train: rec_loss : 0.9851 / kl_loss : 1.0226 / total_loss : 1.0874 /  
+DEV: rec_loss : 1.018 / kl_loss : 0.9972 / total_loss : 1.1177 /  
+.....................
+EPOCH: 943
+Train: rec_loss : 0.992 / kl_loss : 1.0256 / total_loss : 1.0945 /  
+DEV: rec_loss : 1.019 / kl_loss : 1.025 / total_loss : 1.1215 /  
+.....................
+EPOCH: 944
+Train: rec_loss : 0.9937 / kl_loss : 1.0283 / total_loss : 1.0965 /  
+DEV: rec_loss : 0.9939 / kl_loss : 1.0154 / total_loss : 1.0955 /  
+.....................
+EPOCH: 945
+Train: rec_loss : 0.9842 / kl_loss : 1.0161 / total_loss : 1.0858 /  
+DEV: rec_loss : 0.9993 / kl_loss : 1.0003 / total_loss : 1.0993 /  
+.....................
+EPOCH: 946
+Train: rec_loss : 0.992 / kl_loss : 1.0272 / total_loss : 1.0947 /  
+DEV: rec_loss : 1.0178 / kl_loss : 0.9868 / total_loss : 1.1165 /  
+.....................
+EPOCH: 947
+Train: rec_loss : 0.9917 / kl_loss : 1.0027 / total_loss : 1.092 /  
+DEV: rec_loss : 0.989 / kl_loss : 1.0088 / total_loss : 1.0898 /  
+.....................
+EPOCH: 948
+Train: rec_loss : 0.9897 / kl_loss : 1.0301 / total_loss : 1.0927 /  
+DEV: rec_loss : 0.9993 / kl_loss : 1.0231 / total_loss : 1.1016 /  
+.....................
+EPOCH: 949
+Train: rec_loss : 0.9982 / kl_loss : 1.0237 / total_loss : 1.1006 /  
+DEV: rec_loss : 1.0043 / kl_loss : 1.0063 / total_loss : 1.1049 /  
+.....................
+EPOCH: 950
+Train: rec_loss : 0.9833 / kl_loss : 1.0158 / total_loss : 1.0849 /  
+DEV: rec_loss : 0.9997 / kl_loss : 1.0229 / total_loss : 1.102 /  
+.....................
+EPOCH: 951
+Train: rec_loss : 0.9956 / kl_loss : 1.0267 / total_loss : 1.0983 /  
+DEV: rec_loss : 1.0134 / kl_loss : 1.0144 / total_loss : 1.1148 /  
+.....................
+EPOCH: 952
+Train: rec_loss : 0.9849 / kl_loss : 1.016 / total_loss : 1.0865 /  
+DEV: rec_loss : 0.9922 / kl_loss : 1.0227 / total_loss : 1.0945 /  
+.....................
+EPOCH: 953
+Train: rec_loss : 0.9851 / kl_loss : 1.0329 / total_loss : 1.0884 /  
+DEV: rec_loss : 0.9895 / kl_loss : 1.0034 / total_loss : 1.0899 /  
+.....................
+EPOCH: 954
+Train: rec_loss : 0.9944 / kl_loss : 1.0349 / total_loss : 1.0979 /  
+DEV: rec_loss : 1.0161 / kl_loss : 1.0343 / total_loss : 1.1195 /  
+.....................
+EPOCH: 955
+Train: rec_loss : 0.9975 / kl_loss : 1.0454 / total_loss : 1.1021 /  
+DEV: rec_loss : 1.0184 / kl_loss : 1.0336 / total_loss : 1.1217 /  
+.....................
+EPOCH: 956
+Train: rec_loss : 0.9808 / kl_loss : 1.025 / total_loss : 1.0833 /  
+DEV: rec_loss : 1.0064 / kl_loss : 1.0252 / total_loss : 1.1089 /  
+.....................
+EPOCH: 957
+Train: rec_loss : 0.9869 / kl_loss : 1.0297 / total_loss : 1.0899 /  
+DEV: rec_loss : 1.0216 / kl_loss : 1.0213 / total_loss : 1.1237 /  
+.....................
+EPOCH: 958
+Train: rec_loss : 0.9814 / kl_loss : 1.0227 / total_loss : 1.0837 /  
+DEV: rec_loss : 0.9988 / kl_loss : 1.0202 / total_loss : 1.1009 /  
+.....................
+EPOCH: 959
+Train: rec_loss : 0.9913 / kl_loss : 1.0252 / total_loss : 1.0938 /  
+DEV: rec_loss : 1.009 / kl_loss : 1.027 / total_loss : 1.1117 /  
+.....................
+EPOCH: 960
+Train: rec_loss : 0.9907 / kl_loss : 1.0232 / total_loss : 1.093 /  
+DEV: rec_loss : 1.0046 / kl_loss : 1.0197 / total_loss : 1.1066 /  
+.....................
+EPOCH: 961
+Train: rec_loss : 0.9906 / kl_loss : 1.0361 / total_loss : 1.0942 /  
+DEV: rec_loss : 1.0114 / kl_loss : 0.9993 / total_loss : 1.1113 /  
+.....................
+EPOCH: 962
+Train: rec_loss : 0.9838 / kl_loss : 1.0227 / total_loss : 1.0861 /  
+DEV: rec_loss : 0.9884 / kl_loss : 1.0 / total_loss : 1.0884 /  
+.....................
+EPOCH: 963
+Train: rec_loss : 0.9888 / kl_loss : 1.0234 / total_loss : 1.0911 /  
+DEV: rec_loss : 0.987 / kl_loss : 1.0075 / total_loss : 1.0878 /  
+.....................
+EPOCH: 964
+Train: rec_loss : 0.9917 / kl_loss : 1.0293 / total_loss : 1.0946 /  
+DEV: rec_loss : 0.9973 / kl_loss : 0.9858 / total_loss : 1.0959 /  
+.....................
+EPOCH: 965
+Train: rec_loss : 0.9971 / kl_loss : 1.0324 / total_loss : 1.1004 /  
+DEV: rec_loss : 1.0043 / kl_loss : 0.9983 / total_loss : 1.1042 /  
+.....................
+EPOCH: 966
+Train: rec_loss : 0.9931 / kl_loss : 1.0248 / total_loss : 1.0956 /  
+DEV: rec_loss : 1.0245 / kl_loss : 1.0402 / total_loss : 1.1285 /  
+.....................
+EPOCH: 967
+Train: rec_loss : 0.9846 / kl_loss : 1.0195 / total_loss : 1.0865 /  
+DEV: rec_loss : 1.0184 / kl_loss : 1.0129 / total_loss : 1.1197 /  
+.....................
+EPOCH: 968
+Train: rec_loss : 0.9848 / kl_loss : 1.0162 / total_loss : 1.0864 /  
+DEV: rec_loss : 0.999 / kl_loss : 1.0193 / total_loss : 1.1009 /  
+.....................
+EPOCH: 969
+Train: rec_loss : 0.9946 / kl_loss : 1.0353 / total_loss : 1.0981 /  
+DEV: rec_loss : 1.0173 / kl_loss : 1.002 / total_loss : 1.1175 /  
+.....................
+EPOCH: 970
+Train: rec_loss : 0.9831 / kl_loss : 1.0107 / total_loss : 1.0842 /  
+DEV: rec_loss : 1.0268 / kl_loss : 1.0421 / total_loss : 1.131 /  
+.....................
+EPOCH: 971
+Train: rec_loss : 0.9827 / kl_loss : 1.0199 / total_loss : 1.0847 /  
+DEV: rec_loss : 1.0086 / kl_loss : 1.01 / total_loss : 1.1096 /  
+.....................
+EPOCH: 972
+Train: rec_loss : 0.9784 / kl_loss : 1.0179 / total_loss : 1.0802 /  
+DEV: rec_loss : 0.9997 / kl_loss : 1.0046 / total_loss : 1.1002 /  
+.....................
+EPOCH: 973
+Train: rec_loss : 0.9754 / kl_loss : 1.0179 / total_loss : 1.0772 /  
+DEV: rec_loss : 1.0231 / kl_loss : 1.0068 / total_loss : 1.1238 /  
+.....................
+EPOCH: 974
+Train: rec_loss : 0.9919 / kl_loss : 1.0241 / total_loss : 1.0943 /  
+DEV: rec_loss : 0.9974 / kl_loss : 1.023 / total_loss : 1.0997 /  
+.....................
+EPOCH: 975
+Train: rec_loss : 0.9924 / kl_loss : 1.0268 / total_loss : 1.095 /  
+DEV: rec_loss : 0.9986 / kl_loss : 1.015 / total_loss : 1.1001 /  
+.....................
+EPOCH: 976
+Train: rec_loss : 0.9838 / kl_loss : 1.0181 / total_loss : 1.0856 /  
+DEV: rec_loss : 1.0005 / kl_loss : 0.9977 / total_loss : 1.1002 /  
+.....................
+EPOCH: 977
+Train: rec_loss : 0.9908 / kl_loss : 1.0141 / total_loss : 1.0922 /  
+DEV: rec_loss : 1.018 / kl_loss : 1.018 / total_loss : 1.1198 /  
+.....................
+EPOCH: 978
+Train: rec_loss : 0.9904 / kl_loss : 1.0274 / total_loss : 1.0932 /  
+DEV: rec_loss : 1.0085 / kl_loss : 0.996 / total_loss : 1.1081 /  
+.....................
+EPOCH: 979
+Train: rec_loss : 0.9819 / kl_loss : 1.0107 / total_loss : 1.083 /  
+DEV: rec_loss : 1.0087 / kl_loss : 1.0166 / total_loss : 1.1104 /  
+.....................
+EPOCH: 980
+Train: rec_loss : 0.9879 / kl_loss : 1.0269 / total_loss : 1.0906 /  
+DEV: rec_loss : 1.0134 / kl_loss : 1.0061 / total_loss : 1.114 /  
+.....................
+EPOCH: 981
+Train: rec_loss : 0.9825 / kl_loss : 1.0212 / total_loss : 1.0846 /  
+DEV: rec_loss : 1.0082 / kl_loss : 1.0176 / total_loss : 1.1099 /  
+.....................
+EPOCH: 982
+Train: rec_loss : 0.9849 / kl_loss : 1.016 / total_loss : 1.0865 /  
+DEV: rec_loss : 1.0153 / kl_loss : 1.0265 / total_loss : 1.1179 /  
+.....................
+EPOCH: 983
+Train: rec_loss : 0.9985 / kl_loss : 1.0352 / total_loss : 1.102 /  
+DEV: rec_loss : 1.005 / kl_loss : 1.0304 / total_loss : 1.108 /  
+.....................
+EPOCH: 984
+Train: rec_loss : 0.9827 / kl_loss : 1.0211 / total_loss : 1.0848 /  
+DEV: rec_loss : 1.0052 / kl_loss : 1.0166 / total_loss : 1.1069 /  
+.....................
+EPOCH: 985
+Train: rec_loss : 0.9872 / kl_loss : 1.0215 / total_loss : 1.0894 /  
+DEV: rec_loss : 1.0082 / kl_loss : 1.0135 / total_loss : 1.1096 /  
+.....................
+EPOCH: 986
+Train: rec_loss : 0.9835 / kl_loss : 1.0244 / total_loss : 1.086 /  
+DEV: rec_loss : 1.0004 / kl_loss : 1.0312 / total_loss : 1.1035 /  
+.....................
+EPOCH: 987
+Train: rec_loss : 0.9898 / kl_loss : 1.0197 / total_loss : 1.0918 /  
+DEV: rec_loss : 1.0032 / kl_loss : 1.012 / total_loss : 1.1044 /  
+.....................
+EPOCH: 988
+Train: rec_loss : 0.9908 / kl_loss : 1.026 / total_loss : 1.0934 /  
+DEV: rec_loss : 1.01 / kl_loss : 1.0052 / total_loss : 1.1106 /  
+.....................
+EPOCH: 989
+Train: rec_loss : 0.9944 / kl_loss : 1.0404 / total_loss : 1.0984 /  
+DEV: rec_loss : 1.0082 / kl_loss : 1.0232 / total_loss : 1.1105 /  
+.....................
+EPOCH: 990
+Train: rec_loss : 0.9808 / kl_loss : 1.0053 / total_loss : 1.0813 /  
+DEV: rec_loss : 1.0138 / kl_loss : 1.0041 / total_loss : 1.1142 /  
+.....................
+EPOCH: 991
+Train: rec_loss : 0.9925 / kl_loss : 1.0224 / total_loss : 1.0947 /  
+DEV: rec_loss : 1.0194 / kl_loss : 1.0089 / total_loss : 1.1203 /  
+.....................
+EPOCH: 992
+Train: rec_loss : 0.988 / kl_loss : 1.0324 / total_loss : 1.0912 /  
+DEV: rec_loss : 0.9943 / kl_loss : 1.0144 / total_loss : 1.0958 /  
+.....................
+EPOCH: 993
+Train: rec_loss : 0.9926 / kl_loss : 1.0237 / total_loss : 1.095 /  
+DEV: rec_loss : 1.0072 / kl_loss : 1.0402 / total_loss : 1.1113 /  
+.....................
+EPOCH: 994
+Train: rec_loss : 0.9967 / kl_loss : 1.0261 / total_loss : 1.0993 /  
+DEV: rec_loss : 1.0124 / kl_loss : 1.0065 / total_loss : 1.113 /  
+.....................
+EPOCH: 995
+Train: rec_loss : 0.9895 / kl_loss : 1.0285 / total_loss : 1.0923 /  
+DEV: rec_loss : 1.0042 / kl_loss : 1.0246 / total_loss : 1.1066 /  
+.....................
+EPOCH: 996
+Train: rec_loss : 0.9927 / kl_loss : 1.024 / total_loss : 1.0951 /  
+DEV: rec_loss : 1.013 / kl_loss : 1.0144 / total_loss : 1.1144 /  
+.....................
+EPOCH: 997
+Train: rec_loss : 0.991 / kl_loss : 1.033 / total_loss : 1.0943 /  
+DEV: rec_loss : 0.9999 / kl_loss : 1.043 / total_loss : 1.1042 /  
+.....................
+EPOCH: 998
+Train: rec_loss : 0.9848 / kl_loss : 1.0397 / total_loss : 1.0887 /  
+DEV: rec_loss : 1.0197 / kl_loss : 1.0229 / total_loss : 1.122 /  
+.....................
+EPOCH: 999
+Train: rec_loss : 0.9782 / kl_loss : 1.0071 / total_loss : 1.0789 /  
+DEV: rec_loss : 1.0055 / kl_loss : 1.0088 / total_loss : 1.1063 /  
+.....................
+EPOCH: 1000
+Train: rec_loss : 0.9944 / kl_loss : 1.023 / total_loss : 1.0967 /  
+DEV: rec_loss : 1.0077 / kl_loss : 1.0109 / total_loss : 1.1088 /  
+.....................
+***********************************
+Model name: VAE3
+TIME PER EPOCH: 6.613992931840422
+Final Epoch: 760 1.0825
+***********************************
+

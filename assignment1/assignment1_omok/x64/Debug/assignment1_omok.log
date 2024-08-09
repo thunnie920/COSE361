@@ -1,0 +1,4 @@
+﻿  main.c
+E:\Desktop\Artificial_Intelligence\assignment1\assignment1_omok\main.c(391,23): warning C4244: '+=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Desktop\Artificial_Intelligence\assignment1\assignment1_omok\main.c(807,19): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  assignment1_omok.vcxproj -> E:\Desktop\Artificial_Intelligence\assignment1\x64\Debug\assignment1_omok.exe

@@ -1,0 +1,9 @@
+corpus
+data
+*.txt
+*.pyc
+*.pt
+*.pk
+PPG
+*.wav
+*.csv
